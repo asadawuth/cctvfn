@@ -15,9 +15,7 @@ export default function Layout1Button({ handleCreateCommentIdUserReportId }) {
         </button>
         <button
           className="tw-bg-blue-700 tw-py-2 tw-p-8 hover:tw-text-white"
-          onClick={() =>
-            (window.location.href = "http://localhost:5173/userReport")
-          }
+          onClick={() => (window.location.href = "/userReport")}
         >
           กลับไปที่หัวข้อร้องเรียน
         </button>
