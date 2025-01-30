@@ -15,9 +15,7 @@ export default function Layout1Button({ handlePostComment }) {
         </button>
         <button
           className="tw-bg-blue-700 tw-py-2 tw-p-8 hover:tw-text-white"
-          onClick={() =>
-            (window.location.href = "http://localhost:5173/report-request")
-          }
+          onClick={() => (window.location.href = "/report-request")}
         >
           กลับไปที่หัวข้อร้านค้า
         </button>
