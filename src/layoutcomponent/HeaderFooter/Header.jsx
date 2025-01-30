@@ -228,8 +228,7 @@ export default function Header() {
                 : ""
             }`}
             onClick={() =>
-              (window.location.href =
-                "http://localhost:5173/problemsoftwareorhardware")
+              (window.location.href = "/problemsoftwareorhardware")
             }
           >
             ติดต่อปัญหา Software/Hardware
@@ -264,9 +263,7 @@ export default function Header() {
                 ? "tw-bg-blue-900 tw-text-white"
                 : ""
             }`}
-            onClick={() =>
-              (window.location.href = "http://localhost:5173/dardboardallvaule")
-            }
+            onClick={() => (window.location.href = "/dardboardallvaule")}
           >
             ตารางสรุปค่า
           </a>
