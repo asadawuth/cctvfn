@@ -38,7 +38,7 @@ import DataRequestPass from "../layoutconponent/DashboardAllValue/dataRequestCct
 import DataRequestNotpass from "../layoutconponent/DashboardAllValue/dataRequestCctv/DataRequestNotpass";
 import SosFormMobile from "../page/Inuserreport/SosFormMobile";
 import Reported from "../layoutconponent/DashboardAllValue/total5sosvoicestatus/Reported";
-import Acknowledged from "../layoutconponent/DashboardAllValue/total5sosvoicestatus/acknowledged";
+import Acknowledged from "../layoutconponent/DashboardAllValue/total5sosvoicestatus/Acknowledged";
 import InProgress from "../layoutconponent/DashboardAllValue/total5sosvoicestatus/InProgress";
 import Completed from "../layoutconponent/DashboardAllValue/total5sosvoicestatus/Completed";
 import Canceled from "../layoutconponent/DashboardAllValue/total5sosvoicestatus/Canceled";
