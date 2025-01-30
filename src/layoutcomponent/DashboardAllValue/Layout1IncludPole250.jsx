@@ -117,13 +117,13 @@ export default function Layout1IncludPole250() {
         </div>
       </div>
 
-      {/* <Link to="/pageaction-ploe250">
+      <Link to="/pageaction-ploe250">
         <div className="tw-mt-2 tw-flex tw-justify-center tw-items-center tw-h-12 tw-bg-blue-100 hover:tw-bg-blue-200 tw-rounded-lg tw-mx-20 sm:tw-mx-28  md:tw-mx-56 lg:tw-mx-80  xl:tw-mx-96 tw-mb-2 hover:tw-cursor-pointer">
           <span className="tw-text-blue-800 tw-text-lg tw-font-semibold">
             ค่าของเสาแต่ละเสา
           </span>
         </div>
-      </Link> */}
+      </Link>
     </>
   );
 }
