@@ -1,5 +1,6 @@
 import { PieChart, Pie, Cell, Tooltip } from "recharts";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "../../logic/config/axios";
 import LayoutText from "../../layoutcomponent/DashboardAllValue/LayoutText";
 
@@ -7,7 +8,6 @@ import LayoutInClud from "./LayoutInClud";
 
 export default function Layout4UserRequest() {
   const [data, setData] = useState();
-
   useEffect(() => {
     axios
       .get("/aboutshop/datatotalallstatus")
@@ -202,11 +202,12 @@ export default function Layout4UserRequest() {
           ผลรวมทุกสถานะ {data.totalAllStatus}
         </span>
       </div> */}
-
-      <LayoutInClud
-        text="ผลรวมเอกสารขอโปรโมทร้านต่างๆ"
-        data={data.totalAllStatus}
-      />
+      <Link to="/report-request">
+        <LayoutInClud
+          text="ผลรวมเอกสารขอโปรโมทร้านต่างๆ"
+          data={data.totalAllStatus}
+        />
+      </Link>
     </>
   );
 }
