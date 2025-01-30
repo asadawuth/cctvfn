@@ -1,5 +1,5 @@
 import HeaderMainMessage from "./../layoutconponent/HeaderMainMessage";
-import LayoutOne from "../layoutconponent/ProblemSoftwareHardware/Layoutone";
+import Layoutone from "../layoutconponent/ProblemSoftwareHardware/Layoutone";
 import LayoutTwoMap from "../layoutconponent/ProblemSoftwareHardware/LayoutTwoMap";
 import LayoutThreeContactTeamDevIt from "../layoutconponent/ProblemSoftwareHardware/LayoutThreeContactTeamDevIt";
 export default function ProblemSoftwareHardware() {
@@ -8,7 +8,7 @@ export default function ProblemSoftwareHardware() {
       <HeaderMainMessage
         text={"ข้อมูลติดต่อเมื่อระบบหรืออุปกรณ์ต่างๆเกิดปัญหา"}
       />
-      <LayoutOne />
+      <Layoutone />
       <LayoutTwoMap />
       <LayoutThreeContactTeamDevIt />
     </>
