@@ -1,9 +1,10 @@
-import HeaderMainMessage from "../../layoutconponent/HeaderMainMessage";
-import MessageManualForWatchcctv from "../../layoutconponent/MessageManualForWatchcctv";
-import SearchdDataPersonReport from "../../layoutconponent/ForuserReport/SearchdDataPersonReport";
-import BigLayout from "../../layoutconponent/ForuserRequestForWatchcctv/BigLayout";
-import Item from "../../layoutconponent/ForuserRequestForWatchcctv/Item";
-import Patination from "../../layoutconponent/Patination";
+import HeaderMainMessage from "../../layoutcomponent/HeaderMainMessage";
+import MessageManualForWatchcctv from "../../layoutcomponent/MessageManualForWatchcctv";
+import SearchdDataPersonReport from "../../layoutcomponent/ForuserReport/SearchdDataPersonReport";
+import BigLayout from "../../layoutcomponent/ForuserRequestForWatchcctv/BigLayout";
+import Item from "../../layoutcomponent/ForuserRequestForWatchcctv/Item";
+import Patination from "../../layoutcomponent/Patination";
+
 import { useState, useEffect } from "react";
 import axios from "../../logic/config/axios";
 

@@ -1,7 +1,7 @@
-import HeaderBeforeLogin from "./../../layoutconponent/HeaderFooter/HeaderBeforeLogin";
-import HeaderMainMessage from "../../layoutconponent/HeaderMainMessage";
-import VevifyEmailForm from "../../layoutconponent/Beforelogin/VevifyEmailForm";
-import Footer from "../../layoutconponent/HeaderFooter/Footer";
+import HeaderBeforeLogin from "../../layoutcomponent/HeaderFooter/HeaderBeforeLogin";
+import HeaderMainMessage from "../../layoutcomponent/HeaderMainMessage";
+import VevifyEmailForm from "../../layoutcomponent/Beforelogin/VevifyEmailForm";
+import Footer from "../../layoutcomponent/HeaderFooter/Footer";
 
 export default function VevifyEmail() {
   return (

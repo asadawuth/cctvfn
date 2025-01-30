@@ -1,11 +1,12 @@
-import HeaderMainMessage from "../layoutconponent/HeaderMainMessage";
-import Layout1IncludPole250 from "../layoutconponent/DashboardAllValue/Layout1IncludPole250";
-import Layout2IncludUserReport from "../layoutconponent/DashboardAllValue/Layout2IncludUserReport";
-import Layout3IncludUserShop from "../layoutconponent/DashboardAllValue/Layout3IncludUserShop";
-import Layout4UserRequest from "../layoutconponent/DashboardAllValue/Layout4UserRequest";
-import Layout5IncludUserRequestCctv from "../layoutconponent/DashboardAllValue/Layout5IncludUserRequestCctv";
-import Layout6InculdUserSos from "../layoutconponent/DashboardAllValue/Layout6InculdUserSos";
-import LeftBar from "../layoutconponent/DashboardAllValue/LeftBar";
+import HeaderMainMessage from "../layoutcomponent/HeaderMainMessage";
+import Layout1IncludPole250 from "../layoutcomponent/DashboardAllValue/Layout1IncludPole250";
+import Layout2IncludUserReport from "../layoutcomponent/DashboardAllValue/Layout2IncludUserReport";
+import Layout3IncludUserShop from "../layoutcomponent/DashboardAllValue/Layout3IncludUserShop";
+import Layout4UserRequest from "../layoutcomponent/DashboardAllValue/Layout4UserRequest";
+import Layout5IncludUserRequestCctv from "../layoutcomponent/DashboardAllValue/Layout5IncludUserRequestCctv";
+import Layout6InculdUserSos from "../layoutcomponent/DashboardAllValue/Layout6InculdUserSos";
+import LeftBar from "../layoutcomponent/DashboardAllValue/LeftBar";
+
 import { useState } from "react";
 export default function DardboardAllVaule() {
   const [leftOpen, setLeftOpen] = useState(false); // ค่าเริ่มต้นเป็นเปิดอยู่

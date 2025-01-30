@@ -1,5 +1,5 @@
-import Layout1 from "./../layoutconponent/Forvision/Layout1";
-import HeaderMainMessage from "./../layoutconponent/HeaderMainMessage";
+import Layout1 from "./../layoutcomponent/Forvision/Layout1";
+import HeaderMainMessage from "./../layoutcomponent/HeaderMainMessage";
 
 export default function Vision() {
   return (

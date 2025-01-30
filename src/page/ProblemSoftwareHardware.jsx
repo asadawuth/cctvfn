@@ -1,7 +1,7 @@
-import HeaderMainMessage from "./../layoutconponent/HeaderMainMessage";
-import Layoutone from "../layoutconponent/ProblemSoftwareHardware/Layoutone";
-import LayoutTwoMap from "../layoutconponent/ProblemSoftwareHardware/LayoutTwoMap";
-import LayoutThreeContactTeamDevIt from "../layoutconponent/ProblemSoftwareHardware/LayoutThreeContactTeamDevIt";
+import HeaderMainMessage from "../layoutcomponent/HeaderMainMessage";
+import Layoutone from "../layoutcomponent/ProblemSoftwareHardware/Layoutone";
+import LayoutTwoMap from "../layoutcomponent/ProblemSoftwareHardware/LayoutTwoMap";
+import LayoutThreeContactTeamDevIt from "../layoutcomponent/ProblemSoftwareHardware/LayoutThreeContactTeamDevIt";
 export default function ProblemSoftwareHardware() {
   return (
     <>

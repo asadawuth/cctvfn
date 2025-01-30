@@ -1,10 +1,10 @@
 import { Outlet } from "react-router-dom";
-import Header from "../layoutconponent/HeaderFooter/Header";
-import Footer from "../layoutconponent/HeaderFooter/Footer";
-import UserReQuest from "../layoutconponent/UserReQuest";
-import UserReportBell from "../layoutconponent/UserReportBell";
-import UserRequestCctv from "../layoutconponent/UserRequestCctv";
-import GoToSosFormMobile from "./../layoutconponent/GoToSosFormMobile";
+import Header from "../layoutcomponent/HeaderFooter/Header";
+import Footer from "../layoutcomponent/HeaderFooter/Footer";
+import UserReQuest from "../layoutcomponent/UserReQuest";
+import UserReportBell from "../layoutcomponent/UserReportBell";
+import UserRequestCctv from "../layoutcomponent/UserRequestCctv";
+import GoToSosFormMobile from "./../layoutcomponent/GoToSosFormMobile";
 
 export default function Layout() {
   return (

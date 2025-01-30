@@ -1,5 +1,5 @@
-import PointMapLayout1 from "../../layoutconponent/ForPointMap/PointMapLayout1";
-import PointMapLayout2 from "../../layoutconponent/ForPointMap/PointMapLayout2";
+import PointMapLayout1 from "../../layoutcomponent/ForPointMap/PointMapLayout1";
+import PointMapLayout2 from "../../layoutcomponent/ForPointMap/PointMapLayout2";
 import axios from "axios";
 import { useState, useEffect } from "react";
 

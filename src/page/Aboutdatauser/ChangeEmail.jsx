@@ -1,5 +1,5 @@
-import ChangeEmailForm from "../../layoutconponent/foraboutdatauser/ChangeEmailForm";
-import HeaderMainMessage from "../../layoutconponent/HeaderMainMessage";
+import ChangeEmailForm from "../../layoutcomponent/foraboutdatauser/ChangeEmailForm";
+import HeaderMainMessage from "../../layoutcomponent/HeaderMainMessage";
 
 export default function ChangeEmail() {
   return (

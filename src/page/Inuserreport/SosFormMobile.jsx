@@ -1,8 +1,9 @@
-import HeaderMainMessage from "../../layoutconponent/HeaderMainMessage";
-import SearchDataPersonSos from "../../layoutconponent/Forsosmobile/SearchDataPersonSos";
-import BigLayout from "../../layoutconponent/Forsosmobile/BigLayout";
-import Item from "../../layoutconponent/Forsosmobile/Item";
-import Patination from "../../layoutconponent/Patination";
+import HeaderMainMessage from "../../layoutcomponent/HeaderMainMessage";
+import SearchDataPersonSos from "../../layoutcomponent/Forsosmobile/SearchDataPersonSos";
+import BigLayout from "../../layoutcomponent/Forsosmobile/BigLayout";
+import Item from "../../layoutcomponent/Forsosmobile/Item";
+import Patination from "../../layoutcomponent/Patination";
+
 import { useEffect, useState } from "react";
 import axios from "../../logic/config/axios";
 export default function SosFormMobile() {

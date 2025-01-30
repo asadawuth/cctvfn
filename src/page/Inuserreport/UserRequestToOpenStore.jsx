@@ -1,8 +1,9 @@
-import HeaderMainMessage from "../../layoutconponent/HeaderMainMessage";
-import Patination from "../../layoutconponent/Patination";
-import Biglayout from "../../layoutconponent/Forusershop/Biglayout";
-import UserShopItem from "../../layoutconponent/Forusershop/UserShopItem";
-import SearchdDataPersonReport from "../../layoutconponent/ForuserReport/SearchdDataPersonReport";
+import HeaderMainMessage from "../../layoutcomponent/HeaderMainMessage";
+import Patination from "../../layoutcomponent/Patination";
+import Biglayout from "../../layoutcomponent/Forusershop/Biglayout";
+import UserShopItem from "../../layoutcomponent/Forusershop/UserShopItem";
+import SearchdDataPersonReport from "../../layoutcomponent/ForuserReport/SearchdDataPersonReport";
+
 import { useState, useEffect } from "react";
 import axios from "../../logic/config/axios";
 

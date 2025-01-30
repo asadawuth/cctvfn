@@ -1,5 +1,5 @@
-import HeaderMainMessage from "../../layoutconponent/HeaderMainMessage";
-import LayoutText from "../../layoutconponent/DashboardAllValue/LayoutText";
+import HeaderMainMessage from "../../layoutcomponent/HeaderMainMessage";
+import LayoutText from "../../layoutcomponent/DashboardAllValue/LayoutText";
 import { useState, useEffect } from "react";
 export default function ProblemPoint() {
   const [data, setData] = useState([]);

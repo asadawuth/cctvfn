@@ -1,5 +1,5 @@
-import Layout1 from "../layoutconponent/Formanual/Layout1Vdo";
-import HeaderMainMessage from "../layoutconponent/HeaderMainMessage";
+import Layout1 from "../layoutcomponent/Formanual/Layout1Vdo";
+import HeaderMainMessage from "../layoutcomponent/HeaderMainMessage";
 
 export default function Manual() {
   return (

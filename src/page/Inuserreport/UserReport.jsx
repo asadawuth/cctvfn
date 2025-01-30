@@ -1,10 +1,11 @@
-import HeaderMainMessage from "../../layoutconponent/HeaderMainMessage";
-import TitleItem from "../../layoutconponent/ForuserReport/TitleItem";
+import HeaderMainMessage from "../../layoutcomponent/HeaderMainMessage";
+import TitleItem from "../../layoutcomponent/ForuserReport/TitleItem";
 import { useState, useEffect } from "react";
 import axios from "../../logic/config/axios";
-import Patination from "../../layoutconponent/Patination";
-import Biglayout from "../../layoutconponent/ForuserReport/ฺBiglayout";
-import SearchdDataPersonReport from "../../layoutconponent/ForuserReport/SearchdDataPersonReport";
+import Patination from "../../layoutcomponent/Patination";
+import Biglayout from "../../layoutcomponent/ForuserReport/ฺBiglayout";
+import SearchdDataPersonReport from "../../layoutcomponent/ForuserReport/SearchdDataPersonReport";
+
 export default function UserReport() {
   const [dataUserReport, setDataUserReport] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);

@@ -1,5 +1,6 @@
-import HeaderMainMessage from "../../layoutconponent/HeaderMainMessage";
-import DataUserForm from "./../../layoutconponent/foraboutdatauser/DataUserForm";
+import HeaderMainMessage from "../../layoutcomponent/HeaderMainMessage";
+import DataUserForm from "../../layoutcomponent/foraboutdatauser/DataUserForm";
+
 import { useAuth } from "../../logic/hook/user-auth";
 export default function DataUser() {
   const { updataProfile, setAuthUser, authUser } = useAuth();
