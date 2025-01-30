@@ -1,4 +1,4 @@
-import contactus from "../../assets/ProblemSoftwareHardware/contactus.png";
+import contactus from "../../assets/ProblemSoftwareHardware/one.png";
 import contactusWebp from "../../assets/ProblemSoftwareHardware/contactus.webp";
 
 export default function LayoutOne() {
