@@ -31,7 +31,6 @@ export default function Layout5IncludUserRequestCctv() {
   if (!data) {
     return <div className="tw-text-center tw-text-red-500">ไม่มีข้อมูล</div>;
   }
-  console.log(data);
   return (
     <>
       {loading && <Loading />}

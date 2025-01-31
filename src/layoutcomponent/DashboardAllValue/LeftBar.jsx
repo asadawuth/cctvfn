@@ -8,8 +8,7 @@ import { AiFillPhone } from "react-icons/ai";
 
 export default function LeftBar({ leftOpen, isOpenandClose }) {
   return (
-    // tw-border-r-4 tw-border-t-4 tw-border-b-4 tw-border-blue-500
-    <div className="tw-relative tw-bg-blue-100 ">
+    <div className="tw-relative tw-bg-blue-100 tw-h-screen tw-shadow-lg tw-transition-all tw-duration-300">
       {/* ปุ่มเปิด-ปิด Sidebar */}
       <div className="tw-absolute tw-top-2 tw-right-2 tw-cursor-pointer">
         {leftOpen ? (
@@ -19,7 +18,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
           />
         ) : (
           <AiOutlineMenu
-            className="tw-text-lg  sm:tw-text-2xl"
+            className="tw-text-lg sm:tw-text-2xl tw-text-blue-800"
             onClick={isOpenandClose}
           />
         )}
@@ -27,34 +26,46 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
 
       {/* เนื้อหา Sidebar */}
       {leftOpen && (
-        <>
-          <div className="tw-p-4 tw-font-semibold tw-text-lg tw-mb-4 tw-underline">
+        <div className="tw-p-4">
+          <div className="tw-font-semibold tw-text-lg tw-mb-4 tw-underline">
             สรุปค่า
           </div>
 
-          <div className="tw-pl-2 tw-flex tw-gap-4 tw-p-2 hover:tw-bg-white tw-cursor-pointer">
-            <BsBell className="tw-pt-1 tw-text-2xl" /> <h1>ร้องเรียน</h1>
-          </div>
-          <div className="tw-pl-2 tw-flex tw-gap-4 tw-p-2 hover:tw-bg-white tw-cursor-pointer">
-            <RiShoppingCartLine className="tw-pt-1 tw-text-2xl" />{" "}
-            <h1>โปรโมทร้าน</h1>
-          </div>
-          <div className="tw-pl-2 tw-flex tw-gap-4 tw-p-2 hover:tw-bg-white tw-cursor-pointer">
-            <BiCctv className="tw-pt-1 tw-text-2xl" /> <h1>ขอดูกล้อง</h1>
-          </div>
-          <div className="tw-pl-2 tw-flex tw-gap-4 tw-p-2 hover:tw-bg-white tw-cursor-pointer">
-            <AiFillPhone className="tw-pt-1 tw-text-2xl" /> <h1>เหตุฉุกเฉิน</h1>
-          </div>
-          <div className="tw-pl-2 tw-flex tw-gap-4 tw-p-2 hover:tw-bg-white tw-cursor-pointer">
-            <AiOutlineTransaction className="tw-pt-1 tw-text-2xl" />{" "}
-            <h1>เสาร์250</h1>
-          </div>
-          <div className="tw-pl-2 tw-flex tw-gap-4 tw-p-2 hover:tw-bg-white tw-cursor-pointer">
-            <TbDeviceCctv className="tw-pt-1 tw-text-2xl" />{" "}
-            <h1>ดูกล้องตามจุด</h1>
-          </div>
-        </>
+          <SidebarItem icon={<BsBell />} text="ร้องเรียน" leftOpen={leftOpen} />
+          <SidebarItem
+            icon={<RiShoppingCartLine />}
+            text="โปรโมทร้าน"
+            leftOpen={leftOpen}
+          />
+          <SidebarItem icon={<BiCctv />} text="ขอดูกล้อง" leftOpen={leftOpen} />
+          <SidebarItem
+            icon={<AiFillPhone />}
+            text="เหตุฉุกเฉิน"
+            leftOpen={leftOpen}
+          />
+          <SidebarItem
+            icon={<AiOutlineTransaction />}
+            text="เสาร์250"
+            leftOpen={leftOpen}
+          />
+          <SidebarItem
+            icon={<TbDeviceCctv />}
+            text="ดูกล้องตามจุด"
+            leftOpen={leftOpen}
+          />
+        </div>
       )}
+    </div>
+  );
+}
+
+function SidebarItem({ icon, text, leftOpen }) {
+  return (
+    <div className="tw-pl-2 tw-flex tw-items-center tw-gap-4 tw-p-2 hover:tw-bg-white tw-cursor-pointer">
+      <div className="tw-text-2xl">{icon}</div>
+      <h1 className={`${leftOpen ? "tw-block" : "tw-hidden"} md:tw-block`}>
+        {text}
+      </h1>
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import HeaderMainMessage from "../layoutcomponent/HeaderMainMessage";
 import Layout1IncludPole250 from "../layoutcomponent/DashboardAllValue/Layout1IncludPole250";
 import Layout2IncludUserReport from "../layoutcomponent/DashboardAllValue/Layout2IncludUserReport";
@@ -7,54 +8,49 @@ import Layout5IncludUserRequestCctv from "../layoutcomponent/DashboardAllValue/L
 import Layout6InculdUserSos from "../layoutcomponent/DashboardAllValue/Layout6InculdUserSos";
 import LeftBar from "../layoutcomponent/DashboardAllValue/LeftBar";
 
-import { useState } from "react";
 export default function DardboardAllVaule() {
-  const [leftOpen, setLeftOpen] = useState(false); // ค่าเริ่มต้นเป็นเปิดอยู่
+  const [leftOpen, setLeftOpen] = useState(true); // ค่าเริ่มต้นเปิด Sidebar
 
   const isOpenandClose = () => {
     setLeftOpen(!leftOpen);
   };
+
   return (
-    <>
-      <HeaderMainMessage text={"ตารางสรุปอุปกรณ์ค่าของทั้งหมดในเขต"} />
-      <hr />
-      <div className="tw-flex tw-w-full tw-flex-wrap md:tw-flex-nowrap xl:tw-w-full">
-        {/* Sidebar (LeftBar) */}
-        <div
-          className={`tw-flex-none transition-all duration-300 ${
-            leftOpen ? "tw-w-[280px]" : "tw-w-[50px]"
-          }`}
-        >
-          <LeftBar leftOpen={leftOpen} isOpenandClose={isOpenandClose} />
+    <div className="tw-flex tw-h-screen tw-w-full tw-overflow-hidden">
+      {/* Sidebar */}
+      <div
+        className={`tw-h-screen tw-transition-all tw-duration-300 ${
+          leftOpen ? "tw-w-[280px] md:tw-w-[160px]" : "tw-w-[50px]"
+        }`}
+      >
+        <LeftBar leftOpen={leftOpen} isOpenandClose={isOpenandClose} />
+      </div>
+
+      {/* Content */}
+      <div className="tw-flex-1 tw-overflow-auto tw-p-4">
+        <HeaderMainMessage text={"ตารางสรุปอุปกรณ์ค่าของทั้งหมดในเขต"} />
+        <hr className="tw-my-4" />
+
+        <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-4">
+          {/* คอลัมน์ซ้าย */}
+          <div>
+            <Layout2IncludUserReport />
+            <Layout1IncludPole250 />
+          </div>
+
+          {/* คอลัมน์ขวา */}
+          <div>
+            <Layout5IncludUserRequestCctv />
+            <Layout6InculdUserSos />
+            <Layout3IncludUserShop />
+          </div>
         </div>
 
-        {/* ส่วน Content Layout */}
-        <div>
-          <div
-            className="tw-flex-1 tw-grid
-              tw-grid-cols-1 md:tw-grid-cols-2 "
-          >
-            {/* Layout หลัก */}
-            <div className="tw-w-full">
-              <Layout2IncludUserReport />
-              <Layout1IncludPole250 />
-            </div>
-
-            {/* CCTV และ SOS */}
-            <div className="tw-w-full">
-              <Layout5IncludUserRequestCctv className="xl:tw-w-full" />
-              <Layout6InculdUserSos />
-              <Layout3IncludUserShop />
-            </div>
-          </div>
-          <div className="">
-            <Layout4UserRequest />
-          </div>
+        {/* ส่วนล่าง */}
+        <div className="tw-mt-4">
+          <Layout4UserRequest />
         </div>
       </div>
-      {/* <Layout1IncludPole250 />
-      <Layout3IncludUserShop />
-      <Layout4UserRequest /> */}
-    </>
+    </div>
   );
 }
