@@ -197,11 +197,7 @@ export default function Layout4UserRequest() {
           </PieChart>
         </div>
       </div>
-      {/* <div className="tw-mt-2 tw-flex tw-justify-center tw-items-center tw-h-12 tw-bg-blue-100 hover:tw-bg-blue-200 tw-rounded-lg tw-mx-20 sm:tw-mx-28  md:tw-mx-56 lg:tw-mx-80  xl:tw-mx-96 tw-mb-2 hover:tw-cursor-pointer">
-        <span className="tw-text-blue-800 tw-text-lg tw-font-semibold">
-          ผลรวมทุกสถานะ {data.totalAllStatus}
-        </span>
-      </div> */}
+
       <Link to="/report-request">
         <LayoutInClud
           text="ผลรวมเอกสารขอโปรโมทร้านต่างๆ"

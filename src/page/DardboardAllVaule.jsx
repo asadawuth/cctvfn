@@ -6,6 +6,7 @@ import Layout3IncludUserShop from "../layoutcomponent/DashboardAllValue/Layout3I
 import Layout4UserRequest from "../layoutcomponent/DashboardAllValue/Layout4UserRequest";
 import Layout5IncludUserRequestCctv from "../layoutcomponent/DashboardAllValue/Layout5IncludUserRequestCctv";
 import Layout6InculdUserSos from "../layoutcomponent/DashboardAllValue/Layout6InculdUserSos";
+import Layout7cctv from "../layoutcomponent/DashboardAllValue/Layout7cctv";
 import LeftBar from "../layoutcomponent/DashboardAllValue/LeftBar";
 
 export default function DardboardAllVaule() {
@@ -20,7 +21,7 @@ export default function DardboardAllVaule() {
       {/* Sidebar */}
       <div
         className={`tw-h-screen tw-transition-all tw-duration-300 ${
-          leftOpen ? "tw-w-[280px] md:tw-w-[160px]" : "tw-w-[50px]"
+          leftOpen ? "tw-w-[200px]" : "tw-w-[50px]"
         }`}
       >
         <LeftBar leftOpen={leftOpen} isOpenandClose={isOpenandClose} />
@@ -36,6 +37,7 @@ export default function DardboardAllVaule() {
           <div>
             <Layout2IncludUserReport />
             <Layout1IncludPole250 />
+            <Layout7cctv />
           </div>
 
           {/* คอลัมน์ขวา */}

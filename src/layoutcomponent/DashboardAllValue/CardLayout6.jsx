@@ -16,7 +16,7 @@ export default function StatusTable({ data }) {
                   href="/pageaction-sosstatusreported"
                   className="tw-block tw-w-full"
                 >
-                  ส่งเรื่องแล้ว
+                  แจ้ง
                 </a>
               </td>
               <td className="tw-px-4 tw-py-2 tw-font-bold tw-text-center">

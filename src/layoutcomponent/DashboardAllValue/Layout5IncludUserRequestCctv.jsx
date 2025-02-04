@@ -1,11 +1,7 @@
-import LayoutText from "../../layoutcomponent/DashboardAllValue/LayoutText";
-
 import { Link } from "react-router-dom";
 import axios from "../../logic/config/axios";
 import { useEffect, useState } from "react";
 import Loading from "../../layoutcomponent/Loading";
-
-import LayoutInClud from "./LayoutInClud";
 
 export default function Layout5IncludUserRequestCctv() {
   const [data, setData] = useState(null);
@@ -34,8 +30,11 @@ export default function Layout5IncludUserRequestCctv() {
   return (
     <>
       {loading && <Loading />}
-      {/* <LayoutText text="สรุปผลของประชาชนที่ขอกล้องในพื้นที่" /> */}
-      <div className="tw-text-center tw-pt-2">ประชาชนขอดูกล้องในพื้นที่</div>
+      <div>
+        <div className="tw-text-center tw-pt-2 tw-text-xl tw-font-semibold tw-text-gray-800 tw-pb-2 tw-bg-blue-300 tw-rounded-2xl tw-mx-auto hover:tw-bg-blue-400 hover:tw-text-white hover:tw-shadow-lg transition-all duration-300">
+          สถานะขอดูกล้องในพื้นที่
+        </div>    
+      </div>
       <div className="tw-w-full tw-flex tw-flex-col sm:tw-flex-row tw-gap-4 tw-justify-center  tw-py-2">
         {/* Card for Submitted */}
         <Link

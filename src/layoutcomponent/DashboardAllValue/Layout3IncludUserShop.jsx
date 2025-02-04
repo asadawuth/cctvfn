@@ -79,7 +79,7 @@ export default function Layout3IncludUserShop() {
         </div>
 
         {/* Section แสดงไอคอน */}
-        <div className="tw-flex tw-justify-evenly tw-py-6 tw-bg-blue-50 tw-rounded-lg tw-shadow-lg ">
+        <div className="tw-flex tw-justify-center tw-gap-4  tw-py-6 tw-bg-blue-50 tw-rounded-lg tw-shadow-lg tw-w-full ">
           <div className="tw-flex tw-items-center tw-gap-2">
             <a href="pageaction-datashop">
               <FaShopify className="tw-text-4xl tw-text-blue-500 tw-cursor-pointer hover:tw-text-blue-700" />
@@ -105,6 +105,7 @@ export default function Layout3IncludUserShop() {
             <h5 className="tw-text-blue-700 tw-font-semibold">สถานที่</h5>
           </div>
         </div>
+
         <LayoutInClud text="ผลรวมถูกที่อนุมัติ" data={dataTotal.totalApprove} />
       </div>
     </>
