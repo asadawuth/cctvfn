@@ -1,2 +1,3 @@
-export const BACKEND_URL = "http://localhost:8888";
-// https://mass-serv.ddns.net
+export const BACKEND_URL = "https://mass-serv.ddns.net";
+// "https://mass-serv.ddns.net"
+// "https://localhost:8888"
