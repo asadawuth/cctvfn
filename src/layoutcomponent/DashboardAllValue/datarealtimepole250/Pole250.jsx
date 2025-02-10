@@ -12,12 +12,12 @@ export default function Pole250() {
         const parsedData = JSON.parse(event.data);
         setData((prevData) => [...prevData, parsedData]);
       } catch (error) {
-        console.error("Error parsing WebSocket message:", error);
+        // console.error("Error parsing WebSocket message:", error);
       }
     };
 
     socket.onerror = (error) => {
-      console.error("WebSocket error:", error);
+      // console.error("WebSocket error:", error);
     };
 
     return () => {
@@ -27,7 +27,7 @@ export default function Pole250() {
     };
   }, []);
 
-  console.log(data);
+  // console.log(data);
 
   return (
     <>
