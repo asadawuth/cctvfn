@@ -50,7 +50,7 @@ export default function SosFormMobile() {
     setCurrentPage(page);
   };
 
-  console.log(dataSos);
+  // console.log(dataSos);
   return (
     <>
       <HeaderMainMessage text={"SOS จาก โทรศัทพ์ประชาชนในพื้นที่หน่วยงาน"} />

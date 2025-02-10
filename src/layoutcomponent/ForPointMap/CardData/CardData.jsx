@@ -11,11 +11,11 @@ export default function CardData({ id, lat, lng, onClose }) {
         const parsedData = JSON.parse(event.data);
         setData(parsedData);
       } catch (error) {
-        console.error("Error parsing data:", error);
+        // console.error("Error parsing data:", error);
       }
     };
     socket.onerror = (error) => {
-      console.error("WebSocket error:", error);
+      // console.error("WebSocket error:", error);
     };
     return () => {
       if (socket.readyState === WebSocket.OPEN) {
@@ -27,7 +27,7 @@ export default function CardData({ id, lat, lng, onClose }) {
   if (!data) {
     return <div>กำลังโหลดข้อมูล...</div>;
   }
-  console.log(data);
+  // console.log(data);
   return (
     <div className="tw-fixed tw-top-2  tw-w-64 tw-p-4 tw-rounded-lg tw-bg-white tw-shadow-md tw-z-[100]">
       <h3 className="tw-text-lg tw-font-bold tw-mb-2.5 tw-text-blue-500">

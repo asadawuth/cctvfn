@@ -20,7 +20,7 @@ export default function PointMap() {
     setSearchId(id);
   };
 
-  console.log(data);
+  // console.log(data);
   return (
     <>
       <PointMapLayout1 onSearch={handleSearch} />
