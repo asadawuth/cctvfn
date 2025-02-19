@@ -58,6 +58,7 @@ export default function CreateIdEmployeeForm() {
           phone: "",
           status: "",
           password: "",
+          confirmPassword: "",
         });
       } catch (error) {
         console.log(error);
