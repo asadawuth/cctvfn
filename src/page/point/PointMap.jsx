@@ -9,7 +9,7 @@ export default function PointMap() {
 
   useEffect(() => {
     axios
-      .get("https://mass-serv.ddns.net:1412/api/v1/map/markerdata")
+      .get("https://api.masscorporation.site/api/v1/map/markerdata")
       .then((res) => {
         setData(res.data);
       })
