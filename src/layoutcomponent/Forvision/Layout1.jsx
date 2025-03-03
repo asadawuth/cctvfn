@@ -74,7 +74,7 @@ export default function Layout1() {
 
 const data = [
   {
-    title: "เสาร์ Sos ฉุกเฉิน",
+    title: "เสา Sos ฉุกเฉิน",
     img: vision1,
     text: "ช่วยให้ประชาชนในพื้นที่ปลอดภัยรวมถึงลดการก่อเหตุต่างๆ",
   },

@@ -19,7 +19,7 @@ export default function Item({ dataStatus }) {
           <td
             className={`tw-px-4 tw-py-2 tw-text-center ${
               item.status === "ไม่ผ่าน" ||
-              item.status === "สำเสร็จ" ||
+              item.status === "สำเร็จ" ||
               item.status === "ขอเอกสารเพิ่ม"
                 ? "tw-text-white"
                 : ""
@@ -32,7 +32,7 @@ export default function Item({ dataStatus }) {
                   ? "rgb(100, 149, 237)"
                   : item.status === "ขอเอกสารเพิ่ม"
                   ? "rgb(65, 105, 225)"
-                  : item.status === "สำเสร็จ"
+                  : item.status === "สำเร็จ"
                   ? "rgb(30, 80, 190)"
                   : item.status === "ไม่ผ่าน"
                   ? "rgb(0, 50, 130)"

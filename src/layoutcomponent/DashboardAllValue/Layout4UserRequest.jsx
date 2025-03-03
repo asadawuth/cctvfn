@@ -148,7 +148,7 @@ export default function Layout4UserRequest() {
             href="pageaction-completeddata"
             className="hover:tw-text-blue-600 hover:tw-cursor-pointer tw-text-center tw-text-blue-400 tw-font-bold tw-text-lg tw-tracking-wide"
           >
-            สำเสร็จ
+            สำเร็จ
           </a>
           <PieChart width={300} height={300}>
             <Pie

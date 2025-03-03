@@ -107,7 +107,7 @@ export default function ResetPasswordForm() {
         </button>
       </form>
       <Model
-        title="อัพเดทรหัสผ่านใหม่สำเสร็จ"
+        title="อัพเดทรหัสผ่านใหม่สำเร็จ"
         open={openModel}
         onClose={() => setOpenModel(false)}
       >

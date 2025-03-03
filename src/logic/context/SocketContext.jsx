@@ -49,7 +49,8 @@ export default function SocketProvider({ children }) {
   // ตั้งค่า Socket.IO
   useEffect(() => {
     if (!socketRef.current) {
-      socketRef.current = io("wss://nodeapi.masscorporation.site/", {
+      // "wss://nodeapi.masscorporation.site/"
+      socketRef.current = io("http://localhost:8888", {
         autoConnect: true,
         reconnection: true,
         transports: ["websocket"],

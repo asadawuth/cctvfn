@@ -122,7 +122,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg   tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                จัดการเสร็จสิ้น
+                จัดการเร็จสิ้น
               </a>
               <a
                 href="/userreportstatuscompleted"
@@ -193,7 +193,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg   tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                สำเสร็จ
+                สำเร็จ
               </a>
               <a
                 href="/pageaction-thedocumentdidnotpass"
@@ -320,7 +320,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg   tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                จัดการเสร็จสิ้น
+                จัดการเร็จสิ้น
               </a>
               <a
                 href="/pageaction-sosstatuscanceled"
@@ -367,7 +367,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg   tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                ค่าของเสาร์ทั้งหมด
+                ค่าของเสาทั้งหมด
               </a>
               <a
                 href="/problempointMap"
@@ -375,7 +375,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg    tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                เสาร์ที่ชำรุด
+                เสาที่ชำรุด
               </a>
             </div>
           )}

@@ -89,7 +89,7 @@ export default function Layout2IncludUserReport() {
                         y: totalUserReportStatus.inProgress || 0,
                       },
                       {
-                        x: "จัดการเสร็จสิ้น",
+                        x: "จัดการเร๊จสิ้น",
                         y: totalUserReportStatus.completed || 0,
                       },
                       { x: "ยกเลิก", y: totalUserReportStatus.canceled || 0 },
@@ -143,7 +143,7 @@ export default function Layout2IncludUserReport() {
                 href="userreportstatuscompletedonly"
                 className="tw-ml-2 tw-text-sm md:tw-text-base xl:tw-text-lg tw-font-medium tw-text-gray-600 hover:tw-cursor-pointer hover:tw-text-blue-600"
               >
-                จัดการเสร็จสิ้น
+                จัดการเร็จสิ้น
               </a>
             </div>
             <div className="tw-flex tw-items-center tw-pt-2">

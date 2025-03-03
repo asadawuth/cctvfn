@@ -79,7 +79,7 @@ export default function UserShopItem({
                     ? "tw-bg-[rgb(100,149,237)]"
                     : shop.status === "ขอเอกสารเพิ่ม"
                     ? "tw-bg-[rgb(65,105,225)]"
-                    : shop.status === "สำเสร็จ"
+                    : shop.status === "สำเร็จ"
                     ? "tw-bg-cyan-950"
                     : shop.status === "ไม่ผ่าน"
                     ? "tw-bg-[rgb(0,50,130)]"

@@ -97,7 +97,7 @@ export default function Layout2DataShop({
                 ? "tw-bg-[rgb(100,149,237)] hover:tw-bg-[rgb(80,119,219)] hover:tw-scale-105 hover:tw-shadow-lg"
                 : datashop.status === "ขอเอกสารเพิ่ม"
                 ? "tw-bg-[rgb(65,105,225)] hover:tw-bg-[rgb(40,80,200)] hover:tw-scale-105 hover:tw-shadow-lg"
-                : datashop.status === "สำเสร็จ"
+                : datashop.status === "สำเร็จ"
                 ? "tw-bg-cyan-950 hover:tw-bg-cyan-700 hover:tw-scale-105 hover:tw-shadow-lg"
                 : datashop.status === "ไม่ผ่าน"
                 ? "tw-bg-[rgb(0,50,130)] hover:tw-bg-[rgb(0,30,110)] hover:tw-scale-105 hover:tw-shadow-lg"
