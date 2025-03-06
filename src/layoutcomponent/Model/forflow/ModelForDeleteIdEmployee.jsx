@@ -1,7 +1,7 @@
 import axios from "../../../logic/config/axios";
 
 export default function ModelForDeleteIdEmployee({ onClose, deleteId }) {
-  console.log(deleteId);
+  // console.log(deleteId);
 
   const deleteIdLoginEmployee = async () => {
     try {
