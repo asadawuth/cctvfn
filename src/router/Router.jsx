@@ -14,6 +14,9 @@ import ChangeEmail from "../page/Aboutdatauser/ChangeEmail";
 import Vision from "../page/Vision";
 import CreateIdEmployee from "../page/AboutEmployee/CreateIdEmployee";
 import DeleteIdEmployee from "../page/AboutEmployee/DeleteIdEmployee";
+import ListDataEmployee from "../page/AboutEmployee/ListDataEmployee";
+import ListDataPopulation from "../page/AboutEmployee/ListDataPopulation";
+import ListDataEmployeeResign from "../page/AboutEmployee/ListDataEmployeeResign";
 import Manual from "../page/Manual";
 import UserReport from "../page/Inuserreport/UserReport";
 import Pole250 from "../layoutcomponent/DashboardAllValue/datarealtimepole250/Pole250";
@@ -48,6 +51,7 @@ import PointMap from "../page/point/PointMap";
 import ProblemPoint from "../page/point/ProblemPoint";
 import ProblemSoftwareHardware from "../page/ProblemSoftwareHardware";
 import DardboardAllVaule from "./../page/DardboardAllVaule";
+import IntegratedInformation from "../page/IntegratedInformation";
 import PathNotFound from "../layoutcomponent/PathNotFound";
 import Layout from "./Layout";
 import NoLayout from "./NoLayout";
@@ -78,6 +82,9 @@ const router = createBrowserRouter([
       { path: "vision", element: <Vision /> },
       { path: "createidemployee", element: <CreateIdEmployee /> },
       { path: "deleteidemployee", element: <DeleteIdEmployee /> },
+      { path: "listdataemployee", element: <ListDataEmployee /> },
+      { path: "listdatapopulation", element: <ListDataPopulation /> },
+      { path: "listdataemployresign", element: <ListDataEmployeeResign /> },
       { path: "manual", element: <Manual /> },
       { path: "userReport", element: <UserReport /> },
       { path: "pageaction-ploe250", element: <Pole250 /> },
@@ -125,6 +132,10 @@ const router = createBrowserRouter([
         element: <ProblemSoftwareHardware />,
       },
       { path: "dardboardallvaule", element: <DardboardAllVaule /> },
+      {
+        path: "data-integratedinformation",
+        element: <IntegratedInformation />,
+      },
       { path: "*", element: <PathNotFound /> },
     ],
   },

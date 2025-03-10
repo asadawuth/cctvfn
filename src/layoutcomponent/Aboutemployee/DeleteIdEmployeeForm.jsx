@@ -124,7 +124,7 @@ export default function DeleteIdEmployeeForm() {
                 </tbody>
               </table>
               <Model
-                title="ยืนยันลบไอดีพนักงานที่พ้นสภาพ"
+                title="ไอดีพนักงานที่พ้นสภาพพนักงาน"
                 open={openModel}
                 onClose={() => setOpenModel(false)}
               >

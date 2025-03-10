@@ -91,6 +91,39 @@ export default function Header() {
                     ลบไอดีพักงานที่พ้นสภาพ
                   </MenuItem>
                 </Link>
+                <Link to="/listdataemployee">
+                  <MenuItem
+                    className={`tw-text-white tw-py-2 tw-px-4 tw-w-full tw-text-start tw-whitespace-nowrap ${
+                      location.pathname === "/listdataemployee"
+                        ? "tw-bg-blue-900 !tw-text-white"
+                        : "hover:tw-bg-blue-900"
+                    }`}
+                  >
+                    รายชื่อข้อมูลพนักงาน
+                  </MenuItem>
+                </Link>
+                <Link to="listdatapopulation">
+                  <MenuItem
+                    className={`tw-text-white tw-py-2 tw-px-4 tw-w-full tw-text-start tw-whitespace-nowrap ${
+                      location.pathname === "/listdatapopulation"
+                        ? "tw-bg-blue-900 !tw-text-white"
+                        : "hover:tw-bg-blue-900"
+                    }`}
+                  >
+                    รายชื่อข้อมูลประชาชน
+                  </MenuItem>
+                </Link>
+                <Link to="listdataemployresign">
+                  <MenuItem
+                    className={`tw-text-white tw-py-2 tw-px-4 tw-w-full tw-text-start tw-whitespace-nowrap ${
+                      location.pathname === "/listdataemployresign"
+                        ? "tw-bg-blue-900 !tw-text-white"
+                        : "hover:tw-bg-blue-900"
+                    }`}
+                  >
+                    รายชื่อข้อมูลพนักงานที่ลาออก
+                  </MenuItem>
+                </Link>
               </MenuList>
             </Menu>
           </div>
@@ -266,6 +299,18 @@ export default function Header() {
             onClick={() => (window.location.href = "/dardboardallvaule")}
           >
             ตารางสรุปค่า
+          </a>
+          <a
+            className={`hover:tw-cursor-pointer tw-px-6 tw-py-2 hover:tw-bg-blue-900 hover:tw-text-white  ${
+              location.pathname === "/data-integratedinformation"
+                ? "tw-bg-blue-900 tw-text-white"
+                : ""
+            }`}
+            onClick={() =>
+              (window.location.href = "/data-integratedinformation")
+            }
+          >
+            ข้อมูลบูรณาการ
           </a>
         </div>
       </header>
