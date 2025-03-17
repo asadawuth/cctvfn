@@ -18,7 +18,7 @@ export default function UserShopItem({
   const [modalImage, setModalImage] = useState("");
   const [isDeleteModelOpen, setIsDeleteModelOpen] = useState(false);
   const [isUpdateStatusModelOpen, setIsUpdateStatusModelOpen] = useState(false);
-  const [selectId, setSelectId] = useState(null);
+  const [selectId, setSelectId] = useState();
   const sendId = (id) => {
     setSelectId(id);
     setIsUpdateStatusModelOpen(true);

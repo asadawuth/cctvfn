@@ -12,11 +12,13 @@ import DataUser from "../page/Aboutdatauser/DataUser";
 import ChangePassword from "../page/Aboutdatauser/ChangePassword";
 import ChangeEmail from "../page/Aboutdatauser/ChangeEmail";
 import Vision from "../page/Vision";
-import CreateIdEmployee from "../page/AboutEmployee/CreateIdEmployee";
-import DeleteIdEmployee from "../page/AboutEmployee/DeleteIdEmployee";
-import ListDataEmployee from "../page/AboutEmployee/ListDataEmployee";
-import ListDataPopulation from "../page/AboutEmployee/ListDataPopulation";
-import ListDataEmployeeResign from "../page/AboutEmployee/ListDataEmployeeResign";
+import CreateIdEmployee from "../page/AboutEmployeeandpopulation/CreateIdEmployee";
+import DeleteIdEmployee from "../page/AboutEmployeeandpopulation/DeleteIdEmployee";
+import DeletedIdPopulation from "../page/AboutEmployeeandpopulation/DeletedIdPopulation";
+import ListDataEmployee from "../page/AboutEmployeeandpopulation/ListDataEmployee";
+import ListDataPopulation from "../page/AboutEmployeeandpopulation/ListDataPopulation";
+import ListDataEmployeeResign from "../page/AboutEmployeeandpopulation/ListDataEmployeeResign";
+import ListDataPopulationBlock from "../page/AboutEmployeeandpopulation/ListDataPopulationBlock";
 import Manual from "../page/Manual";
 import UserReport from "../page/Inuserreport/UserReport";
 import Pole250 from "../layoutcomponent/DashboardAllValue/datarealtimepole250/Pole250";
@@ -82,9 +84,11 @@ const router = createBrowserRouter([
       { path: "vision", element: <Vision /> },
       { path: "createidemployee", element: <CreateIdEmployee /> },
       { path: "deleteidemployee", element: <DeleteIdEmployee /> },
+      { path: "deleteidpopulation", element: <DeletedIdPopulation /> },
       { path: "listdataemployee", element: <ListDataEmployee /> },
       { path: "listdatapopulation", element: <ListDataPopulation /> },
       { path: "listdataemployresign", element: <ListDataEmployeeResign /> },
+      { path: "listdatapopulationblock", element: <ListDataPopulationBlock /> },
       { path: "manual", element: <Manual /> },
       { path: "userReport", element: <UserReport /> },
       { path: "pageaction-ploe250", element: <Pole250 /> },

@@ -49,7 +49,7 @@ export default function ModelForUpdateStatusShopInSizeList({
           <option value="ส่งเรื่องแล้ว">ส่งเรื่องแล้ว</option>
           <option value="กำลังเช็คเอกสาร">กำลังเช็คเอกสาร</option>
           <option value="ขอเอกสารเพิ่ม">ขอเอกสารเพิ่ม</option>
-          <option value="สำเสร็จ">สำเสร็จ</option>
+          <option value="สำเร็จ">สำเร็จ</option>
           <option value="ไม่ผ่าน">ไม่ผ่าน</option>
         </select>
         {textError && (

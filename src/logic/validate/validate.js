@@ -101,6 +101,10 @@ export const changeEmailSchema = Joi.object({
 });
 
 export const registerIdEmployee = Joi.object({
+  gender: Joi.string().valid("นาย", "นาง", "นางสาว").required().messages({
+    "string.empty": "กรุณาเลือกคำนำหน้า",
+    "any.required": "กรุณาเลือกคำนำหน้า",
+  }),
   firstName: Joi.string().trim().required().messages({
     "string.empty": "กรุณากรองชื่อจริง",
     "any.required": "กรุณากรองชื่อจริง",
@@ -209,34 +213,4 @@ export const changeDataYourProfile = Joi.object({
       "any.required": "กรุณากรองอีเมลล์",
       "string.email": "กรุณากรองอีเมลล์ให้ถูกต้อง",
     }),
-});
-
-// สร้างไอดีพนักงาน
-export const createDataEmployee = Joi.object({
-  firstName: Joi.string().trim().max(50).min(1).required().messages({
-    "string.empty": "กรุณากรองชื่อจริงๆ",
-    "any.required": "กรุณาระบุชื่อจริง",
-  }),
-  lastName: Joi.string().trim().max(50).min(1).required().messages({
-    "string.empty": "กรุณากรองนามสกุล",
-    "any.required": "กรุณาระบุนามสกุล",
-  }),
-  type: Joi.string()
-    .trim()
-    .valid("ผู้ดูแลระบบ", "เจ้าที่หน้าซ่อมบำรุง", "ผู้ดำเนินการศูนย์บัญชาการ")
-    .required()
-    .messages({
-      "string.empty": "กรุณาระบุประเภทรถ", // ระบุได้แค่ รถราชการ รถเจ้าหน้าที่ รถภายนอก
-      "any.required": "กรุณาระบุประเภทรถ",
-      "any.only":
-        "ประเภทของรถต้องเป็น ผู้ดูแลระบบ, เจ้าที่หน้าซ่อมบำรุง หรือ ผู้ดำเนินการศูนย์บัญชาการ",
-    }),
-  license_plate: Joi.string().trim().max(60).min(1).required().messages({
-    "string.empty": "กรุณาระบุทะเบียนรถ",
-    "any.required": "กรุณาระบุทะเบียนรถ",
-  }),
-  province: Joi.string().trim().min(1).max(100).required().messages({
-    "string.empty": "กรุณาระบุจังหวัดของทะเบียนรถ",
-    "any.required": "กรุณาระบุจังหวัดของทะเบียนรถ",
-  }),
 });

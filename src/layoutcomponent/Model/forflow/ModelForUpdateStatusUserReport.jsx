@@ -65,7 +65,7 @@ export default function ModelForUpdateStatusUserReport({
         <option value="แจ้ง">แจ้ง</option>
         <option value="รับแจ้งแล้ว">รับแจ้งแล้ว</option>
         <option value="กำลังดำเนินการ">กำลังดำเนินการ</option>
-        <option value="จัดการเสร็จสิ้น">จัดการเสร็จสิ้น</option>
+        <option value="จัดการเร็จสิ้น">จัดการเร็จสิ้น</option>
         <option value="ยกเลิก">ยกเลิก</option>
       </select>
       <div className="tw-pt-4">

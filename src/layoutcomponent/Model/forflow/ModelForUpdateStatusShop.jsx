@@ -31,6 +31,8 @@ export default function ModelForUpdateStatusShop({
       setTextError(true);
     }
   };
+
+  // console.log(id);
   return (
     <form onSubmit={handleSubmitForm} className="tw-w-full tw-p-4">
       <label
@@ -48,7 +50,7 @@ export default function ModelForUpdateStatusShop({
         <option value="ส่งเรื่องแล้ว">ส่งเรื่องแล้ว</option>
         <option value="กำลังเช็คเอกสาร">กำลังเช็คเอกสาร</option>
         <option value="ขอเอกสารเพิ่ม">ขอเอกสารเพิ่ม</option>
-        <option value="สำเสร็จ">สำเร็จ</option>
+        <option value="สำเร็จ">สำเร็จ</option>
         <option value="ไม่ผ่าน">ไม่ผ่าน</option>
       </select>
       {textError && (

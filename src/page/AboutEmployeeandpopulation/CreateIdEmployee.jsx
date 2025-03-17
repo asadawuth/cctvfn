@@ -1,5 +1,5 @@
 import HeaderMainMessage from "../../layoutcomponent/HeaderMainMessage";
-import CreateIdEmployeeForm from "../../layoutcomponent/Aboutemployee/CreateIdEmployeeForm";
+import CreateIdEmployeeForm from "../../layoutcomponent/Aboutemployee&&population/CreateIdEmployeeForm";
 
 export default function CreateIdEmployee() {
   return (

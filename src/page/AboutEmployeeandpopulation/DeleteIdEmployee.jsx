@@ -1,5 +1,5 @@
 import HeaderMainMessage from "../../layoutcomponent/HeaderMainMessage";
-import DeleteIdEmployeeForm from "../../layoutcomponent/Aboutemployee/DeleteIdEmployeeForm";
+import DeleteIdEmployeeForm from "../../layoutcomponent/Aboutemployee&&population/DeleteIdEmployeeForm";
 
 export default function DeleteIdEmployee() {
   return (

@@ -18,6 +18,9 @@ const validateRegister = (input) => {
     if (input.password === "" && !result.confirmPassword) {
       result.confirmPassword = "กรุณาใส่ยืนยันรหัส";
     }
+    if (input.gender === "") {
+      result.gender = "กรุณาเลือกคำนำหน้า";
+    }
 
     return result;
   }
@@ -27,6 +30,7 @@ export default function CreateIdEmployeeForm() {
   const [openModel, setOpenModel] = useState(false);
   const { register } = useAuth();
   const [inputRegister, setInputRegister] = useState({
+    gender: "",
     firstName: "",
     lastName: "",
     email: "",
@@ -52,6 +56,7 @@ export default function CreateIdEmployeeForm() {
         await register(inputRegister);
         setOpenModel(true);
         setInputRegister({
+          gender: "",
           firstName: "",
           lastName: "",
           email: "",
@@ -73,6 +78,22 @@ export default function CreateIdEmployeeForm() {
         className="tw-bg-white tw-flex tw-flex-col tw-gap-6 tw-justify-center tw-items-center tw-mx-auto tw-p-6 sm:tw-p-12 tw-border-4 tw-border-white tw-rounded-2xl tw-w-[100%] sm:tw-w-[90%] md:tw-w-[80%] lg:tw-w-[50%] xl:tw-w-[40%]"
       >
         <div className="tw-flex tw-flex-col tw-gap-2 tw-w-full">
+          <div className="tw-w-full">
+            <select
+              type="text"
+              name="gender"
+              className="tw-border-2 tw-border-blue-400 tw-bg-transparent tw-w-full tw-rounded-lg tw-p-2 focus:tw-border-blue-600 focus:tw-outline-none"
+              onChange={handleChangeInput}
+              value={inputRegister.gender}
+            >
+              <option value="">เลือกคำนำหน้า</option>
+              <option value="นาย">นาย</option>
+              <option value="นาง">นาง</option>
+              <option value="นางสาว">นางสาว</option>
+            </select>
+            {error.gender && <TextError text={error.gender} />}
+          </div>
+          <br />
           <label className="tw-font-medium">ชื่อจริง</label>
           <input
             type="text"
@@ -144,8 +165,8 @@ export default function CreateIdEmployeeForm() {
           />
           {error.confirmPassword && <TextError text={error.confirmPassword} />}
         </div>
-        {error.status && <TextError text={error.status} />}
         <div className="tw-w-full">
+          {error.status && <TextError text={error.status} />} <br />
           <label className="tw-font-medium">เลือกประเภท</label>
           <select
             type="text"
@@ -159,7 +180,7 @@ export default function CreateIdEmployeeForm() {
             <option value="ผู้ดำเนินการศูนย์บัญชาการ">
               ผู้ดำเนินการศูนย์บัญชาการ
             </option>
-            <option value="เจ้าที่หน้าซ่อมบำรุง">เจ้าที่หน้าซ่อมบำรุง</option>
+            <option value="เจ้าหน้าที่ซ่อมบำรุง">เจ้าที่หน้าซ่อมบำรุง</option>
           </select>
         </div>
         <button

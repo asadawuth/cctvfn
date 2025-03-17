@@ -50,7 +50,13 @@ export default function Header() {
           <div
             className={`hover:tw-cursor-pointer tw-px-6 tw-py-2 hover:tw-bg-blue-900 hover:tw-text-white ${
               location.pathname === "/deleteidemployee" ||
-              location.pathname === "/createidemployee"
+              location.pathname === "/createidemployee" ||
+              location.pathname === "/listdataemployee" ||
+              location.pathname === "/listdatapopulation" ||
+              location.pathname === "/listdataemployresign" ||
+              location.pathname === "/deleteidpopulation" ||
+              location.pathname === "/listdatapopulationblock" ||
+              location.pathname === "/yourprofile"
                 ? "tw-bg-blue-900 tw-text-white"
                 : ""
             }`}
@@ -65,7 +71,7 @@ export default function Header() {
                       : "tw-text-black"
                   }`}
                 >
-                  เกี่ยวกับพนักงาน
+                  ข้อมูลผู้ใช้ระบบ
                 </Button>
               </MenuHandler>
               <MenuList className="tw-bg-slate-400 tw-mt-2 tw-shadow-lg tw-w-64">
@@ -88,7 +94,18 @@ export default function Header() {
                         : "hover:tw-bg-blue-900"
                     }`}
                   >
-                    ลบไอดีพักงานที่พ้นสภาพ
+                    ลบไอดีพนักงานที่พ้นสภาพ
+                  </MenuItem>
+                </Link>
+                <Link to="/deleteidpopulation">
+                  <MenuItem
+                    className={`tw-text-white tw-py-2 tw-px-4 tw-w-full tw-text-start tw-whitespace-nowrap ${
+                      location.pathname === "/deleteidpopulation"
+                        ? "tw-bg-blue-900 !tw-text-white"
+                        : "hover:tw-bg-blue-900"
+                    }`}
+                  >
+                    ลบไอดีประชาชน
                   </MenuItem>
                 </Link>
                 <Link to="/listdataemployee">
@@ -122,6 +139,17 @@ export default function Header() {
                     }`}
                   >
                     รายชื่อข้อมูลพนักงานที่ลาออก
+                  </MenuItem>
+                </Link>
+                <Link to="listdatapopulationblock">
+                  <MenuItem
+                    className={`tw-text-white tw-py-2 tw-px-4 tw-w-full tw-text-start tw-whitespace-nowrap ${
+                      location.pathname === "/listdatapopulationblock"
+                        ? "tw-bg-blue-900 !tw-text-white"
+                        : "hover:tw-bg-blue-900"
+                    }`}
+                  >
+                    รายชื่อข้อมูลประชาชนสถานะบล๊อค
                   </MenuItem>
                 </Link>
               </MenuList>
