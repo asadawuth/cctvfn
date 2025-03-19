@@ -13,21 +13,9 @@ export default function Layout2({
   const [openModelCreateFileExcel, setOpenModelCreateFileExcel] =
     useState(false);
 
-  /*
-    export const downLoadFile = async (
-      data: Blob,
-      header: string,
-      formatDate: string
-    ): Promise<void> => {
-      const blob = new Blob([data], { type: header });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.href = url;
-      link.setAttribute("download", `filename_${formatDate}.xlsx`);
-      document.body.appendChild(link);
-      link.click();
-    };
-*/
+ 
+
+    
   return (
     <>
       <div className="tw-bg-gray-100 tw-w-full tw-flex tw-justify-center tw-gap-8 tw-py-4">
