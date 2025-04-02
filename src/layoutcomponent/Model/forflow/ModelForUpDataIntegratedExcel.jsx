@@ -1,11 +1,21 @@
 export default function ModelForUpDataIntegratedExcel({
   onClose,
-  latesFileExcelUpdate,
+  data,
+  makeDataExcel,
 }) {
+  console.log(data);
+
   return (
     <>
       <form className="tw-flex tw-justify-center tw-gap-4 tw-py-4">
-        <button className="tw-bg-blue-600 tw-text-white tw-py-2 tw-px-8 tw-rounded-md tw-shadow-md tw-transition tw-duration-300 tw-ease-in-out hover:tw-bg-blue-700 hover:tw-shadow-xl active:tw-scale-95">
+        <button
+          type="button"
+          onClick={() => {
+            onClose();
+            makeDataExcel();
+          }}
+          className="tw-bg-blue-600 tw-text-white tw-py-2 tw-px-8 tw-rounded-md tw-shadow-md tw-transition tw-duration-300 tw-ease-in-out hover:tw-bg-blue-700 hover:tw-shadow-xl active:tw-scale-95"
+        >
           ตกลง
         </button>
         <button

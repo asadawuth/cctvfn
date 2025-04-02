@@ -39,6 +39,7 @@
     "slick-carousel": "^1.8.1",
     "socket.io-client": "^4.8.1",
     "supercluster": "^8.0.1",
+    "sweetalert2": "^11.17.2",
     "use-supercluster": "^1.2.0",
     "victory": "^37.3.5",
     "ws": "^8.18.0"

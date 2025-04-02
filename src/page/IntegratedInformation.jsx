@@ -48,9 +48,28 @@ export default function IntegratedInformation() {
       console.error("Error updating data:", error);
     }
   };
+  /*
+  const latesFileExcelUpdate = async () => {
+    try {
+      const response = await axios.post(
+        "/integratedinformation/SaveLatestFileDataIngratedInformation",
+        {
+          responseType: "blob", // สำคัญ! เพื่อให้ไฟล์ถูกดาวน์โหลด
+        }
+      );
 
-  const latesFileExcelUpdate = () => {};
-
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "IntegratedInformation.xlsx"); // ตั้งชื่อไฟล์
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    } catch (error) {
+      console.error("Error downloading Excel file:", error);
+    }
+  };
+*/
   return (
     <>
       <HeaderMainMessage text="ข้อมูลบูรณาการ" />
@@ -59,7 +78,7 @@ export default function IntegratedInformation() {
       <Layout2
         dataIntegreted={dataIntegreted}
         createNewDataIntegratedInformation={createNewDataIntegratedInformation}
-        latesFileExcelUpdate={latesFileExcelUpdate}
+        // latesFileExcelUpdate={latesFileExcelUpdate}
       />
     </>
   );

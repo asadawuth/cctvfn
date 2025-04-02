@@ -36,7 +36,7 @@ export default function Header() {
         </picture>
       </div>
       <header className="tw-w-full">
-        <div className="tw-flex tw-flex-col md:tw-flex md:tw-flex-col lg:tw-flex lg:tw-flex-row lg:tw-gap-1 tw-justify-center tw-text-2xl tw-py-6">
+        <div className="tw-flex tw-flex-col md:tw-flex md:tw-flex-col lg:tw-flex lg:tw-flex-row lg:tw-gap-1 tw-justify-center tw-text-base tw-py-2">
           <a
             className={`hover:tw-cursor-pointer tw-px-6 tw-py-2 hover:tw-bg-blue-900 hover:tw-text-white  ${
               location.pathname === "/vision"
@@ -45,7 +45,7 @@ export default function Header() {
             }`}
             href="/vision"
           >
-            วิสัยทัศน์
+            เกี่ยวกับ
           </a>
           <div
             className={`hover:tw-cursor-pointer tw-px-6 tw-py-2 hover:tw-bg-blue-900 hover:tw-text-white ${
@@ -340,6 +340,101 @@ export default function Header() {
           >
             ข้อมูลบูรณาการ
           </a>
+          <div
+            className={`hover:tw-cursor-pointer tw-px-6 tw-py-2 hover:tw-bg-blue-900 hover:tw-text-white ${
+              location.pathname === "/data-userreports-excel" ||
+              location.pathname === "/data-userreportsshop-excel" ||
+              location.pathname === "/data-userrequestcctv-excel" ||
+              location.pathname === "/data-userreportsos-excel" ||
+              location.pathname === "/data-integratedinformationexcel" ||
+              location.pathname === "/data-energy-weather-excel"
+                ? "tw-bg-blue-900 tw-text-white"
+                : ""
+            }`}
+          >
+            <Menu>
+              <MenuHandler className="tw-flex tw-items-center tw-justify-start tw-full">
+                <Button
+                  className={`tw-bg-transparent hover:tw-bg-blue-900 hover:tw-text-white${
+                    location.pathname === "/data-userreports-excel"
+                      ? "tw-bg-blue-900 tw-!text-white"
+                      : "tw-text-black"
+                  }`}
+                >
+                  บันทึกเป็น Excel
+                </Button>
+              </MenuHandler>
+              <MenuList className="tw-bg-slate-400 tw-mt-2 tw-shadow-lg tw-w-64">
+                <Link to="/data-userreports-excel">
+                  <MenuItem
+                    className={`tw-text-white tw-py-2 tw-px-4 tw-w-full tw-text-start tw-whitespace-nowrap ${
+                      location.pathname === "/data-userreports-excel"
+                        ? "tw-bg-blue-900 !tw-text-white"
+                        : "hover:tw-bg-blue-900"
+                    }`}
+                  >
+                    รายงานหัวข้อร้องเรียน
+                  </MenuItem>
+                </Link>
+                <Link to="/data-userreportsshop-excel">
+                  <MenuItem
+                    className={`tw-text-white tw-py-2 tw-px-4 tw-w-full tw-text-start tw-whitespace-nowrap ${
+                      location.pathname === "/data-userreportsshop-excel"
+                        ? "tw-bg-blue-900 !tw-text-white"
+                        : "hover:tw-bg-blue-900"
+                    }`}
+                  >
+                    {" "}
+                    สถานะโปรโมทร้านของประชาชน
+                  </MenuItem>
+                </Link>
+                <Link to="/data-userrequestcctv-excel">
+                  <MenuItem
+                    className={`tw-text-white tw-py-2 tw-px-4 tw-w-full tw-text-start tw-whitespace-nowrap ${
+                      location.pathname === "/data-userrequestcctv-excel"
+                        ? "tw-bg-blue-900 !tw-text-white"
+                        : "hover:tw-bg-blue-900"
+                    }`}
+                  >
+                    รายงานคำของกล้องประชาชน
+                  </MenuItem>
+                </Link>
+                <Link to="/data-userreportsos-excel">
+                  <MenuItem
+                    className={`tw-text-white tw-py-2 tw-px-4 tw-w-full tw-text-start tw-whitespace-nowrap ${
+                      location.pathname === "/data-userreportsos-excel"
+                        ? "tw-bg-blue-900 !tw-text-white"
+                        : "hover:tw-bg-blue-900"
+                    }`}
+                  >
+                    รายงาน SOS ฉุบเฉิน
+                  </MenuItem>
+                </Link>
+                <Link to="/data-integratedinformationexcel">
+                  <MenuItem
+                    className={`tw-text-white tw-py-2 tw-px-4 tw-w-full tw-text-start tw-whitespace-nowrap ${
+                      location.pathname === "/data-integratedinformationexcel"
+                        ? "tw-bg-blue-900 !tw-text-white"
+                        : "hover:tw-bg-blue-900"
+                    }`}
+                  >
+                    ข้อมูลบูรณาการ
+                  </MenuItem>
+                </Link>
+                <Link to="/data-energy-weather-excel">
+                  <MenuItem
+                    className={`tw-text-white tw-py-2 tw-px-4 tw-w-full tw-text-start tw-whitespace-nowrap ${
+                      location.pathname === "/data-energy-weather-excel"
+                        ? "tw-bg-blue-900 !tw-text-white"
+                        : "hover:tw-bg-blue-900"
+                    }`}
+                  >
+                    การใช้พลังงานและคุณภาพอากาศ
+                  </MenuItem>
+                </Link>
+              </MenuList>
+            </Menu>
+          </div>
         </div>
       </header>
       <hr className="" />

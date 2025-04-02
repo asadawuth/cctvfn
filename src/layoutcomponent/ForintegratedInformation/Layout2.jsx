@@ -1,21 +1,18 @@
 import { useState } from "react";
-import Model from "../../layoutcomponent/Model";
+// import Model from "../../layoutcomponent/Model";
 import ModelForIntegratedInformation from "../Model/forflow/ModelForIntegratedInformation";
 import ModelForUpdateDataIntegrated from "../Model/forflow/ModelForUpdateDataIntegrated";
-import ModelForUpDataIntegratedExcel from "../../layoutcomponent/Model/forflow/ModelForUpDataIntegratedExcel";
+// import ModelForUpDataIntegratedExcel from "../../layoutcomponent/Model/forflow/ModelForUpDataIntegratedExcel";
 
 export default function Layout2({
   dataIntegreted,
   createNewDataIntegratedInformation,
-  latesFileExcelUpdate,
+  // latesFileExcelUpdate,
 }) {
   const [openModelUpdateData, setOpenModelData] = useState(false);
-  const [openModelCreateFileExcel, setOpenModelCreateFileExcel] =
-    useState(false);
+  // const [openModelCreateFileExcel, setOpenModelCreateFileExcel] =
+  //   useState(false);
 
- 
-
-    
   return (
     <>
       <div className="tw-bg-gray-100 tw-w-full tw-flex tw-justify-center tw-gap-8 tw-py-4">
@@ -24,17 +21,17 @@ export default function Layout2({
             onClick={() => setOpenModelData(true)}
             className="tw-bg-blue-500 tw-text-white tw-p-3 tw-px-10 tw-rounded-lg tw-shadow-md hover:tw-bg-blue-600 hover:tw-shadow-lg transition-all duration-300 tw-flex tw-items-center tw-gap-2"
           >
-            ✏️ <span>แก้ไขข้อมูล</span>
+            ✏️ <span>อัปเดตข้อมูล</span>
           </button>
         </div>
-        <div>
+        {/* <div>
           <button
             onClick={() => setOpenModelCreateFileExcel(true)}
             className="tw-bg-green-500 tw-text-white tw-p-3 tw-px-10 tw-rounded-lg tw-shadow-md hover:tw-bg-green-600 hover:tw-shadow-lg transition-all duration-300 tw-flex tw-items-center tw-gap-2"
           >
             📥 <span>บันทึกลง Excel</span>
           </button>
-        </div>
+        </div> */}
       </div>
       <ModelForIntegratedInformation
         title="อัปเดตข้อมูลบูรณาการ"
@@ -49,7 +46,8 @@ export default function Layout2({
           onClose={() => setOpenModelData(false)}
         />
       </ModelForIntegratedInformation>
-      <Model
+
+      {/* <Model
         title="โหลดข้อมูลลงExcel"
         open={openModelCreateFileExcel}
         onClose={() => setOpenModelCreateFileExcel(false)}
@@ -58,7 +56,7 @@ export default function Layout2({
           onClose={() => setOpenModelCreateFileExcel(false)}
           latesFileExcelUpdate={latesFileExcelUpdate}
         />
-      </Model>
+      </Model> */}
     </>
   );
 }

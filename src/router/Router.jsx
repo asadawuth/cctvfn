@@ -54,6 +54,12 @@ import ProblemPoint from "../page/point/ProblemPoint";
 import ProblemSoftwareHardware from "../page/ProblemSoftwareHardware";
 import DardboardAllVaule from "./../page/DardboardAllVaule";
 import IntegratedInformation from "../page/IntegratedInformation";
+import UserReportExcel from "../page/forexportexcel/UserReportExcel";
+import UserReportShopExcel from "../page/forexportexcel/UserReportShopExcel";
+import UserRequestcctvExcel from "../page/forexportexcel/UserRequestcctvExcel";
+import UserReportsosExcel from "../page/forexportexcel/UserReportsosExcel";
+import IntegratedInformationExcel from "../page/forexportexcel/IntegratedInformationExcel";
+import EnergyAndWeatherExcel from "../page/forexportexcel/EnergyAndWeatherExcel";
 import PathNotFound from "../layoutcomponent/PathNotFound";
 import Layout from "./Layout";
 import NoLayout from "./NoLayout";
@@ -140,6 +146,15 @@ const router = createBrowserRouter([
         path: "data-integratedinformation",
         element: <IntegratedInformation />,
       },
+      { path: "data-userreports-excel", element: <UserReportExcel /> },
+      { path: "data-userreportsshop-excel", element: <UserReportShopExcel /> },
+      { path: "data-userrequestcctv-excel", element: <UserRequestcctvExcel /> },
+      { path: "data-userreportsos-excel", element: <UserReportsosExcel /> },
+      {
+        path: "data-integratedinformationexcel",
+        element: <IntegratedInformationExcel />,
+      },
+      { path: "data-energy-weather-excel", element: <EnergyAndWeatherExcel /> },
       { path: "*", element: <PathNotFound /> },
     ],
   },
