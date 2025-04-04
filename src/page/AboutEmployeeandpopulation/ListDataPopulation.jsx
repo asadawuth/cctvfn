@@ -57,7 +57,7 @@ export default function ListDataPopulation() {
 
   return (
     <>
-      <HeaderMainMessage text="รายชื่อข้อมูลพนักงานทั้งหมด" />
+      <HeaderMainMessage text="รายชื่อข้อมูลประชาชนทั้งหมด" />
       <SearchdDataPersonReport
         setFirstName={setFirstName}
         setLastName={setLastName}

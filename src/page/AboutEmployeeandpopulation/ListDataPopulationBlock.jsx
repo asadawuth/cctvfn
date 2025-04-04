@@ -56,7 +56,7 @@ export default function ListDataPopulationBlock() {
   }, [firstName, lastName]);
   return (
     <>
-      <HeaderMainMessage text="รายชื่อข้อมูลพนักงานทั้งหมด" />
+      <HeaderMainMessage text="รายชื่อข้อมูลประชาชนที่ถูกบล็อคทั้งหมด" />
       <SearchdDataPersonReport
         setFirstName={setFirstName}
         setLastName={setLastName}

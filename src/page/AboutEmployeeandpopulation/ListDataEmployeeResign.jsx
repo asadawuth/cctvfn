@@ -56,7 +56,7 @@ export default function ListDataEmployeeResign() {
 
   return (
     <>
-      <HeaderMainMessage text="รายชื่อข้อมูลพนักงานทั้งหมด" />
+      <HeaderMainMessage text="รายชื่อข้อมูลพนักงานที่พ้นสภาพทั้งหมด" />
       <SearchdDataPersonReport
         setFirstName={setFirstName}
         setLastName={setLastName}
