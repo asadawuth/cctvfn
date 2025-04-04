@@ -50,7 +50,8 @@ export default function SocketProvider({ children }) {
   useEffect(() => {
     if (!socketRef.current) {
       // "wss://nodeapi.masscorporation.site/"
-      socketRef.current = io("http://localhost:8888", {
+      // "http://localhost:8888"
+      socketRef.current = io("https://env-8549838.proen.app.ruk-com.cloud", {
         autoConnect: true,
         reconnection: true,
         transports: ["websocket"],
