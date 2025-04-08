@@ -102,19 +102,25 @@ export default function TitleItem({ dataUserReport, setDataUserReport }) {
               </div>
               <div className="tw-flex tw-items-center tw-space-x-3">
                 <BsPinMap className="tw-text-blue-500 tw-text-lg" />
+                /////////////////////////////
                 <a
-                  href={
-                    report.map && report.map.startsWith("http://")
-                      ? report.map
-                      : report.map
-                      ? `https://${report.map}`
-                      : "#"
-                  }
-                  target={report.map ? "_blank" : "_self"} // เปิด tab ใหม่เฉพาะกรณีมี map
+                  //   href={
+                  //     report.map && report.map.startsWith("http://")
+                  //       ? report.map
+                  //       : report.map
+                  //       ? `https://${report.map}`
+                  //       : "#"
+                  //   }
+                  //   target={report.map ? "_blank" : "_self"} // เปิด tab ใหม่เฉพาะกรณีมี map
+                  //   rel="noopener noreferrer"
+                  //   className="tw-text-gray-700 tw-text-base"
+                  //
+
+                  href={`https://www.google.com/maps/search/?api=1&query=${report.latitude},${report.longtitude}`}
+                  target="_blank"
                   rel="noopener noreferrer"
-                  className="tw-text-gray-700 tw-text-base"
                 >
-                  พิกัด
+                  //////////////////// พิกัด
                 </a>
               </div>
               {report._count.commentinpostuserreport > 0 && (
