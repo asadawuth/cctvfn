@@ -156,18 +156,15 @@ export default function Layout2AllTitle({
               </div>
               <div className="tw-flex tw-items-center tw-gap-3">
                 <BsPinMap className="tw-text-red-500 tw-text-lg" />
-                <a
-                  href={
-                    report.map && !report.map.startsWith("http")
-                      ? `https://${report.map}`
-                      : report.map
-                  }
-                  className="tw-text-gray-700"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  พิกัด
-                </a>
+                {report.map && (
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${report.map}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    พิกัด
+                  </a>
+                )}
               </div>
             </div>
           </div>
