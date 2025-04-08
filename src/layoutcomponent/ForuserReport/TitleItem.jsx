@@ -101,25 +101,16 @@ export default function TitleItem({ dataUserReport, setDataUserReport }) {
                 <p className="tw-text-gray-700 tw-text-base">{report.status}</p>
               </div>
               <div className="tw-flex tw-items-center tw-space-x-3">
-                <BsPinMap className="tw-text-blue-500 tw-text-lg" />
-
-                <a
-                  //   href={
-                  //     report.map && report.map.startsWith("http://")
-                  //       ? report.map
-                  //       : report.map
-                  //       ? `https://${report.map}`
-                  //       : "#"
-                  //   }
-                  //   target={report.map ? "_blank" : "_self"} // เปิด tab ใหม่เฉพาะกรณีมี map
-                  //   rel="noopener noreferrer"
-                  //   className="tw-text-gray-700 tw-text-base"
-                  //
-
-                  href={`https://www.google.com/maps/search/?api=1&query=${report.latitude},${report.longtitude}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                ></a>
+                {report.latitude && report.longtitude && (
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${report.latitude},${report.longtitude}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {" "}
+                    <BsPinMap className="tw-text-blue-500 tw-text-lg" />
+                  </a>
+                )}
               </div>
               {report._count.commentinpostuserreport > 0 && (
                 <div className="tw-flex tw-items-center tw-space-x-3">
