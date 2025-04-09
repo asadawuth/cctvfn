@@ -7,13 +7,13 @@ export default function ModelForUpdateDataIntegrated({
   onClose,
 }) {
   const [newData, setNewData] = useState({
-    male: dataIntegreted.male || "",
-    female: dataIntegreted.female || "",
-    household: dataIntegreted.household || "",
-    store: dataIntegreted.store || "",
-    restaurant: dataIntegreted.restaurant || "",
-    place: dataIntegreted.place || "",
-    accommodation: dataIntegreted.accommodation || "",
+    male: dataIntegreted?.male || "",
+    female: dataIntegreted?.female || "",
+    household: dataIntegreted?.household || "",
+    store: dataIntegreted?.store || "",
+    restaurant: dataIntegreted?.restaurant || "",
+    place: dataIntegreted?.place || "",
+    accommodation: dataIntegreted?.accommodation || "",
   });
   const [loading, setLoading] = useState(false);
 
