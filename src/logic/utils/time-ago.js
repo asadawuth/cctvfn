@@ -14,9 +14,14 @@ import { DateTime } from "luxon";
 TimeAgo.addLocale(th);
 const timeAgo = new TimeAgo("th-TH");
 
-const formatTimeAgo = (date) => {
-  const bangkokTime = DateTime.fromISO(date, { zone: "Asia/Bangkok" });
-  return timeAgo.format(bangkokTime.toJSDate(), "mini-now");
+const formatTimeAgo = (dateStr) => {
+  // รองรับฟอร์แมต MySQL: '2025-04-09 08:39:17.542'
+  const dt = DateTime.fromFormat(dateStr, "yyyy-MM-dd HH:mm:ss.SSS", {
+    zone: "Asia/Bangkok", // แปลงเป็นเวลาของไทย
+  });
+
+  // ใช้ .toJSDate() เพื่อส่งให้ timeAgo แสดงผล
+  return timeAgo.format(dt.toJSDate(), "mini-now");
 };
 
 export default formatTimeAgo;
