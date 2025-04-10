@@ -1,6 +1,5 @@
 import { BsFillCircleFill } from "react-icons/bs";
 import { useState, useEffect } from "react";
-import LayoutInClud from "./LayoutInClud";
 import axios from "../../logic/config/axios";
 import {
   VictoryChart,
@@ -9,7 +8,6 @@ import {
   VictoryAxis,
   VictoryLabel,
 } from "victory";
-import LayoutText from "../../layoutcomponent/DashboardAllValue/LayoutText";
 
 export default function Layout2IncludUserReport() {
   const [totalUserReportStatus, setTotalUserReportStatus] = useState({});
@@ -89,7 +87,7 @@ export default function Layout2IncludUserReport() {
                         y: totalUserReportStatus.inProgress || 0,
                       },
                       {
-                        x: "จัดการเร๊จสิ้น",
+                        x: "จัดการเสร็จสิ้น",
                         y: totalUserReportStatus.completed || 0,
                       },
                       { x: "ยกเลิก", y: totalUserReportStatus.canceled || 0 },
@@ -167,10 +165,6 @@ export default function Layout2IncludUserReport() {
           </div>
         </div>
       </div>
-      {/* <LayoutInClud
-        text="ผลรวมทุกสถานะ"
-        data={totalUserReportStatus.allStatus}
-      /> */}
     </>
   );
 }
