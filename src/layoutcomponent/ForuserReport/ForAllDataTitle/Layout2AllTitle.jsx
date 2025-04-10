@@ -145,7 +145,7 @@ export default function Layout2AllTitle({
                       ? "tw-text-orange-500"
                       : report.status === "กำลังดำเนินการ"
                       ? "tw-text-yellow-500"
-                      : report.status === "จัดการเร็จสิ้น"
+                      : report.status === "จัดการเสร็จสิ้น"
                       ? "tw-text-green-500"
                       : report.status === "ยกเลิก"
                       ? "tw-text-gray-500"
