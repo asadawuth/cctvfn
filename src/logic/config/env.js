@@ -1,6 +1,3 @@
-export const BACKEND_URL = "https://env-8549838.proen.app.ruk-com.cloud";
-// "env-8549838.proen.app.ruk-com.cloud"
+export const BACKEND_URL = "http://localhost:8888";
 // "http://localhost:8888"
-// "https://mass-serv.ddns.net"
-// "https://nodeapi.masscorporation.site/"
 // "https://env-8549838.proen.app.ruk-com.cloud"
