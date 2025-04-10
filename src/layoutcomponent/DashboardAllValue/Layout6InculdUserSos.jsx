@@ -1,7 +1,4 @@
-import LayoutText from "../../layoutcomponent/DashboardAllValue/LayoutText";
-
 import CardLayout6 from "./CardLayout6";
-// import LayoutInClud from "./LayoutInClud";
 import { useState, useEffect } from "react";
 import axios from "../../logic/config/axios";
 
@@ -38,9 +35,7 @@ export default function Layout6InculdUserSos() {
 
   return (
     <>
-      {/* <LayoutText text="สรุปสถานะประชาชนในพื้นที่ที่ SOS เข้ามา" /> */}
       <CardLayout6 data={data} />
-      {/* <LayoutInClud text="สรุปผลรวมทุกสถานะ" data={data.allStatus} /> */}
     </>
   );
 }

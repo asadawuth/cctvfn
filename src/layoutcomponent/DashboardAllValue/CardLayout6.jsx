@@ -70,7 +70,7 @@ export default function StatusTable({ data }) {
                   href="/pageaction-sosstatuscompleted"
                   className="tw-block tw-w-full"
                 >
-                  สำเร็จ
+                  จัดการเสร็จสิ้น
                 </a>
               </td>
               <td className="tw-px-4 tw-py-2 tw-font-bold tw-text-center">
