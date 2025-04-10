@@ -143,7 +143,7 @@ export default function Layout2IncludUserReport() {
                 href="userreportstatuscompletedonly"
                 className="tw-ml-2 tw-text-sm md:tw-text-base xl:tw-text-lg tw-font-medium tw-text-gray-600 hover:tw-cursor-pointer hover:tw-text-blue-600"
               >
-                จัดการเร็จสิ้น
+                จัดการเสร็จสิ้น
               </a>
             </div>
             <div className="tw-flex tw-items-center tw-pt-2">
