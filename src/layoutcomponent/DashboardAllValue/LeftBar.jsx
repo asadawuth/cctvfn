@@ -122,7 +122,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg   tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                จัดการเร็จสิ้น
+                จัดการเสร็จสิ้น
               </a>
               <a
                 href="/userreportstatuscompleted"
@@ -320,7 +320,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg   tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                จัดการเร็จสิ้น
+                จัดการเสร็จสิ้น
               </a>
               <a
                 href="/pageaction-sosstatuscanceled"
