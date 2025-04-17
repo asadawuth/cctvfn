@@ -106,6 +106,8 @@ export default function AuthContextProvider({ children }) {
     try {
       const res = await axios.patch("/user/changeemail", changeEmailInputObj);
       res.data.message;
+      console.log(res.data.dataNewEmail);
+      setAuthUser(res.data.dataNewEmail);
     } catch (error) {
       throw error;
     }

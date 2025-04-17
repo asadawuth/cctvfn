@@ -1,7 +1,11 @@
 import { AiOutlineCheck } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 export default function ChangeEmailSuccess({ onClose }) {
+  const navigate = useNavigate();
   const handleClick = () => {
+    
+    navigate("/yourprofile");
     onClose();
   };
 

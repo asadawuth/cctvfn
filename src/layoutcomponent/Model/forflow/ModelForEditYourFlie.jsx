@@ -1,5 +1,5 @@
+import { useEffect, useState } from "react";
 import { useAuth } from "../../../logic/hook/user-auth";
-import { useState } from "react";
 import { changeDataYourProfile } from "../../../logic/validate/validate";
 import Loading from "./../../Loading";
 
@@ -16,7 +16,11 @@ const validateEditsDataYourfile = (input) => {
   return null;
 };
 
-export default function ModelForEditYourFlie({ onClose, setUserProfile }) {
+export default function ModelForEditYourFlie({
+  open,
+  onClose,
+  setUserProfile,
+}) {
   const { authUser, updateUserData, setAuthUser } = useAuth();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState({});
@@ -26,6 +30,14 @@ export default function ModelForEditYourFlie({ onClose, setUserProfile }) {
     email: authUser.email,
     phone: authUser.phone,
   });
+
+  useEffect(() => {
+    if (open) {
+      setError({});
+    }
+  }, [open]);
+
+  if (!open) return null;
 
   const handleChangeInput = (e) => {
     setInputEditsDataProfile({
@@ -48,6 +60,7 @@ export default function ModelForEditYourFlie({ onClose, setUserProfile }) {
     try {
       const { updatedUser } = await updateUserData(inputEditsDataProfile);
       console.log("Updated User:", updatedUser);
+
       setAuthUser((prevUserProfile) => ({
         ...prevUserProfile,
         ...updatedUser,
@@ -58,15 +71,22 @@ export default function ModelForEditYourFlie({ onClose, setUserProfile }) {
       }));
 
       setError({});
+      onClose();
     } catch (error) {
       console.error("Error updating profile:", error);
-      setError({
-        message: "Failed to update profile. Please try again later.",
-      });
+
+      const status = error?.response?.status;
+      if (status === 500) {
+        setError({
+          message: "เกิดข้อผิดพลาด เช่น อีเมลล์ หรือเบอร์โทรศัพท์ถูกใช้ไปแล้ว",
+        });
+      } else {
+        setError({
+          message: "ไม่สามารถอัปเดตข้อมูลได้ กรุณาลองใหม่อีกครั้ง",
+        });
+      }
     } finally {
       setLoading(false);
-      // Ensure onClose is called in the finally block, so it gets called regardless of success or failure
-      onClose();
     }
   };
 
@@ -103,6 +123,13 @@ export default function ModelForEditYourFlie({ onClose, setUserProfile }) {
             </div>
           ))}
         </div>
+
+        {error.message && (
+          <div className="tw-mt-4 tw-text-center">
+            <EditsDataYourProfileErrorMessage message={error.message} />
+          </div>
+        )}
+
         <div className="tw-flex tw-justify-center tw-gap-4 tw-p-6">
           <button
             type="submit"

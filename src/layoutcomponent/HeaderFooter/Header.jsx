@@ -56,7 +56,9 @@ export default function Header() {
               location.pathname === "/listdataemployresign" ||
               location.pathname === "/deleteidpopulation" ||
               location.pathname === "/listdatapopulationblock" ||
-              location.pathname === "/yourprofile"
+              location.pathname === "/yourprofile" ||
+              location.pathname === "/yourprofile/changeemail" ||
+              location.pathname === "/yourprofile/changepassword"
                 ? "tw-bg-blue-900 tw-text-white"
                 : ""
             }`}

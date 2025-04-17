@@ -121,6 +121,16 @@ export default function DataUserForm({ authUser, updataProfile, setAuthUser }) {
                 <span className="tw-font-medium tw-text-gray-600">สถานะ</span>
                 <span className="tw-text-gray-800">{authUser?.status}</span>
               </div>
+              <div className="tw-flex tw-justify-between tw-items-center tw-py-2 tw-border-b tw-border-gray-300">
+                <span className="tw-font-medium tw-text-gray-600">
+                  เบอร์โทรศัพท์
+                </span>
+                <span className="tw-text-gray-800">{authUser?.phone}</span>
+              </div>
+              <div className="tw-flex tw-justify-between tw-items-center tw-py-2 tw-border-b tw-border-gray-300">
+                <span className="tw-font-medium tw-text-gray-600">อีเมลล์</span>
+                <span className="tw-text-gray-800">{authUser?.email}</span>
+              </div>
             </div>
             <div className="tw-mt-6 tw-flex tw-justify-around">
               <a
@@ -146,13 +156,19 @@ export default function DataUserForm({ authUser, updataProfile, setAuthUser }) {
         </div>
       </div>
       {/* Modals */}
-      <ModelForUserDataEdit
-        title="แก้ไขข้อมูล"
-        open={openModel}
-        onClose={() => setOpenModel(false)}
-      >
-        <ModelForEditYourFlie onClose={() => setOpenModel(false)} />
-      </ModelForUserDataEdit>
+      {openModel && (
+        <ModelForUserDataEdit
+          title="แก้ไขข้อมูล"
+          open={openModel}
+          onClose={() => setOpenModel(false)}
+        >
+          <ModelForEditYourFlie
+            open={openModel}
+            onClose={() => setOpenModel(false)}
+            setUserProfile={setAuthUser}
+          />
+        </ModelForUserDataEdit>
+      )}
       <Model
         title="ตั้งค่ารูปกับเป็นค่าเดิม"
         open={openModelChangeProfile}

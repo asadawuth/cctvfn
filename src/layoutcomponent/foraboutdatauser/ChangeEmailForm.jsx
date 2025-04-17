@@ -28,6 +28,7 @@ const validateChangeEmail = (input) => {
 };
 export default function ChangeEmailForm() {
   const [openModel, setOpenModel] = useState(false);
+  const { changeEmail } = useAuth();
   const [inputChangeEmail, setInputChangeEmail] = useState({
     oldEmail: "",
     newEmail: "",
@@ -35,7 +36,6 @@ export default function ChangeEmailForm() {
   });
   const [errorLast, setErrorLast] = useState(false);
   const [error, setError] = useState({});
-  const { changeEmail } = useAuth();
 
   const handleChangeInput = (e) => {
     setInputChangeEmail({
@@ -54,7 +54,7 @@ export default function ChangeEmailForm() {
       setError({});
 
       try {
-        await changeEmail(inputChangeEmail);
+        const dataNewEmail = await changeEmail(inputChangeEmail);
         setOpenModel(true);
         setInputChangeEmail({
           oldEmail: "",
@@ -81,6 +81,7 @@ export default function ChangeEmailForm() {
       }
     }
   };
+
   return (
     <>
       <div className="tw-flex tw-justify-center tw-items-center tw-bg-gray-100 sm:tw-py-4 md:tw-py-8 lg:tw-py-12">
