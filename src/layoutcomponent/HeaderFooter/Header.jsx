@@ -398,7 +398,7 @@ export default function Header() {
                         : "hover:tw-bg-blue-900"
                     }`}
                   >
-                    รายงานคำของกล้องประชาชน
+                    รายงานคำขอกล้องประชาชน
                   </MenuItem>
                 </Link>
                 <Link to="/data-userreportsos-excel">
@@ -409,7 +409,7 @@ export default function Header() {
                         : "hover:tw-bg-blue-900"
                     }`}
                   >
-                    รายงาน SOS ฉุบเฉิน
+                    รายงาน SOS ฉุกเฉิน
                   </MenuItem>
                 </Link>
                 <Link to="/data-integratedinformationexcel">
