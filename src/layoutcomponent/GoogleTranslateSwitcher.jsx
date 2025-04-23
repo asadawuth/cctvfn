@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 
-export default function ThEn() {
+export default function GoogleTranslateSwitcher() {
   const { i18n } = useTranslation();
 
   return (

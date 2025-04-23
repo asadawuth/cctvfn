@@ -11,7 +11,7 @@ import headerWebp from "../../assets/forheaderandfooter/headerwebp.webp";
 import ForUser from "../ForUser";
 import ForLogout from "../ForLogout";
 import { useTranslation } from "react-i18next";
-import GoogleTranslateSwitcher from ".././ThEn";
+import GoogleTranslateSwitcher from ".././GoogleTranslateSwitcher";
 export default function Header() {
   const { t } = useTranslation();
   const location = useLocation();
