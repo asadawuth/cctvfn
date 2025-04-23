@@ -50,7 +50,6 @@ export default function AuthContextProvider({ children }) {
     removeAccessToken();
     setAuthUser(null);
   };
-
   const updateUserData = async (updataTextInputObj) => {
     try {
       const res = await axios.patch("/user/updateDataId", updataTextInputObj);

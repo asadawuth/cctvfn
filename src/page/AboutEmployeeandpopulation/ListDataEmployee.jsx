@@ -6,8 +6,10 @@ import BigLayout from "../../layoutcomponent/Aboutemployee&&population/BigLayout
 import Item from "../../layoutcomponent/Aboutemployee&&population/Item";
 import ItemSearch from "../../layoutcomponent/Aboutemployee&&population/ItemSearch";
 import Patination from "../../layoutcomponent/Patination";
+import { useTranslation } from "react-i18next";
 
 export default function ListDataEmployee() {
+  const { t } = useTranslation();
   const [dataListEmployee, setDataListEmployee] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
@@ -59,7 +61,7 @@ export default function ListDataEmployee() {
 
   return (
     <>
-      <HeaderMainMessage text="รายชื่อข้อมูลพนักงานทั้งหมด" />
+      <HeaderMainMessage text={t("inconponentListDataEmployee")} />
       <SearchdDataPersonReport
         setFirstName={setFirstName}
         setLastName={setLastName}

@@ -10,8 +10,10 @@ import header from "../../assets/forheaderandfooter/header.png";
 import headerWebp from "../../assets/forheaderandfooter/headerwebp.webp";
 import ForUser from "../ForUser";
 import ForLogout from "../ForLogout";
-
+import { useTranslation } from "react-i18next";
+import GoogleTranslateSwitcher from ".././ThEn";
 export default function Header() {
+  const { t } = useTranslation();
   const location = useLocation();
   return (
     <>
@@ -45,7 +47,7 @@ export default function Header() {
             }`}
             href="/vision"
           >
-            เกี่ยวกับ
+            {t("textone")}
           </a>
           <div
             className={`hover:tw-cursor-pointer tw-px-6 tw-py-2 hover:tw-bg-blue-900 hover:tw-text-white ${
@@ -73,7 +75,7 @@ export default function Header() {
                       : "tw-text-black"
                   }`}
                 >
-                  ข้อมูลผู้ใช้ระบบ
+                  {t("texttwo")}
                 </Button>
               </MenuHandler>
               <MenuList className="tw-bg-slate-400 tw-mt-2 tw-shadow-lg tw-w-64">
@@ -85,7 +87,7 @@ export default function Header() {
                         : "hover:tw-bg-blue-900"
                     }`}
                   >
-                    สมัครไอดีพนักงาน
+                    {t("textuser1")}
                   </MenuItem>
                 </Link>
                 <Link to="/deleteidemployee">
@@ -96,7 +98,7 @@ export default function Header() {
                         : "hover:tw-bg-blue-900"
                     }`}
                   >
-                    ลบไอดีพนักงานที่พ้นสภาพ
+                    {t("textuser2")}
                   </MenuItem>
                 </Link>
                 <Link to="/deleteidpopulation">
@@ -107,7 +109,7 @@ export default function Header() {
                         : "hover:tw-bg-blue-900"
                     }`}
                   >
-                    ลบไอดีประชาชน
+                    {t("textuser3")}
                   </MenuItem>
                 </Link>
                 <Link to="/listdataemployee">
@@ -118,7 +120,7 @@ export default function Header() {
                         : "hover:tw-bg-blue-900"
                     }`}
                   >
-                    รายชื่อข้อมูลพนักงาน
+                    {t("textuser4")}
                   </MenuItem>
                 </Link>
                 <Link to="listdatapopulation">
@@ -129,7 +131,7 @@ export default function Header() {
                         : "hover:tw-bg-blue-900"
                     }`}
                   >
-                    รายชื่อข้อมูลประชาชน
+                    {t("textuser5")}
                   </MenuItem>
                 </Link>
                 <Link to="listdataemployresign">
@@ -140,7 +142,7 @@ export default function Header() {
                         : "hover:tw-bg-blue-900"
                     }`}
                   >
-                    รายชื่อข้อมูลพนักงานที่ลาออก
+                    {t("textuser6")}
                   </MenuItem>
                 </Link>
                 <Link to="listdatapopulationblock">
@@ -151,7 +153,7 @@ export default function Header() {
                         : "hover:tw-bg-blue-900"
                     }`}
                   >
-                    รายชื่อข้อมูลประชาชนสถานะบล๊อค
+                    {t("textuser7")}
                   </MenuItem>
                 </Link>
               </MenuList>
@@ -165,7 +167,7 @@ export default function Header() {
             }`}
             href="/manual"
           >
-            คู่มือการใช้เว็ป
+            {t("textthree")}
           </a>
           <div
             className={`hover:tw-cursor-pointer tw-px-6 tw-py-2 hover:tw-bg-blue-900 hover:tw-text-white ${
@@ -186,7 +188,7 @@ export default function Header() {
                       : "tw-text-black"
                   }`}
                 >
-                  ประชาชนแจ้งเรื่องต่างๆ
+                  {t("textfour")}
                 </Button>
               </MenuHandler>
               <MenuList className="tw-bg-slate-400 tw-mt-2 tw-shadow-lg tw-w-64">
@@ -198,7 +200,7 @@ export default function Header() {
                         : "hover:tw-bg-blue-900"
                     }`}
                   >
-                    รายงานหัวข้อร้องเรียน
+                    {t("textreport1")}
                   </MenuItem>
                 </Link>
                 <Link to="/report-request">
@@ -209,7 +211,7 @@ export default function Header() {
                         : "hover:tw-bg-blue-900"
                     }`}
                   >
-                    สถานะโปรโมทร้านของประชาชน
+                    {t("textreport2")}
                   </MenuItem>
                 </Link>
                 <Link to="/userrequest-forwatchcctv">
@@ -220,7 +222,7 @@ export default function Header() {
                         : "hover:tw-bg-blue-900"
                     }`}
                   >
-                    รายงานคำขอกล้องประชาชน
+                    {t("textreport3")}
                   </MenuItem>
                 </Link>
                 <Link to="/sosformmobile">
@@ -231,7 +233,7 @@ export default function Header() {
                         : "hover:tw-bg-blue-900"
                     }`}
                   >
-                    รายงาน SOS ฉุกเฉิน
+                    {t("textreport4")}
                   </MenuItem>
                 </Link>
               </MenuList>
@@ -255,7 +257,7 @@ export default function Header() {
                       : "tw-text-black"
                   }`}
                 >
-                  แผนที่เสาในเขต
+                  {t("textfive")}
                 </Button>
               </MenuHandler>
               <MenuList className="tw-bg-slate-400 tw-mt-2 tw-shadow-lg tw-w-64">
@@ -267,7 +269,7 @@ export default function Header() {
                         : "hover:tw-bg-blue-900"
                     }`}
                   >
-                    แผนที่เสา SmartMetropolis
+                    {t("textpole1")}
                   </MenuItem>
                 </Link>
                 <Link to="/problempointMap">
@@ -278,7 +280,7 @@ export default function Header() {
                         : "hover:tw-bg-blue-900"
                     }`}
                   >
-                    จุดที่อุปกรณ์ต่างๆมีปัญหาหรือชำรุด
+                    {t("textpole2")}
                   </MenuItem>
                 </Link>
               </MenuList>
@@ -294,7 +296,7 @@ export default function Header() {
               (window.location.href = "/problemsoftwareorhardware")
             }
           >
-            ติดต่อปัญหา Software/Hardware
+            {t("textsix")}
           </a>
           <a
             className={`hover:tw-cursor-pointer tw-px-6 tw-py-2 hover:tw-bg-blue-900 hover:tw-text-white  ${
@@ -328,7 +330,7 @@ export default function Header() {
             }`}
             onClick={() => (window.location.href = "/dardboardallvaule")}
           >
-            ตารางสรุปค่า
+            {t("textseven")}
           </a>
           <a
             className={`hover:tw-cursor-pointer tw-px-6 tw-py-2 hover:tw-bg-blue-900 hover:tw-text-white  ${
@@ -340,7 +342,7 @@ export default function Header() {
               (window.location.href = "/data-integratedinformation")
             }
           >
-            ข้อมูลบูรณาการ
+            {t("texteight")}
           </a>
           <div
             className={`hover:tw-cursor-pointer tw-px-6 tw-py-2 hover:tw-bg-blue-900 hover:tw-text-white ${
@@ -363,7 +365,7 @@ export default function Header() {
                       : "tw-text-black"
                   }`}
                 >
-                  บันทึกเป็น Excel
+                  {t("textnine")}
                 </Button>
               </MenuHandler>
               <MenuList className="tw-bg-slate-400 tw-mt-2 tw-shadow-lg tw-w-64">
@@ -375,7 +377,7 @@ export default function Header() {
                         : "hover:tw-bg-blue-900"
                     }`}
                   >
-                    รายงานหัวข้อร้องเรียน
+                    {t("textreport1")}
                   </MenuItem>
                 </Link>
                 <Link to="/data-userreportsshop-excel">
@@ -387,7 +389,7 @@ export default function Header() {
                     }`}
                   >
                     {" "}
-                    สถานะโปรโมทร้านของประชาชน
+                    {t("textreport2")}
                   </MenuItem>
                 </Link>
                 <Link to="/data-userrequestcctv-excel">
@@ -398,7 +400,7 @@ export default function Header() {
                         : "hover:tw-bg-blue-900"
                     }`}
                   >
-                    รายงานคำขอกล้องประชาชน
+                    {t("textreport3")}
                   </MenuItem>
                 </Link>
                 <Link to="/data-userreportsos-excel">
@@ -409,7 +411,7 @@ export default function Header() {
                         : "hover:tw-bg-blue-900"
                     }`}
                   >
-                    รายงาน SOS ฉุกเฉิน
+                    {t("textreport4")}
                   </MenuItem>
                 </Link>
                 <Link to="/data-integratedinformationexcel">
@@ -420,7 +422,7 @@ export default function Header() {
                         : "hover:tw-bg-blue-900"
                     }`}
                   >
-                    ข้อมูลบูรณาการ
+                    {t("texteight")}
                   </MenuItem>
                 </Link>
                 <Link to="/data-energy-weather-excel">
@@ -431,15 +433,17 @@ export default function Header() {
                         : "hover:tw-bg-blue-900"
                     }`}
                   >
-                    การใช้พลังงานและคุณภาพอากาศ
+                    {t("valueHardwear")}
                   </MenuItem>
                 </Link>
               </MenuList>
             </Menu>
           </div>
+          <GoogleTranslateSwitcher />
         </div>
+
+        <hr className="" />
       </header>
-      <hr className="" />
     </>
   );
 }

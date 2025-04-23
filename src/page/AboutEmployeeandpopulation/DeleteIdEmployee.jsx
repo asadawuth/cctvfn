@@ -1,14 +1,12 @@
 import HeaderMainMessage from "../../layoutcomponent/HeaderMainMessage";
 import DeleteIdEmployeeForm from "../../layoutcomponent/Aboutemployee&&population/DeleteIdEmployeeForm";
+import { useTranslation } from "react-i18next";
 
 export default function DeleteIdEmployee() {
+  const { t } = useTranslation();
   return (
     <>
-      <HeaderMainMessage
-        text=" *** เนื่องจากพนักงานที่พ้นสภาพหรือลาออกไปแล้ว
-          ผู้ดูแลระบบต้องลบไอดีของพนักงานนั้นๆ
-          เพื่อไม่ให้ข้อมูลองค์กรรั่วไหลจากบุคคลภายนอก ***"
-      />
+      <HeaderMainMessage text={t("inconponentDeleteIdEmployee")} />
       <DeleteIdEmployeeForm />
     </>
   );
