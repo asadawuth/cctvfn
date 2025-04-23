@@ -33,7 +33,7 @@ export default function Header() {
             src={header}
             alt="Contact Us"
             loading="lazy"
-            className="tw-w-full tw-h-64 tw-object-fill"
+            className="tw-w-full tw-object-fill"
           />
         </picture>
       </div>
