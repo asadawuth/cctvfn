@@ -13,10 +13,11 @@ import {
 import { useState, useEffect } from "react";
 import axios from "../../logic/config/axios";
 import LayoutText from "../../layoutcomponent/DashboardAllValue/LayoutText";
-
 import LayoutInClud from "./LayoutInClud";
+import { useTranslation } from "react-i18next";
 
 export default function Layout3IncludUserShop() {
+  const { t } = useTranslation();
   const [dataTotal, setDataTotal] = useState();
 
   useEffect(() => {
@@ -37,21 +38,29 @@ export default function Layout3IncludUserShop() {
     );
   }
   const data = [
-    { name: "ร้านค้า", total: dataTotal.totalShop },
-    { name: "ร้านอาหาร", total: dataTotal.totalRestaurant },
-    { name: "สถานที่", total: dataTotal.totalPlace },
-    { name: "ที่พัก", total: dataTotal.totalRest },
+    {
+      name: t("IntegratedInformationLayOut1Text4"),
+      total: dataTotal.totalShop,
+    },
+    {
+      name: t("IntegratedInformationLayOut1Text5"),
+      total: dataTotal.totalRestaurant,
+    },
+    {
+      name: t("IntegratedInformationLayOut1Text6"),
+      total: dataTotal.totalPlace,
+    },
+    {
+      name: t("IntegratedInformationLayOut1Text7"),
+      total: dataTotal.totalRest,
+    },
   ];
   return (
     <>
       <div className=" tw-p-10 tw-h-auto ">
-        <LayoutText
-          text={
-            "สรุปจำนวณข้อมูล ร้านค้า/สถานที่/ที่พัก ของประชาชนในพื้นที่ที่อนุมัติแล้ว"
-          }
-        />
+        <LayoutText text={t("Layout3IncludUserShopTitle")} />
         {/* Section แสดงกราฟ */}
-        <div className="lg:tw-mx-20 xl:tw-mx-24 tw-bg-blue-50 tw-rounded-lg tw-p-6 tw-shadow-lg tw-mb-6 tw-mt-2">
+        <div className="lg:tw-mx-20 xl:tw-mx-0 tw-bg-blue-50 tw-rounded-lg tw-p-6 tw-shadow-lg tw-mb-6 tw-mt-2">
           <ResponsiveContainer width="100%" height={400}>
             <ComposedChart
               layout="vertical"
@@ -65,7 +74,7 @@ export default function Layout3IncludUserShop() {
             >
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis type="number" />
-              <YAxis dataKey="name" type="category" />
+              <YAxis dataKey="name" type="category" width={120} />
               <Tooltip />
               <Bar dataKey="total" barSize={20} fill="#4A90E2" name="จำนวนรวม">
                 <LabelList
@@ -84,29 +93,32 @@ export default function Layout3IncludUserShop() {
             <a href="pageaction-datashop">
               <FaShopify className="tw-text-4xl tw-text-blue-500 tw-cursor-pointer hover:tw-text-blue-700" />
             </a>
-            <h5 className="tw-text-blue-700 tw-font-semibold">ร้านค้า</h5>
+            {/* <h5 className="tw-text-blue-700 tw-font-semibold">ร้านค้า</h5> */}
           </div>
           <div className="tw-flex tw-items-center tw-gap-2">
             <a href="pageaction-restaurant">
               <MdOutlineFoodBank className="tw-text-4xl tw-text-blue-500 tw-cursor-pointer hover:tw-text-blue-700" />
             </a>
-            <h5 className="tw-text-blue-700 tw-font-semibold">ร้านอาหาร</h5>
+            {/* <h5 className="tw-text-blue-700 tw-font-semibold">ร้านอาหาร</h5> */}
           </div>
           <div className="tw-flex tw-items-center tw-gap-2">
             <a href="pageaction-dataplace">
-              <FaHome className="tw-text-4xl tw-text-blue-500 tw-cursor-pointer hover:tw-text-blue-700" />
+              <FaHotel className="tw-text-4xl tw-text-blue-500 tw-cursor-pointer hover:tw-text-blue-700 " />
             </a>
-            <h5 className="tw-text-blue-700 tw-font-semibold">ที่พัก</h5>
+            {/* <h5 className="tw-text-blue-700 tw-font-semibold">ที่พัก</h5> */}
           </div>
           <div className="tw-flex tw-items-center tw-gap-2">
             <a href="pageaction-datarest">
-              <FaHotel className="tw-text-4xl tw-text-blue-500 tw-cursor-pointer hover:tw-text-blue-700 " />
+              <FaHome className="tw-text-4xl tw-text-blue-500 tw-cursor-pointer hover:tw-text-blue-700" />
             </a>
-            <h5 className="tw-text-blue-700 tw-font-semibold">สถานที่</h5>
+            {/* <h5 className="tw-text-blue-700 tw-font-semibold">สถานที่</h5> */}
           </div>
         </div>
 
-        <LayoutInClud text="ผลรวมถูกที่อนุมัติ" data={dataTotal.totalApprove} />
+        <LayoutInClud
+          text={t("Layout3IncludUserShopFooter")}
+          data={dataTotal.totalApprove}
+        />
       </div>
     </>
   );

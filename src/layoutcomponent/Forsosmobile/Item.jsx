@@ -1,12 +1,12 @@
-import { BsFillTelephoneXFill } from "react-icons/bs";
 import { useRef } from "react";
 import { TbGps } from "react-icons/tb";
 import formatTimeAgo from "../../logic/utils/time-ago";
 import { useState } from "react";
 import Model from "../../layoutcomponent/Model";
-
 import ModelForUpdateStatusUserSos from "../Model/forflow/ModelForUpdateStatusUserSos";
+import { useTranslation } from "react-i18next";
 export default function Item({ data, setDataSos }) {
+  const { t } = useTranslation();
   const [openModelChangeStatus, setOpenModelChangeStatus] = useState(false);
   const [selectId, setSelectId] = useState(null);
   const audioRef = useRef(null);
@@ -68,7 +68,9 @@ export default function Item({ data, setDataSos }) {
                   </div>
                 </div>
                 <div>
-                  <div className="tw-font-medium">ลำดับที่ {item.num}</div>
+                  <div className="tw-font-medium">
+                    {t("SosFormMobileItem")} {item.num}
+                  </div>
                   <div className="tw-font-medium">
                     {item.user.firstName} {item.user.lastName}
                   </div>
@@ -82,7 +84,7 @@ export default function Item({ data, setDataSos }) {
                   </a>
                   <div className="tw-text-sm">
                     {" "}
-                    {item.type}: {new Date(item.time).toLocaleDateString()}{" "}
+                    {item.type} : {new Date(item.time).toLocaleDateString()}{" "}
                   </div>
                   <div className="tw-text-sm"> {formatTimeAgo(item.time)}</div>
                 </div>
@@ -94,7 +96,7 @@ export default function Item({ data, setDataSos }) {
       })}
       {openModelChangeStatus && (
         <Model
-          title="อัพเดทสถานะประชาชน SoS ฉุกเฉิน"
+          title={t("ModelForUpdateStatusUserSosText1")}
           open={openModelChangeStatus}
           onClose={() => setOpenModelChangeStatus(false)}
         >

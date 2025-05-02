@@ -6,8 +6,10 @@ import Loading from "../../Loading";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "../../../logic/config/axios";
+import { useTranslation } from "react-i18next";
 
 export default function AllDataShop() {
+  const { t } = useTranslation();
   const { shopId } = useParams();
   const [datashop, setDataShop] = useState(null);
   const [comment, setComment] = useState([]);
@@ -90,7 +92,7 @@ export default function AllDataShop() {
 
   return (
     <>
-      <HeaderMainMessage text="ข้อมูลร้านค้า/สถานที่/ที่พัก/ที่เที่ยวต่างๆของประชาชนในพื้นที่" />
+      <HeaderMainMessage text={t("AllDataShopTextTitle")} />
       <Layout1Button handlePostComment={handlePostComment} />
       {loading ? (
         <Loading />
@@ -101,7 +103,7 @@ export default function AllDataShop() {
             shopId={shopId}
             handleUpdateStatus={handleUpdateStatus}
           />
-          <HeaderMainMessage text="Review" />
+          <HeaderMainMessage text={t("AllDataShopTextTitle2")} />
           <Layout3CommentInIdShop
             comment={comment || []}
             shopId={shopId}

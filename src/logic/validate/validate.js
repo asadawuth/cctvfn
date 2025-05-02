@@ -2,19 +2,19 @@ import Joi from "joi";
 
 export const loginSchema = Joi.object({
   emailOrMobile: Joi.string().required().messages({
-    "string.empty": "กรุณากรอกอีเมลล์หรือเบอร์โทรศัพท์",
-    "any.required": "กรุณากรอกอีเมลล์หรือเบอร์โทรศัพท์",
+    "string.empty": "loginForm.emailOrMobile.empty",
+    "any.required": "loginForm.emailOrMobile.required",
   }),
   password: Joi.string().required().messages({
-    "string.empty": "กรุณากรอกรหัสผ่าน",
-    "any.required": "กรุณากรอกรหัสผ่าน",
+    "string.empty": "loginForm.password.empty",
+    "any.required": "loginForm.password.required",
   }),
 });
 
 export const foundEmailInDatabaseSchema = Joi.object({
   email: Joi.string().email({ tlds: false }).required().messages({
-    "string.empty": "กรุณาใส่อีเมลล์ของคุณ",
-    "string.email": "กรุณาใส่อีเมลล์ของคุณให้ถูกต้อง",
+    "string.empty": "VevifyEmailForm.email.empty",
+    "string.email": "VevifyEmailForm.email.email",
   }),
 });
 
@@ -24,8 +24,8 @@ export const verifyOtpSchema = Joi.object({
     .pattern(/^[0-9]+$/)
     .required()
     .messages({
-      "string.empty": "กรุณาใส่ Otp 4 ตัวให้ถูกต้อง",
-      "string.pattern.base": "กรุณราระบุเลข 0-9 ตาม OTP ในอีเมลล์ของท่าน",
+      "string.empty": "VerifyOtpForm.empty",
+      "string.pattern.base": "VerifyOtpForm.base",
     }),
 });
 
@@ -35,38 +35,38 @@ export const resetPasswordSchema = Joi.object({
     .trim()
     .pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,12}$/)
     .messages({
-      "string.empty": "กรุณาใส่รหัสผ่านใหม่",
-      "string.pattern.base": "ต้องมีตัวอักษรตัวพิมใหญ่, ตัวพิมเล็ก, และตัวเลข",
+      "string.empty": "ResetPasswordForm.newPassword.empty",
+      "string.pattern.base": "ResetPasswordForm.newPassword.base",
     }),
   confirmNewPassword: Joi.string()
     .valid(Joi.ref("newPassword"))
     .trim()
     .required()
     .messages({
-      "string.empty": "กรุณากรองเพื่อยันยันรหัสผ่านอีกครั้ง",
-      "any.only": "กรุณากรองรหัสให้ตรงกับรหัสผ่านใหม่",
+      "string.empty": "ResetPasswordForm.confirmNewPassword.empty",
+      "any.only": "ResetPasswordForm.confirmNewPassword.only",
     }),
 });
 
 export const changePasswordSchema = Joi.object({
   oldPassword: Joi.string().trim().required().messages({
-    "string.empty": "กรุณใส่รหัสผ่านเก่า",
+    "string.empty": "validateChangePassword.oldpassword.empty",
   }),
   newPassword: Joi.string()
     .required()
     .trim()
     .pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,12}$/)
     .messages({
-      "string.empty": "กรุณาใส่รหัสผ่านใหม่",
-      "string.pattern.base": "ต้องมีตัวอักษรตัวพิมใหญ่, ตัวพิมเล็ก, และตัวเลข",
+      "string.empty": "validateChangePassword.newpassword.empty",
+      "string.pattern.base": "validateChangePassword.newpassword.base",
     }),
   confirmNewPassword: Joi.string()
     .valid(Joi.ref("newPassword"))
     .trim()
     .required()
     .messages({
-      "string.empty": "กรุณากรองเพื่อยันยันรหัสผ่านอีกครั้ง",
-      "any.only": "กรุณากรองรหัสให้ตรงกับรหัสผ่านใหม่",
+      "string.empty": "validateChangePassword.confirmnewpassword.empty",
+      "any.only": "validateChangePassword.confirmnewpassword.only",
     }),
 });
 
@@ -76,65 +76,67 @@ export const changeEmailSchema = Joi.object({
     .required()
     .email({ tlds: { allow: false } })
     .messages({
-      "string.empty": "กรุณากรองอีเมลล์ปัจจุบัน",
-      "any.required": "กรุณากรองอีเมลล์ปัจจุบัน",
-      "string.email": "กรุณากรองอีเมลล์ปัจจุบันให้ถูกต้อง",
+      "string.empty": "validateChangeEmail.email.empty",
+      "any.required": "validateChangeEmail.email.required",
+      "string.email": "validateChangeEmail.email.email",
     }),
   newEmail: Joi.string()
     .trim()
     .required()
     .email({ tlds: { allow: false } })
     .messages({
-      "string.empty": "กรุณากรองอีเมลล์ใหม่",
-      "any.required": "กรุณากรองอีเมลล์ใหม่",
-      "string.email": "กรุณากรองอีเมลล์ใหม่ให้ถูกต้อง",
+      "string.empty": "validateChangeEmail.newemail.empty",
+      "any.required": "validateChangeEmail.newemail.required",
+      "string.email": "validateChangeEmail.newemail.newemail",
     }),
   confirmNewEmail: Joi.string()
     .trim()
     .required()
     .valid(Joi.ref("newEmail")) // Ensure confirmNewEmail matches newEmail
     .messages({
-      "any.only": "อีเมลล์ไม่ตรงกัน กรุณายืนยันอีกครั้ง",
-      "string.empty": "กรุณากรองยืนยันอีเมลล์ใหม่",
-      "any.required": "กรุณากรองยืนยันอีเมลล์ใหม่",
+      "any.only": "validateChangeEmail.comfirmnewpassword.only",
+      "string.empty": "validateChangeEmail.comfirmnewpassword.empty",
+      "any.required": "validateChangeEmail.comfirmnewpassword.required",
     }),
 });
 
 export const registerIdEmployee = Joi.object({
   gender: Joi.string().valid("นาย", "นาง", "นางสาว").required().messages({
-    "string.empty": "กรุณาเลือกคำนำหน้า",
-    "any.required": "กรุณาเลือกคำนำหน้า",
+    "string.empty": "validate.gender.required",
+    "any.required": "validate.gender.required",
   }),
   firstName: Joi.string().trim().required().messages({
-    "string.empty": "กรุณากรองชื่อจริง",
-    "any.required": "กรุณากรองชื่อจริง",
+    "string.empty": "validate.firstname.empty",
+    "any.required": "validate.firstname.empty",
   }),
   lastName: Joi.string().trim().required().messages({
-    "string.empty": "กรุณากรองนามสกุล",
-    "any.required": "กรุณากรองนามสกุล",
+    "string.empty": "validate.lastname.empty",
+    "any.required": "validate.lastname.empty",
   }),
   email: Joi.string()
     .trim()
     .required()
     .email({ tlds: { allow: false } })
     .messages({
-      "string.empty": "กรุณากรองอีเมลล์",
-      "any.required": "กรุณากรองอีเมลล์",
-      "string.email": "กรุณากรองอีเมลล์ให้ถูกต้อง",
+      "string.empty": "validate.email.empty",
+      "any.required": "validate.email.empty",
+      "string.email": "validate.email.invalid",
     }),
   phone: Joi.string()
     .pattern(/^[0-9]{10}$/)
     .trim()
     .required()
     .messages({
-      "string.empty": "กรุณากรองเบอร์โทรศัพท์",
-      "string.pattern.base": "เบอร์โทรศัพท์ต้องเป็นตัวเลข 10 หลัก",
+      "string.empty": "validate.phone.empty",
+      "any.required": "validate.phone.empty",
+      "string.pattern.base": "validate.phone.invalid",
     }),
   status: Joi.string()
     .valid("ผู้ดูแลระบบ", "ผู้ดำเนินการศูนย์บัญชาการ", "เจ้าหน้าที่ซ่อมบำรุง")
     .required()
     .messages({
-      "string.empty": "กรุณากรองสถานะ",
+      "string.empty": "validate.status.empty",
+      "any.required": "validate.status.empty",
     }),
   password: Joi.string()
     .min(8)
@@ -143,22 +145,22 @@ export const registerIdEmployee = Joi.object({
     .trim()
     .required()
     .messages({
-      "string.empty": "กรุณากรองรหัสผ่าน",
-      "string.min": "รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร",
-      "string.max": "รหัสผ่านต้องไม่เกิน 12 ตัวอักษร",
-      "string.pattern.base":
-        "รหัสผ่านต้องประกอบด้วยตัวพิมพ์ใหญ่, ตัวพิมพ์เล็ก และตัวเลข",
+      "string.empty": "validate.password.empty",
+      "string.min": "validate.password.min",
+      "string.max": "validate.password.max",
+      "string.pattern.base": "validate.password.pattern",
     }),
   confirmPassword: Joi.string()
     .valid(Joi.ref("password"))
     .trim()
     .required()
     .messages({
-      "any.only": "รหัสผ่านไม่ตรงกัน",
-      "string.empty": "กรุณากรองยืนยันรหัส",
+      "any.only": "validate.confirmPassword.mismatch",
+      "string.empty": "validate.confirmPassword.empty",
     }),
 });
 
+/*
 export const editsDataIdEmployee = Joi.object({
   firstName: Joi.string().trim().required().messages({
     "string.empty": "กรุณากรองชื่อจริง",
@@ -186,31 +188,32 @@ export const editsDataIdEmployee = Joi.object({
     "any.required": "กรุณาระบุจังหวัดของทะเบียนรถ",
   }),
 });
+*/
 
 export const changeDataYourProfile = Joi.object({
   firstName: Joi.string().trim().required().messages({
-    "string.empty": "กรุณากรองชื่อจริง",
-    "any.required": "กรุณากรองชื่อจริง",
+    "string.empty": "changeDataYourProfile.firstname.empty",
+    "any.required": "changeDataYourProfile.firstname.required",
   }),
   lastName: Joi.string().trim().required().messages({
-    "string.empty": "กรุณากรองนามสกุล",
-    "any.required": "กรุณากรองนามสกุล",
+    "string.empty": "changeDataYourProfile.lastname.empty",
+    "any.required": "changeDataYourProfile.lastname.required",
   }),
   phone: Joi.string()
     .pattern(/^[0-9]{10}$/)
     .trim()
     .required()
     .messages({
-      "string.empty": "กรุณากรองเบอร์โทรศัพท์",
-      "string.pattern.base": "เบอร์โทรศัพท์ต้องเป็นตัวเลข 10 หลัก",
+      "string.empty": "changeDataYourProfile.phone.empty",
+      "string.pattern.base": "changeDataYourProfile.phone.base",
     }),
   email: Joi.string()
     .trim()
     .required()
     .email({ tlds: { allow: false } })
     .messages({
-      "string.empty": "กรุณากรองอีเมลล์",
-      "any.required": "กรุณากรองอีเมลล์",
-      "string.email": "กรุณากรองอีเมลล์ให้ถูกต้อง",
+      "string.empty": "changeDataYourProfile.email.empty",
+      "any.required": "changeDataYourProfile.email.required",
+      "string.email": "changeDataYourProfile.email.email",
     }),
 });

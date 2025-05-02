@@ -2,14 +2,15 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../../../logic/hook/user-auth";
 import { changeDataYourProfile } from "../../../logic/validate/validate";
 import Loading from "./../../Loading";
+import { useTranslation } from "react-i18next";
 
-const validateEditsDataYourfile = (input) => {
+const validateEditsDataYourfile = (input, t) => {
   const { error } = changeDataYourProfile.validate(input, {
     abortEarly: false,
   });
   if (error) {
     return error.details.reduce((acc, { message, path }) => {
-      acc[path[0]] = message;
+      acc[path[0]] = t(message);
       return acc;
     }, {});
   }
@@ -21,6 +22,7 @@ export default function ModelForEditYourFlie({
   onClose,
   setUserProfile,
 }) {
+  const { t } = useTranslation();
   const { authUser, updateUserData, setAuthUser } = useAuth();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState({});
@@ -50,7 +52,10 @@ export default function ModelForEditYourFlie({
     e.preventDefault();
     setLoading(true);
 
-    const validationErrors = validateEditsDataYourfile(inputEditsDataProfile);
+    const validationErrors = validateEditsDataYourfile(
+      inputEditsDataProfile,
+      t
+    );
     if (validationErrors) {
       setError(validationErrors);
       setLoading(false);
@@ -78,11 +83,11 @@ export default function ModelForEditYourFlie({
       const status = error?.response?.status;
       if (status === 500) {
         setError({
-          message: "เกิดข้อผิดพลาด เช่น อีเมลล์ หรือเบอร์โทรศัพท์ถูกใช้ไปแล้ว",
+          message: t("changeDataYourProfileText1"),
         });
       } else {
         setError({
-          message: "ไม่สามารถอัปเดตข้อมูลได้ กรุณาลองใหม่อีกครั้ง",
+          message: t("changeDataYourProfileText2"),
         });
       }
     } finally {
@@ -99,12 +104,12 @@ export default function ModelForEditYourFlie({
             <div key={index}>
               <label className="tw-text-lg tw-font-medium tw-text-gray-700">
                 {field === "firstName"
-                  ? "ชื่อจริง"
+                  ? t("DataInfileCreatedIdEmployeeForm.firstName")
                   : field === "lastName"
-                  ? "นามสกุล"
+                  ? t("DataInfileCreatedIdEmployeeForm.lastName")
                   : field === "phone"
-                  ? "เบอร์โทรศัพท์"
-                  : "อีเมลล์"}
+                  ? t("DataInfileCreatedIdEmployeeForm.tel")
+                  : t("DataInfileCreatedIdEmployeeForm.email")}
               </label>
               <input
                 name={field}
@@ -135,14 +140,14 @@ export default function ModelForEditYourFlie({
             type="submit"
             className="tw-bg-blue-500 tw-text-white tw-px-6 tw-py-2 tw-rounded-lg hover:tw-bg-blue-600 tw-transition-all tw-duration-200"
           >
-            ยืนยัน
+            {t("ModelForUserDataEditText2")}
           </button>
           <button
             type="button"
             className="tw-bg-gray-500 tw-text-white tw-px-6 tw-py-2 tw-rounded-lg hover:tw-bg-gray-600 tw-transition-all tw-duration-200"
             onClick={onClose}
           >
-            ยกเลิก
+            {t("ModelForUserDataEditText3")}
           </button>
         </div>
       </form>

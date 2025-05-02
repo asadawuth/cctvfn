@@ -7,8 +7,10 @@ import ModelForEditYourFlie from "../../layoutcomponent/Model/forflow/ModelForEd
 import ModelForUserDataEdit from "../../layoutcomponent/Model/forflow/ModelForUserDataEdit";
 import ModelForSetDefaultProfile from "../../layoutcomponent/Model/forflow/ModelForSetDefaultProfile";
 import Loading from "../../layoutcomponent/Loading";
+import { useTranslation } from "react-i18next";
 
 export default function DataUserForm({ authUser, updataProfile, setAuthUser }) {
+  const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
   const [openModel, setOpenModel] = useState(false);
   const [openModelChangeProfile, setModelChangeProfile] = useState(false);
@@ -67,15 +69,15 @@ export default function DataUserForm({ authUser, updataProfile, setAuthUser }) {
           <div className="tw-p-6">
             {file && (
               <div
-                className={`tw-flex tw-justify-center tw-gap-4 tw-px-4 ${
+                className={`tw-flex tw-justify-center tw-gap-4 tw-px-16 ${
                   okCancel ? "hidden" : ""
                 }`}
               >
                 <button
-                  className="tw-bg-gradient-to-r tw-from-green-400 tw-to-green-500 hover:tw-from-green-500 hover:tw-to-green-700 tw-text-white tw-w-full tw-p-2 tw-rounded-lg tw-shadow-md hover:tw-shadow-lg tw-transition-all tw-duration-300 tw-font-semibold"
+                  className="tw-bg-gradient-to-r tw-from-blue-400 tw-to-blue-500 hover:tw-from-blue-500 hover:tw-to-blue-700 tw-text-white tw-w-full tw-p-2 tw-rounded-lg tw-shadow-md hover:tw-shadow-lg tw-transition-all tw-duration-300 tw-font-semibold"
                   onClick={() => uploadImage(file)}
                 >
-                  ยืนยัน
+                  {t("ModelForUserDataEditText2")}
                 </button>
                 <button
                   className="tw-bg-gradient-to-r tw-from-red-400 tw-to-red-500 hover:tw-from-red-500 hover:tw-to-red-700 tw-text-white tw-w-full tw-p-2 tw-rounded-lg tw-shadow-md hover:tw-shadow-lg tw-transition-all tw-duration-300 tw-font-semibold"
@@ -84,7 +86,7 @@ export default function DataUserForm({ authUser, updataProfile, setAuthUser }) {
                     setFile(null);
                   }}
                 >
-                  ยกเลิก
+                  {t("ModelForUserDataEditText3")}
                 </button>
               </div>
             )}
@@ -95,7 +97,7 @@ export default function DataUserForm({ authUser, updataProfile, setAuthUser }) {
               onChange={(e) => setFile(e.target.files[0])}
             />
             <h2 className="tw-text-center tw-text-2xl tw-font-bold tw-text-gray-800">
-              ข้อมูลผู้ใช้
+              {t("DataUser")}
             </h2>
 
             <div className="tw-mt-6">
@@ -109,26 +111,35 @@ export default function DataUserForm({ authUser, updataProfile, setAuthUser }) {
               </div>
               <div className="tw-flex tw-justify-between tw-items-center tw-py-2 tw-border-b tw-border-gray-300">
                 <span className="tw-font-medium tw-text-gray-600">
-                  ชื่อจริง
+                  {t("DataInfileCreatedIdEmployeeForm.firstName")}
                 </span>
                 <span className="tw-text-gray-800">{authUser?.firstName}</span>
               </div>
               <div className="tw-flex tw-justify-between tw-items-center tw-py-2 tw-border-b tw-border-gray-300">
-                <span className="tw-font-medium tw-text-gray-600">นามสกุล</span>
+                <span className="tw-font-medium tw-text-gray-600">
+                  {" "}
+                  {t("DataInfileCreatedIdEmployeeForm.lastName")}
+                </span>
                 <span className="tw-text-gray-800">{authUser?.lastName}</span>
               </div>
               <div className="tw-flex tw-justify-between tw-items-center tw-py-2 tw-border-b tw-border-gray-300">
-                <span className="tw-font-medium tw-text-gray-600">สถานะ</span>
+                <span className="tw-font-medium tw-text-gray-600">
+                  {" "}
+                  {t("DataInfileCreatedIdEmployeeForm.status.status")}
+                </span>
                 <span className="tw-text-gray-800">{authUser?.status}</span>
               </div>
               <div className="tw-flex tw-justify-between tw-items-center tw-py-2 tw-border-b tw-border-gray-300">
                 <span className="tw-font-medium tw-text-gray-600">
-                  เบอร์โทรศัพท์
+                  {t("DataInfileCreatedIdEmployeeForm.tel")}
                 </span>
                 <span className="tw-text-gray-800">{authUser?.phone}</span>
               </div>
               <div className="tw-flex tw-justify-between tw-items-center tw-py-2 tw-border-b tw-border-gray-300">
-                <span className="tw-font-medium tw-text-gray-600">อีเมลล์</span>
+                <span className="tw-font-medium tw-text-gray-600">
+                  {" "}
+                  {t("DataInfileCreatedIdEmployeeForm.email")}
+                </span>
                 <span className="tw-text-gray-800">{authUser?.email}</span>
               </div>
             </div>
@@ -137,19 +148,19 @@ export default function DataUserForm({ authUser, updataProfile, setAuthUser }) {
                 href="/yourprofile/changeemail"
                 className="tw-text-blue-500 hover:tw-text-blue-700 tw-font-medium tw-transition-colors"
               >
-                เปลี่ยนอีเมลล์ ?
+                {t("DataUserFormChangeEmail")}
               </a>
               <a
                 href="/yourprofile/changepassword"
                 className="tw-text-blue-500 hover:tw-text-blue-700 tw-font-medium tw-transition-colors"
               >
-                เปลี่ยนรหัสผ่าน ?
+                {t("DataUserFormChangePassword")}
               </a>
               <a
                 onClick={() => setModelChangeProfile(true)}
                 className="tw-text-blue-500 hover:tw-text-blue-700 tw-font-medium tw-transition-colors hover:tw-cursor-pointer"
               >
-                ไม่ใช้รูปโปรไฟล์ ?
+                {t("DataUserFormRemoveProfileImage")}
               </a>
             </div>
           </div>
@@ -158,7 +169,7 @@ export default function DataUserForm({ authUser, updataProfile, setAuthUser }) {
       {/* Modals */}
       {openModel && (
         <ModelForUserDataEdit
-          title="แก้ไขข้อมูล"
+          title={t("ModelForUserDataEditText1")}
           open={openModel}
           onClose={() => setOpenModel(false)}
         >
@@ -170,7 +181,7 @@ export default function DataUserForm({ authUser, updataProfile, setAuthUser }) {
         </ModelForUserDataEdit>
       )}
       <Model
-        title="ตั้งค่ารูปกับเป็นค่าเดิม"
+        title={t("ModelForSetDefaultProfileTitle")}
         open={openModelChangeProfile}
         onClose={() => setModelChangeProfile(false)}
       >

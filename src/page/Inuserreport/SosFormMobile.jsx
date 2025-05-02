@@ -3,14 +3,14 @@ import SearchDataPersonSos from "../../layoutcomponent/Forsosmobile/SearchDataPe
 import BigLayout from "../../layoutcomponent/Forsosmobile/BigLayout";
 import Item from "../../layoutcomponent/Forsosmobile/Item";
 import Patination from "../../layoutcomponent/Patination";
-
+import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import axios from "../../logic/config/axios";
 export default function SosFormMobile() {
+  const { t } = useTranslation();
   const [dataSos, setDataSos] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
-  //
   const [datapersonReport, setDatapersonReport] = useState([]);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -50,10 +50,9 @@ export default function SosFormMobile() {
     setCurrentPage(page);
   };
 
-  // console.log(dataSos);
   return (
     <>
-      <HeaderMainMessage text={"SOS จาก โทรศัทพ์ประชาชนในพื้นที่หน่วยงาน"} />
+      <HeaderMainMessage text={t("inconponentSosFormMobile")} />
       <SearchDataPersonSos
         setFirstName={setFirstName}
         setLastName={setLastName}

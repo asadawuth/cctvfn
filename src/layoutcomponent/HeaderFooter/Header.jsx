@@ -38,7 +38,7 @@ export default function Header() {
         </picture>
       </div>
       <header className="tw-w-full">
-        <div className="tw-flex tw-flex-col md:tw-flex md:tw-flex-col lg:tw-flex lg:tw-flex-row lg:tw-gap-1 tw-justify-center tw-text-base tw-py-2">
+        <div className="sm:tw-flex sm:tw-flex-col md:tw-flex md:tw-flex-col lg:tw-flex lg:tw-flex-col lg:tw-gap-1 xl:tw-flex xl:tw-flex-col 2xl:tw-flex 2xl:tw-flex-row 2xl:tw-justify-center 2xl:tw-mx-2 tw-text-base tw-py-2">
           <a
             className={`hover:tw-cursor-pointer tw-px-6 tw-py-2 hover:tw-bg-blue-900 hover:tw-text-white  ${
               location.pathname === "/vision"
@@ -286,6 +286,7 @@ export default function Header() {
               </MenuList>
             </Menu>
           </div>
+
           <a
             className={`hover:tw-cursor-pointer tw-px-6 tw-py-2 hover:tw-bg-blue-900 hover:tw-text-white  ${
               location.pathname === "/problemsoftwareorhardware"
@@ -298,7 +299,8 @@ export default function Header() {
           >
             {t("textsix")}
           </a>
-          <a
+
+          <div
             className={`hover:tw-cursor-pointer tw-px-6 tw-py-2 hover:tw-bg-blue-900 hover:tw-text-white  ${
               location.pathname === "/dardboardallvaule" ||
               location.pathname === "/userreportstatus" ||
@@ -331,8 +333,9 @@ export default function Header() {
             onClick={() => (window.location.href = "/dardboardallvaule")}
           >
             {t("textseven")}
-          </a>
-          <a
+          </div>
+
+          <div
             className={`hover:tw-cursor-pointer tw-px-6 tw-py-2 hover:tw-bg-blue-900 hover:tw-text-white  ${
               location.pathname === "/data-integratedinformation"
                 ? "tw-bg-blue-900 tw-text-white"
@@ -343,7 +346,8 @@ export default function Header() {
             }
           >
             {t("texteight")}
-          </a>
+          </div>
+
           <div
             className={`hover:tw-cursor-pointer tw-px-6 tw-py-2 hover:tw-bg-blue-900 hover:tw-text-white ${
               location.pathname === "/data-userreports-excel" ||

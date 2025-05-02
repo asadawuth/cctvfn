@@ -5,8 +5,10 @@ import axios from "../../logic/config/axios";
 import Patination from "../../layoutcomponent/Patination";
 import Biglayout from "../../layoutcomponent/ForuserReport/ฺBiglayout";
 import SearchdDataPersonReport from "../../layoutcomponent/ForuserReport/SearchdDataPersonReport";
+import { useTranslation } from "react-i18next";
 
 export default function UserReport() {
+  const { t } = useTranslation();
   const [dataUserReport, setDataUserReport] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
@@ -51,7 +53,7 @@ export default function UserReport() {
 
   return (
     <>
-      <HeaderMainMessage text={"หัวข้อร้องเรียนประชาชนในพื้นที่"} />
+      <HeaderMainMessage text={t("inconponentUserReport")} />
       <SearchdDataPersonReport
         setFirstName={setFirstName}
         setLastName={setLastName}

@@ -1,10 +1,12 @@
 import { useState } from "react";
 import Loading from "../../../layoutcomponent/Loading";
+import { useTranslation } from "react-i18next";
 
 export default function ModelPostForReportUser({
   handleCreateCommentIdUserReportId,
   onClose,
 }) {
+  const { t } = useTranslation();
   const [text, setText] = useState("");
   const [files, setFiles] = useState([]);
   const [video, setVideo] = useState(null);
@@ -51,18 +53,21 @@ export default function ModelPostForReportUser({
       <form onSubmit={handleSubmitForm}>
         <div className="tw-mb-4">
           <h6 className="tw-text-red-500 tw-font-medium">
-            ** ระบุรูปได้สูงสุด 3
+            {t("respondUserReportText1")}
           </h6>
-          <h6 className="tw-text-red-500 tw-font-medium">** ระบุวีดีโอได้ 1</h6>
           <h6 className="tw-text-red-500 tw-font-medium">
-            ** ต้องระบุรูปวีดีโอข้อความอย่างน้อยอย่างใดอย่างนึง
+            {" "}
+            {t("respondUserReportText2")}
+          </h6>
+          <h6 className="tw-text-red-500 tw-font-medium">
+            {t("respondUserReportText3")}
           </h6>
         </div>
 
         {/* ส่วนสำหรับเพิ่มรูปภาพ */}
         <div className="tw-mb-4 tw-p-2">
           <h3 className="tw-text-lg tw-font-bold tw-text-gray-700">
-            เพิ่มรูปภาพ
+            {t("respondUserReportText4")}
           </h3>
           <input
             type="file"
@@ -72,14 +77,14 @@ export default function ModelPostForReportUser({
             onChange={handleImageUpload}
           />
           <p className="tw-text-sm tw-text-gray-500 tw-mt-2">
-            ** รองรับไฟล์รูปภาพ (PNG, JPG, JPEG) ไม่เกิน 3 ไฟล์
+            {t("respondUserReportText5")}
           </p>
         </div>
 
         {/* ส่วนสำหรับเพิ่มวิดีโอ */}
         <div className="tw-mb-4 tw-p-2">
           <h3 className="tw-text-lg tw-font-bold tw-text-gray-700">
-            เพิ่มวีดีโอ
+            {t("respondUserReportText6")}
           </h3>
           <input
             type="file"
@@ -88,13 +93,16 @@ export default function ModelPostForReportUser({
             onChange={handleVideoUpload}
           />
           <p className="tw-text-sm tw-text-gray-500 tw-mt-2">
-            ** รองรับไฟล์วีดีโอ (MP4, MOV, AVI) ไม่เกิน 1 ไฟล์
+            {t("respondUserReportText7")}
           </p>
         </div>
 
         {/* ส่วนข้อความ */}
         <div className="tw-mb-4 tw-p-2">
-          <h3 className="tw-text-lg tw-font-bold tw-text-gray-700">ข้อความ</h3>
+          <h3 className="tw-text-lg tw-font-bold tw-text-gray-700">
+            {" "}
+            {t("respondUserReportText8")}
+          </h3>
           <textarea
             name="text"
             value={text}
@@ -110,7 +118,7 @@ export default function ModelPostForReportUser({
             type="submit"
             className="tw-bg-gradient-to-r tw-text-lg tw-font-semibold tw-text-white tw-px-10 tw-py-3 tw-rounded-xl tw-shadow-lg hover:tw-scale-105 hover:tw-shadow-xl tw-transition-all tw-duration-300 tw-bg-blue-500 hover:tw-bg-blue-600"
           >
-            ยืนยัน
+            {t("statusUserReportBt")}
           </button>
         </div>
       </form>

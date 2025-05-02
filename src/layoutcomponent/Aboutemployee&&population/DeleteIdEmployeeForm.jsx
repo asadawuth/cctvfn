@@ -2,8 +2,9 @@ import { useState } from "react";
 import axios from "../../logic/config/axios.js";
 import Model from "../../layoutcomponent/Model";
 import ModelForDeleteIdEmployee from "../../layoutcomponent/Model/forflow/ModelForDeleteIdEmployee";
-
+import { useTranslation } from "react-i18next";
 export default function DeleteIdEmployeeForm() {
+  const { t } = useTranslation();
   const [openModel, setOpenModel] = useState(false);
   const [data, setData] = useState([]);
   const [deleteId, setDeleteId] = useState(null);
@@ -54,7 +55,7 @@ export default function DeleteIdEmployeeForm() {
               type="text"
               name="firstName"
               className="tw-w-full sm:tw-w-auto tw-p-2 tw-border tw-border-gray-300 tw-rounded-md focus:tw-outline-none focus:tw-border-blue-400"
-              placeholder="ชื่อจริง"
+              placeholder={t("DataInfileCreatedIdEmployeeForm.firstName")}
               value={searchName.firstName}
               onChange={handleInputChange}
             />
@@ -64,7 +65,7 @@ export default function DeleteIdEmployeeForm() {
               type="text"
               name="lastName"
               className="tw-w-full sm:tw-w-auto tw-p-2 tw-border tw-border-gray-300 tw-rounded-md focus:tw-outline-none focus:tw-border-blue-400"
-              placeholder="นามสกุล"
+              placeholder={t("DataInfileCreatedIdEmployeeForm.lastName")}
               value={searchName.lastName}
               onChange={handleInputChange}
             />
@@ -74,7 +75,7 @@ export default function DeleteIdEmployeeForm() {
               onClick={handleSearch}
               className="tw-w-full sm:tw-w-auto tw-bg-blue-500 tw-text-white tw-py-2 tw-px-4 tw-rounded-md hover:tw-bg-blue-600"
             >
-              ค้นหา
+              {t("DataInfileCreatedIdEmployeeForm.search")}
             </button>
           </div>
         </div>
@@ -86,19 +87,19 @@ export default function DeleteIdEmployeeForm() {
               className="tw-relative tw-overflow-x-auto tw-shadow-md sm:tw-rounded-lg tw-w-full sm:tw-max-w-4xl tw-mx-auto"
             >
               <table className="tw-w-full tw-text-xs sm:tw-text-sm tw-text-left rtl:tw-text-right tw-text-gray-500 dark:tw-text-gray-400">
-                <thead className="tw-text-xs tw-text-gray-700 tw-uppercase tw-bg-gray-50 dark:tw-bg-gray-700 dark:tw-text-gray-400">
+                <thead className="tw-text-xs tw-text-gray-700  tw-bg-gray-50 dark:tw-bg-gray-700 dark:tw-text-gray-400">
                   <tr>
                     <th scope="col" className="tw-px-2 tw-py-2">
                       Id
                     </th>
                     <th scope="col" className="tw-px-2 tw-py-2">
-                      ชื่อจริง
+                      {t("DataInfileCreatedIdEmployeeForm.firstName")}
                     </th>
                     <th scope="col" className="tw-px-2 tw-py-2">
-                      นามสกุล
+                      {t("DataInfileCreatedIdEmployeeForm.lastName")}
                     </th>
                     <th scope="col" className="tw-px-2 tw-py-2">
-                      ลบ
+                      {t("DataInfileCreatedIdEmployeeForm.delete")}
                     </th>
                   </tr>
                 </thead>
@@ -117,14 +118,14 @@ export default function DeleteIdEmployeeForm() {
                         className="tw-text-red-900"
                         onClick={() => handleDelete(employee.id)}
                       >
-                        ลบ
+                        {t("DataInfileCreatedIdEmployeeForm.delete")}
                       </button>
                     </td>
                   </tr>
                 </tbody>
               </table>
               <Model
-                title="ไอดีพนักงานที่พ้นสภาพพนักงาน"
+                title={t("ModelForDeleteIdEmployeeText1")}
                 open={openModel}
                 onClose={() => setOpenModel(false)}
               >
@@ -137,7 +138,7 @@ export default function DeleteIdEmployeeForm() {
           ))
         ) : noResult ? (
           <div className="sm:tw-text-2xl md:tw-text-2xl xl:tw-text-3xl tw-pt-8 tw-text-center">
-            ไม่มีข้อมูล
+            {t("DataInfileCreatedIdEmployeeForm.dataNotFound")}
           </div>
         ) : null}
       </div>

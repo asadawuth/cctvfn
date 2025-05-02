@@ -4,20 +4,20 @@ import { resetPasswordSchema } from "../../logic/validate/validate";
 import axios from "../../logic/config/axios";
 import Model from "../../layoutcomponent/Model";
 import ResetPasswordwordSuccess from "../../layoutcomponent/Model/ModalSuccess/ResetPasswordSuccess";
-
+import { useTranslation } from "react-i18next";
 import TextError from "../TextError";
 
-const validateResetPassword = (input) => {
+const validateResetPassword = (input, t) => {
   const { error } = resetPasswordSchema.validate(input, { abortEarly: false });
   if (error) {
     const result = error.details.reduce((acc, el) => {
       const { message, path } = el;
-      acc[path[0]] = message;
+      acc[path[0]] = t(message);
       return acc;
     }, {});
 
     if (!input.confirmNewPassword && !result.confirmNewPassword) {
-      result.confirmNewPassword = "กรุณากรอกยืนยันรหัสผ่านใหม่";
+      result.confirmNewPassword = t("ResetPasswordFormText1");
     }
 
     return result;
@@ -25,6 +25,7 @@ const validateResetPassword = (input) => {
 };
 
 export default function ResetPasswordForm() {
+  const { t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
   const [openModel, setOpenModel] = useState(false);
@@ -51,7 +52,7 @@ export default function ResetPasswordForm() {
 
   const handleSubmitForm = async (e) => {
     e.preventDefault();
-    const result = validateResetPassword(inputResetPassword);
+    const result = validateResetPassword(inputResetPassword, t);
     if (result) {
       setError(result);
       return;
@@ -82,7 +83,7 @@ export default function ResetPasswordForm() {
             name="newPassword"
             onChange={handleChangeInput}
             type="password"
-            placeholder="กรุณากรอกรหัสผ่านใหม่"
+            placeholder={t("ResetPasswordText1")}
             className="tw-w-full tw-p-3 tw-border tw-border-gray-300 tw-rounded-md focus:tw-outline-none focus:tw-border-blue-400"
           />
           {error.newPassword && <TextError text={error.newPassword} />}
@@ -92,7 +93,7 @@ export default function ResetPasswordForm() {
             name="confirmNewPassword"
             onChange={handleChangeInput}
             type="password"
-            placeholder="กรุณากรอกรหัสผ่านใหม่อีกครั้งเพื่อยืนยันรหัสผ่านใหม่"
+            placeholder={t("ResetPasswordText2")}
             className="tw-w-full tw-p-3 tw-border tw-border-gray-300 tw-rounded-md focus:tw-outline-none focus:tw-border-blue-400"
           />
           {error.confirmNewPassword && (
@@ -103,11 +104,11 @@ export default function ResetPasswordForm() {
           type="submit"
           className="tw-w-full tw-bg-blue-500 tw-text-white tw-py-2 tw-px-4 tw-rounded-md hover:tw-bg-blue-600"
         >
-          ยืนยันเปลี่ยนรหัสผ่าน
+          {t("ResetPasswordText3")}
         </button>
       </form>
       <Model
-        title="อัพเดทรหัสผ่านใหม่สำเร็จ"
+        title={t("ResetPasswordwordSuccessTitle")}
         open={openModel}
         onClose={() => setOpenModel(false)}
       >

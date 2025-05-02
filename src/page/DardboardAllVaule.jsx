@@ -8,10 +8,11 @@ import Layout5IncludUserRequestCctv from "../layoutcomponent/DashboardAllValue/L
 import Layout6InculdUserSos from "../layoutcomponent/DashboardAllValue/Layout6InculdUserSos";
 import Layout7cctv from "../layoutcomponent/DashboardAllValue/Layout7cctv";
 import LeftBar from "../layoutcomponent/DashboardAllValue/LeftBar";
+import { useTranslation } from "react-i18next";
 
 export default function DardboardAllVaule() {
+  const { t } = useTranslation();
   const [leftOpen, setLeftOpen] = useState(true); // ค่าเริ่มต้นเปิด Sidebar
-
   const isOpenandClose = () => {
     setLeftOpen(!leftOpen);
   };
@@ -29,7 +30,7 @@ export default function DardboardAllVaule() {
 
       {/* Content */}
       <div className="tw-flex-1 tw-overflow-auto tw-p-4">
-        <HeaderMainMessage text={"ตารางสรุปอุปกรณ์ค่าของทั้งหมดในเขต"} />
+        <HeaderMainMessage text={t("inconponentDardboardAllVaule")} />
         <hr className="tw-my-4" />
 
         <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-4">

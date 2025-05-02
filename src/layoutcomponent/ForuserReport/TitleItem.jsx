@@ -9,8 +9,9 @@ import Model from "../../layoutcomponent/Model";
 import ModelForUpdateStatusUserReport from "../../layoutcomponent/Model/forflow/ModelForUpdateStatusUserReport";
 import formatTimeAgo from "../../logic/utils/time-ago";
 import ModalForOpenOneImage from "../../layoutcomponent/Model/forflow/ModelForOpenOneImage";
-
+import { useTranslation } from "react-i18next";
 export default function TitleItem({ dataUserReport, setDataUserReport }) {
+  const { t } = useTranslation();
   const [modalImage, setModalImage] = useState("");
   const [isModalOpen, setModalOpen] = useState(false);
   const [openModelChangeStatus, setOpenModelChangeStatus] = useState(false);
@@ -80,7 +81,7 @@ export default function TitleItem({ dataUserReport, setDataUserReport }) {
                 onClick={() => sendId(report.id)}
                 className="tw-text-lg tw-font-semibold tw-text-blue-600 tw-mb-2 tw-bg-blue-100 tw-p-2 tw-rounded-lg tw-shadow-sm"
               >
-                สถานะ
+                {t("DataInfileCreatedIdEmployeeForm.status.status")}
               </h6>
               <div className="tw-flex tw-items-center tw-space-x-3">
                 <FaCircle
@@ -137,7 +138,7 @@ export default function TitleItem({ dataUserReport, setDataUserReport }) {
       />
       {openModelChangeStatus && (
         <Model
-          title="อัพเดทสถานะประชาชนร้องเรียน"
+          title={t("textHeader")}
           open={openModelChangeStatus}
           onClose={() => setOpenModelChangeStatus(false)}
         >

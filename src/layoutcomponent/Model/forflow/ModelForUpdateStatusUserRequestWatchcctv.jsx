@@ -1,12 +1,14 @@
 import TextError from "../../TextError";
 import { useState } from "react";
 import axios from "../../../logic/config/axios";
+import { useTranslation } from "react-i18next";
 
 export default function ModelForUpdateStatusUserRequestWatchcctv({
   id,
   onClose,
   setDataUserRequestForWatchCctv,
 }) {
+  const { t } = useTranslation();
   const [inputStatus, setInputStatus] = useState({
     status: "",
   });
@@ -51,7 +53,7 @@ export default function ModelForUpdateStatusUserRequestWatchcctv({
         htmlFor="status"
         className="tw-block tw-text-lg tw-font-medium tw-text-gray-700 tw-mb-2"
       >
-        เลือกสถานะการอัพเดท
+        {t("ModelForUpdateStatusUserRequestWatchcctvText2")}
       </label>
       <select
         type="text"
@@ -60,9 +62,18 @@ export default function ModelForUpdateStatusUserRequestWatchcctv({
         onChange={handleChangeInput}
         value={inputStatus.status}
       >
-        <option value="">-- เลือกสถานะ --</option>
-        <option value="ผ่าน">ผ่าน</option>
-        <option value="ไม่ผ่าน">ไม่ผ่าน</option>
+        <option value="">
+          {" "}
+          {t("ModelForUpdateStatusUserRequestWatchcctvText3")}
+        </option>
+        <option value="ผ่าน">
+          {" "}
+          {t("ModelForUpdateStatusUserRequestWatchcctvText4")}
+        </option>
+        <option value="ไม่ผ่าน">
+          {" "}
+          {t("ModelForUpdateStatusUserRequestWatchcctvText5")}
+        </option>
       </select>
       <div className="tw-pt-4">
         {textError && <TextError text="โปรดระบุ" />}
@@ -71,7 +82,7 @@ export default function ModelForUpdateStatusUserRequestWatchcctv({
         type="submit"
         className="tw-mt-4 tw-bg-blue-500 tw-text-white tw-font-medium tw-px-6 tw-py-2 tw-rounded-md tw-shadow-md hover:tw-bg-blue-600 focus:tw-ring-2 focus:tw-ring-blue-400 focus:tw-outline-none"
       >
-        ยืนยัน
+        {t("ModelForUpdateStatusUserRequestWatchcctvText6")}
       </button>
     </form>
   );

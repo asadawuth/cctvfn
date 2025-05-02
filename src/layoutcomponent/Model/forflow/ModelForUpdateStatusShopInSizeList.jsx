@@ -1,11 +1,13 @@
 import TextError from "../../TextError";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function ModelForUpdateStatusShopInSizeList({
   id,
   onClose,
   handleUpdateStatus,
 }) {
+  const { t } = useTranslation();
   const [inputStatus, setInputStatus] = useState({
     status: "",
   });
@@ -38,19 +40,29 @@ export default function ModelForUpdateStatusShopInSizeList({
           htmlFor="status"
           className="tw-block tw-text-lg tw-font-medium tw-text-gray-700 tw-mb-2"
         >
-          เลือกสถานะการอัพเดท
+          {t("ModelForUpdateStatusShopTitle2")}
         </label>
         <select
           name="status"
           onChange={handleChangeInput}
           className="tw-border tw-border-gray-300 tw-rounded-md tw-px-4 tw-py-2 tw-w-full tw-bg-white tw-shadow-sm focus:tw-border-blue-500 focus:tw-ring-1 focus:tw-ring-blue-500 focus:tw-outline-none tw-text-gray-800"
         >
-          <option value="">-- เลือกสถานะ --</option>
-          <option value="ส่งเรื่องแล้ว">ส่งเรื่องแล้ว</option>
-          <option value="กำลังเช็คเอกสาร">กำลังเช็คเอกสาร</option>
-          <option value="ขอเอกสารเพิ่ม">ขอเอกสารเพิ่ม</option>
-          <option value="สำเร็จ">สำเร็จ</option>
-          <option value="ไม่ผ่าน">ไม่ผ่าน</option>
+          <option value="">{t("ModelForUpdateStatusShopTitleChoose")}</option>
+          <option value="ส่งเรื่องแล้ว">
+            {t("ModelForUpdateStatusShopTitleChoose1")}
+          </option>
+          <option value="กำลังเช็คเอกสาร">
+            {t("ModelForUpdateStatusShopTitleChoose2")}
+          </option>
+          <option value="ขอเอกสารเพิ่ม">
+            {t("ModelForUpdateStatusShopTitleChoose3")}
+          </option>
+          <option value="สำเร็จ">
+            {t("ModelForUpdateStatusShopTitleChoose4")}
+          </option>
+          <option value="ไม่ผ่าน">
+            {t("ModelForUpdateStatusShopTitleChoose5")}
+          </option>
         </select>
         {textError && (
           <div className="tw-pt-4">
@@ -61,7 +73,7 @@ export default function ModelForUpdateStatusShopInSizeList({
           type="submit"
           className="tw-mt-4 tw-bg-blue-500 tw-text-white tw-font-medium tw-px-6 tw-py-2 tw-rounded-md tw-shadow-md hover:tw-bg-blue-600 focus:tw-ring-2 focus:tw-ring-blue-400 focus:tw-outline-none"
         >
-          ยืนยัน
+          {t("ModelForEditDataCommentText6")}
         </button>
       </form>
     </>

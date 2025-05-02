@@ -1,17 +1,14 @@
+import { useTranslation } from "react-i18next";
+
 export default function MessageManualForWatchcctv() {
+  const { t } = useTranslation();
   return (
     <>
       <hr />
       <div className="tw-text-red-500">
-        <h1>*** คู่มือใช่งาน</h1>
-        <h1>
-          *** สำหรับสถานะไม่ผ่านให้คลิกตรงไม่ผ่านเพื่ออัพให้ผ่าน ในกรณี
-          ผู้ขออนุมัติดูกล้องเอกสารครบ
-        </h1>
-        <h1>
-          *** สำหรับเอกสารไม่ผ่านให้คลิกที่ส่ง
-          เพื่อแจ้งผู้ขออนุมัติกล้องว่าเอกสารขาดอะไร
-        </h1>
+        <h1>{t("MessageManualForWatchcctvText1")}</h1>
+        <h1>{t("MessageManualForWatchcctvText2")}</h1>
+        <h1>{t("MessageManualForWatchcctvText3")}</h1>
       </div>
     </>
   );

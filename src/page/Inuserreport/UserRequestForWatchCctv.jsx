@@ -4,11 +4,12 @@ import SearchdDataPersonReport from "../../layoutcomponent/ForuserReport/Searchd
 import BigLayout from "../../layoutcomponent/ForuserRequestForWatchcctv/BigLayout";
 import Item from "../../layoutcomponent/ForuserRequestForWatchcctv/Item";
 import Patination from "../../layoutcomponent/Patination";
-
+import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
 import axios from "../../logic/config/axios";
 
 export default function UserRequestForWatchCctv() {
+  const { t } = useTranslation();
   const [dataUserRequestForWatchCctv, setDataUserRequestForWatchCctv] =
     useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -61,9 +62,7 @@ export default function UserRequestForWatchCctv() {
 
   return (
     <>
-      <HeaderMainMessage
-        text={"เช็คเอกสารประชาชนเพื่ออนุมัติกล้องให้ผู้แจ้ง"}
-      />
+      <HeaderMainMessage text={t("inconponentUserRequestForWatchCctv")} />
       <MessageManualForWatchcctv />
       <SearchdDataPersonReport
         setFirstName={setFirstName}

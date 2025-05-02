@@ -2,11 +2,13 @@ import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { useState } from "react";
 import Loading from "../../../layoutcomponent/Loading";
 import TextError from "../../../layoutcomponent/TextError";
+import { useTranslation } from "react-i18next";
 
 export default function ModelForCommentShopUser({
   onClose,
   handlePostComment,
 }) {
+  const { t } = useTranslation();
   const [comment, setComment] = useState("");
   const [score, setScore] = useState(0);
   const [files, setFiles] = useState([]);
@@ -64,7 +66,7 @@ export default function ModelForCommentShopUser({
         {/* ข้อความ */}
         <div className="tw-mb-6">
           <label className="tw-text-lg tw-font-bold tw-text-gray-800">
-            ข้อความ
+            {t("ModelForCommentShopUserText2")}
           </label>
           <textarea
             rows="4"
@@ -76,7 +78,7 @@ export default function ModelForCommentShopUser({
             className={`tw-w-full tw-border tw-rounded-lg tw-p-4 tw-mt-2 focus:tw-ring-2 focus:tw-ring-blue-500 focus:tw-outline-none ${
               textCommentError ? "tw-border-red-500" : ""
             }`}
-            placeholder="เขียนความคิดเห็นของคุณ..."
+            placeholder={t("ModelForCommentShopUserTextInput")}
           />
           {textCommentError && <TextError text="กรุณากรอกข้อความ" />}
         </div>
@@ -84,7 +86,7 @@ export default function ModelForCommentShopUser({
         {/* ให้คะแนน */}
         <div className="tw-mb-6">
           <label className="tw-text-lg tw-font-bold tw-text-gray-800">
-            ให้คะแนน
+            {t("ModelForCommentShopUserText3")}
           </label>
           <div className="tw-flex tw-gap-2 tw-mt-2">
             {[...Array(5)].map((_, index) => (
@@ -110,7 +112,7 @@ export default function ModelForCommentShopUser({
         {/* รูปภาพ */}
         <div className="tw-mb-6">
           <label className="tw-text-lg tw-font-bold tw-text-gray-800">
-            รูปภาพ
+            {t("ModelForCommentShopUserText4")}
           </label>
           <input
             type="file"
@@ -122,7 +124,7 @@ export default function ModelForCommentShopUser({
             onChange={handleImageUpload}
           />
           <p className="tw-text-sm tw-text-gray-500 tw-mt-2">
-            ** อัปโหลดได้สูงสุด 5 รูป
+            {t("ModelForCommentShopUserText5")}
           </p>
           {filesImageError && (
             <TextError text="คุณสามารถอัปโหลดรูปภาพได้สูงสุด 5 รูป" />
@@ -135,7 +137,7 @@ export default function ModelForCommentShopUser({
             type="submit"
             className="tw-bg-blue-600 tw-text-white tw-px-6 tw-py-2 tw-rounded-lg tw-font-bold hover:tw-bg-blue-700 hover:tw-shadow-lg tw-transition-all tw-duration-300"
           >
-            ยืนยัน
+            {t("ModelForEditDataCommentText6")}
           </button>
         </div>
       </form>

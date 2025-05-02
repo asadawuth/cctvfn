@@ -3,11 +3,12 @@ import Patination from "../../layoutcomponent/Patination";
 import Biglayout from "../../layoutcomponent/Forusershop/Biglayout";
 import UserShopItem from "../../layoutcomponent/Forusershop/UserShopItem";
 import SearchdDataPersonReport from "../../layoutcomponent/ForuserReport/SearchdDataPersonReport";
-
+import { useTranslation } from "react-i18next";
 import { useState, useEffect } from "react";
 import axios from "../../logic/config/axios";
 
 export default function UserRequestToOpenStore() {
+  const { t } = useTranslation();
   const [dataUserShop, setDataUserShop] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
@@ -97,7 +98,7 @@ export default function UserRequestToOpenStore() {
 
   return (
     <>
-      <HeaderMainMessage text="ข้อมูลโฆษณาร้านค้า/ร้านอาหาร/สถานที่/ที่พัก อ่านก่อนอนุมัติ" />
+      <HeaderMainMessage text={t("inconponentUserRequestToOpenStore")} />
       <SearchdDataPersonReport
         setFirstName={setFirstName}
         setLastName={setLastName}

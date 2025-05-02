@@ -1,12 +1,14 @@
 import { useState } from "react";
 import axios from "../../../logic/config/axios";
 import TextError from "../../TextError";
+import { useTranslation } from "react-i18next";
 
 export default function ModelForUpdateStatusUserSos({
   id,
   onClose,
   setDataSos,
 }) {
+  const { t } = useTranslation();
   const [inputStatus, setInputStatus] = useState({
     status: "",
   });
@@ -50,7 +52,7 @@ export default function ModelForUpdateStatusUserSos({
           htmlFor="status"
           className="tw-block tw-text-lg tw-font-medium tw-text-gray-700 tw-mb-2"
         >
-          เลือกสถานะการอัพเดท
+          {t("ModelForUpdateStatusUserSosText2")}
         </label>
         <select
           type="text"
@@ -59,12 +61,23 @@ export default function ModelForUpdateStatusUserSos({
           onChange={handleChangeInput}
           value={inputStatus.status}
         >
-          <option value="">-- เลือกสถานะ --</option>
-          <option value="แจ้ง">แจ้ง</option>
-          <option value="รับแจ้งแล้ว">รับแจ้งแล้ว</option>
-          <option value="กำลังดำเนินการ">กำลังดำเนินการ</option>
-          <option value="จัดการเร็จสิ้น">จัดการเสร็จสิ้น</option>
-          <option value="ยกเลิก">ยกเลิก</option>
+          <option value="แจ้ง"> {t("ModelForUpdateStatusUserSosText3")}</option>
+          <option value="รับแจ้งแล้ว">
+            {" "}
+            {t("ModelForUpdateStatusUserSosText4")}
+          </option>
+          <option value="กำลังดำเนินการ">
+            {" "}
+            {t("ModelForUpdateStatusUserSosText5")}
+          </option>
+          <option value="จัดการเร็จสิ้น">
+            {" "}
+            {t("ModelForUpdateStatusUserSosText6")}
+          </option>
+          <option value="ยกเลิก">
+            {" "}
+            {t("ModelForUpdateStatusUserSosText7")}
+          </option>
         </select>
         <div className="tw-pt-4">
           {textError && <TextError text="โปรดระบุ" />}
@@ -73,7 +86,7 @@ export default function ModelForUpdateStatusUserSos({
           type="submit"
           className="tw-mt-4 tw-bg-blue-500 tw-text-white tw-font-medium tw-px-6 tw-py-2 tw-rounded-md tw-shadow-md hover:tw-bg-blue-600 focus:tw-ring-2 focus:tw-ring-blue-400 focus:tw-outline-none"
         >
-          ยืนยัน
+          {t("ModelForUpdateStatusUserSosText8")}
         </button>
       </form>
     </>

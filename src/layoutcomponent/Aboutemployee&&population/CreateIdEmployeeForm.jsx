@@ -3,9 +3,10 @@ import { useState } from "react";
 import { useAuth } from "../../logic/hook/user-auth";
 import { registerIdEmployee } from "../../logic/validate/validate";
 import Model from "../../layoutcomponent/Model";
-
 import RegisterIdEmployeeSuccess from "../Model/ModalSuccess/CreateIdEmployeeSuccess";
+import { useTranslation } from "react-i18next";
 
+/*
 const validateRegister = (input) => {
   const { error } = registerIdEmployee.validate(input, { abortEarly: false });
   if (error) {
@@ -25,8 +26,36 @@ const validateRegister = (input) => {
     return result;
   }
 };
-
+*/
+const validateRegister = (input, t) => {
+  const { error } = registerIdEmployee.validate(input, { abortEarly: false });
+  // console.dir(error);
+  if (error) {
+    const result = error.details.reduce((acc, el) => {
+      const { message, path } = el; //  Desturing
+      // console.log(el); // context message path type
+      acc[path[0]] = t(message); // ใช้ key ไปแปล
+      // console.log(acc);
+      //path[0] confirmPassword : "Please confirm your password";  message มาจาก validate
+      //path[0] firstName: "Please enter your first name"; message มาจาก validate
+      //path[0] gender: "Please select a title"; message มาจาก validate
+      //path[0] lastName: "Please enter your last name"; message มาจาก validate
+      //path[0] phone: "Please enter your phone number"; message มาจาก validate
+      //path[0] status: "Please select a status"; message มาจาก validate
+      return acc;
+    }, {});
+    if (input.password === "" && !result.confirmPassword) {
+      result.confirmPassword = t("validate.confirmPassword.empty");
+    }
+    if (input.gender === "") {
+      result.gender = t("validate.gender.required");
+    }
+    // console.log(result);
+    return result;
+  }
+};
 export default function CreateIdEmployeeForm() {
+  const { t } = useTranslation();
   const [openModel, setOpenModel] = useState(false);
   const { register } = useAuth();
   const [inputRegister, setInputRegister] = useState({
@@ -47,7 +76,7 @@ export default function CreateIdEmployeeForm() {
 
   const handleSubmitForm = async (e) => {
     e.preventDefault();
-    const result = validateRegister(inputRegister);
+    const result = validateRegister(inputRegister, t);
     if (result) {
       setError(result);
     } else {
@@ -86,88 +115,118 @@ export default function CreateIdEmployeeForm() {
               onChange={handleChangeInput}
               value={inputRegister.gender}
             >
-              <option value="">เลือกคำนำหน้า</option>
-              <option value="นาย">นาย</option>
-              <option value="นาง">นาง</option>
-              <option value="นางสาว">นางสาว</option>
+              <option value="">
+                {t("DataInfileCreatedIdEmployeeForm.selectgender")}
+              </option>
+              <option value="นาย">
+                {t("DataInfileCreatedIdEmployeeForm.mr")}
+              </option>
+              <option value="นาง">
+                {t("DataInfileCreatedIdEmployeeForm.mrs")}
+              </option>
+              <option value="นางสาว">
+                {t("DataInfileCreatedIdEmployeeForm.ms")}
+              </option>
             </select>
             {error.gender && <TextError text={error.gender} />}
           </div>
           <br />
-          <label className="tw-font-medium">ชื่อจริง</label>
+          <label className="tw-font-medium">
+            {" "}
+            {t("DataInfileCreatedIdEmployeeForm.firstName")}
+          </label>
           <input
             type="text"
             name="firstName"
             className="tw-border-b tw-bg-transparent tw-outline-none focus:tw-border-blue-400 focus:tw-bg-blue-50 tw-transition-all tw-duration-300 tw-ease-in-out tw-w-full tw-py-2 tw-pl-2"
-            placeholder="กรอกชื่อจริง"
+            placeholder={t("DataInfileCreatedIdEmployeeForm.firstNameGuess")}
             value={inputRegister.firstName}
             onChange={handleChangeInput}
           />
           {error.firstName && <TextError text={error.firstName} />}
         </div>
         <div className="tw-flex tw-flex-col tw-gap-2 tw-w-full">
-          <label className="tw-font-medium">นามสกุล</label>
+          <label className="tw-font-medium">
+            {" "}
+            {t("DataInfileCreatedIdEmployeeForm.lastName")}
+          </label>
           <input
             type="text"
             name="lastName"
             className="tw-border-b tw-bg-transparent tw-outline-none focus:tw-border-blue-400 focus:tw-bg-blue-50 tw-transition-all tw-duration-300 tw-ease-in-out tw-w-full tw-py-2 tw-pl-2"
-            placeholder="กรอกนามสกุล"
+            placeholder={t("DataInfileCreatedIdEmployeeForm.lastNameGuess")}
             value={inputRegister.lastName}
             onChange={handleChangeInput}
           />
           {error.lastName && <TextError text={error.lastName} />}
         </div>
         <div className="tw-flex tw-flex-col tw-gap-2 tw-w-full">
-          <label className="tw-font-medium">อีเมลล์</label>
+          <label className="tw-font-medium">
+            {" "}
+            {t("DataInfileCreatedIdEmployeeForm.email")}
+          </label>
           <input
             type="text"
             name="email"
             className="tw-border-b tw-bg-transparent tw-outline-none focus:tw-border-blue-400 focus:tw-bg-blue-50 tw-transition-all tw-duration-300 tw-ease-in-out tw-w-full tw-py-2 tw-pl-2"
-            placeholder="กรอกอีเมลล์"
+            placeholder={t("DataInfileCreatedIdEmployeeForm.emailGuess")}
             value={inputRegister.email}
             onChange={handleChangeInput}
           />
           {error.email && <TextError text={error.email} />}
         </div>
         <div className="tw-flex tw-flex-col tw-gap-2 tw-w-full">
-          <label className="tw-font-medium">เบอร์โทรศัพท์</label>
+          <label className="tw-font-medium">
+            {" "}
+            {t("DataInfileCreatedIdEmployeeForm.tel")}
+          </label>
           <input
             type="text"
             name="phone"
             className="tw-border-b tw-bg-transparent tw-outline-none focus:tw-border-blue-400 focus:tw-bg-blue-50 tw-transition-all tw-duration-300 tw-ease-in-out tw-w-full tw-py-2 tw-pl-2"
-            placeholder="กรอกเบอร์โทรศัพท์"
+            placeholder={t("DataInfileCreatedIdEmployeeForm.telGuess")}
             value={inputRegister.phone}
             onChange={handleChangeInput}
           />
           {error.phone && <TextError text={error.phone} />}
         </div>
         <div className="tw-flex tw-flex-col tw-gap-2 tw-w-full">
-          <label className="tw-font-medium">รหัสผ่าน</label>
+          <label className="tw-font-medium">
+            {" "}
+            {t("DataInfileCreatedIdEmployeeForm.password")}
+          </label>
           <input
             type="password"
             name="password"
             className="tw-border-b tw-bg-transparent tw-outline-none focus:tw-border-blue-400 focus:tw-bg-blue-50 tw-transition-all tw-duration-300 tw-ease-in-out tw-w-full tw-py-2 tw-pl-2"
-            placeholder="กรอกรหัสผ่าน"
+            placeholder={t("DataInfileCreatedIdEmployeeForm.passwordGuess")}
             value={inputRegister.password}
             onChange={handleChangeInput}
           />
           {error.password && <TextError text={error.password} />}
         </div>
         <div className="tw-flex tw-flex-col tw-gap-2 tw-w-full">
-          <label className="tw-font-medium">ยืนยันรหัสผ่าน</label>
+          <label className="tw-font-medium">
+            {" "}
+            {t("DataInfileCreatedIdEmployeeForm.confirmPassword")}
+          </label>
           <input
             type="password"
             name="confirmPassword"
             className="tw-border-b tw-bg-transparent tw-outline-none focus:tw-border-blue-400 focus:tw-bg-blue-50 tw-transition-all tw-duration-300 tw-ease-in-out tw-w-full tw-py-2 tw-pl-2"
-            placeholder="กรอกรหัสผ่าน"
+            placeholder={t(
+              "DataInfileCreatedIdEmployeeForm.confirmPasswordGuess"
+            )}
             value={inputRegister.confirmPassword}
             onChange={handleChangeInput}
           />
           {error.confirmPassword && <TextError text={error.confirmPassword} />}
         </div>
         <div className="tw-w-full">
-          {error.status && <TextError text={error.status} />} <br />
-          <label className="tw-font-medium">เลือกประเภท</label>
+          <label className="tw-font-medium">
+            {" "}
+            {t("DataInfileCreatedIdEmployeeForm.tesk")}
+          </label>
           <select
             type="text"
             name="status"
@@ -175,24 +234,36 @@ export default function CreateIdEmployeeForm() {
             onChange={handleChangeInput}
             value={inputRegister.status}
           >
-            <option value="">เลือกประเภท</option>
-            <option value="ผู้ดูแลระบบ">ผู้ดูแลระบบ</option>
-            <option value="ผู้ดำเนินการศูนย์บัญชาการ">
-              ผู้ดำเนินการศูนย์บัญชาการ
+            <option value="">
+              {" "}
+              {t("DataInfileCreatedIdEmployeeForm.teskGuess")}
             </option>
-            <option value="เจ้าหน้าที่ซ่อมบำรุง">เจ้าที่หน้าซ่อมบำรุง</option>
+            <option value="ผู้ดูแลระบบ">
+              {" "}
+              {t("DataInfileCreatedIdEmployeeForm.status.admin")}
+            </option>
+            <option value="ผู้ดำเนินการศูนย์บัญชาการ">
+              {t("DataInfileCreatedIdEmployeeForm.status.operator")}
+            </option>
+            <option value="เจ้าหน้าที่ซ่อมบำรุง">
+              {t("DataInfileCreatedIdEmployeeForm.status.maintenance")}
+            </option>
           </select>
+          {error.status && (
+            <TextError text={error.status} className="tw-pt-2" />
+          )}{" "}
+          <br />
         </div>
         <button
           type="submit"
           className="tw-bg-blue-400 tw-p-4 tw-text-white hover:tw-cursor-pointer tw-rounded-2xl hover:tw-bg-blue-900"
         >
-          ยืนยันสมัครไอดีพนักงาน
+          {t("DataInfileCreatedIdEmployeeForm.register")}
         </button>
       </form>
       {openModel && (
         <Model
-          title="สมัครไอดีพนักงานสำเร็จ"
+          title={t("modelCreateIdEmployeeSuccessText1")}
           open={openModel}
           onClose={() => setOpenModel(false)}
         >

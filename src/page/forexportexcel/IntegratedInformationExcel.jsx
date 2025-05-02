@@ -3,7 +3,9 @@ import SeachDataForSaveExcel from "../../layoutcomponent/forExcel/SeachDataForSa
 import { useState } from "react";
 import Swal from "sweetalert2";
 import axios from "../../logic/config/axios";
+import { useTranslation } from "react-i18next";
 export default function IntegratedInformationExcel() {
+  const { t } = useTranslation();
   const [data, setData] = useState({
     start: "",
     end: "",
@@ -69,7 +71,7 @@ export default function IntegratedInformationExcel() {
 
   return (
     <>
-      <HeaderMainMessage text="บันทึกข้อมูล Excel บูรณาการ" />
+      <HeaderMainMessage text={t("inconponentIntegratedInformationExcel")} />
       <SeachDataForSaveExcel
         makeDataExcel={latesFileExcelIntegratedInFormationUpdate}
         onChange={onChange}

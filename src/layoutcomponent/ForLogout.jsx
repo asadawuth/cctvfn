@@ -1,10 +1,11 @@
 import { useState } from "react";
 import logologout from "../assets/forlogout/logologout.webp";
 import Model from "../layoutcomponent/Model";
-
 import ModelForLogout from "./Model/forflow/ModelForLogout";
+import { useTranslation } from "react-i18next";
 
 export default function ForLogout() {
+  const { t } = useTranslation();
   const [openModel, setOpenModel] = useState(false);
   return (
     <>
@@ -27,7 +28,7 @@ export default function ForLogout() {
         />
       </div>
       <Model
-        title="ยืนยันเพื่อออกจากระบบ"
+        title={t("ModelForLogout")}
         open={openModel}
         onClose={() => setOpenModel(false)}
       >

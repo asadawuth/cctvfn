@@ -3,10 +3,11 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "../../logic/config/axios";
 import LayoutText from "../../layoutcomponent/DashboardAllValue/LayoutText";
-
 import LayoutInClud from "./LayoutInClud";
+import { useTranslation } from "react-i18next";
 
 export default function Layout4UserRequest() {
+  const { t } = useTranslation();
   const [data, setData] = useState();
   useEffect(() => {
     axios
@@ -31,9 +32,7 @@ export default function Layout4UserRequest() {
 
   return (
     <>
-      <LayoutText
-        text={"สรุปจำนวณคำขอโปรโมท ร้านค้า/สถานที่/ที่พัก ของประชาชนในพื้นที่"}
-      />
+      <LayoutText text={t("Layout4UserRequestTitle")} />
       <div
         className="tw-pt-2"
         style={{
@@ -55,7 +54,7 @@ export default function Layout4UserRequest() {
             href="pageaction-datareceived"
             className="hover:tw-text-blue-600 hover:tw-cursor-pointer tw-text-center tw-text-blue-400 tw-font-bold tw-text-lg tw-tracking-wide"
           >
-            ส่งเรื่องแล้ว
+            {t("ModelForUpdateStatusShopTitleChoose1")}
           </a>
           <PieChart width={300} height={300}>
             <Pie
@@ -86,7 +85,7 @@ export default function Layout4UserRequest() {
             href="pageaction-datachecking"
             className="hover:tw-text-blue-600 hover:tw-cursor-pointer tw-text-center tw-text-blue-400 tw-font-bold tw-text-lg tw-tracking-wide"
           >
-            กำลังเช็คเอกสาร
+            {t("ModelForUpdateStatusShopTitleChoose2")}
           </a>
           <PieChart width={300} height={300}>
             <Pie
@@ -117,7 +116,7 @@ export default function Layout4UserRequest() {
             href="pageaction-datarequestadditionaldocumentsdata"
             className="hover:tw-text-blue-600 hover:tw-cursor-pointer tw-text-center tw-text-blue-400 tw-font-bold tw-text-lg tw-tracking-wide"
           >
-            ขอเอกสารเพิ่ม
+            {t("ModelForUpdateStatusShopTitleChoose3")}
           </a>
           <PieChart width={300} height={300}>
             <Pie
@@ -148,7 +147,7 @@ export default function Layout4UserRequest() {
             href="pageaction-completeddata"
             className="hover:tw-text-blue-600 hover:tw-cursor-pointer tw-text-center tw-text-blue-400 tw-font-bold tw-text-lg tw-tracking-wide"
           >
-            สำเร็จ
+            {t("ModelForUpdateStatusShopTitleChoose4")}
           </a>
           <PieChart width={300} height={300}>
             <Pie
@@ -179,7 +178,7 @@ export default function Layout4UserRequest() {
             href="pageaction-thedocumentdidnotpass"
             className="hover:tw-text-blue-600 hover:tw-cursor-pointer tw-text-center tw-text-blue-400 tw-font-bold tw-text-lg tw-tracking-wide"
           >
-            ไม่ผ่าน
+            {t("ModelForUpdateStatusShopTitleChoose5")}
           </a>
           <PieChart width={300} height={300}>
             <Pie
@@ -200,7 +199,7 @@ export default function Layout4UserRequest() {
 
       <Link to="/report-request">
         <LayoutInClud
-          text="ผลรวมเอกสารขอโปรโมทร้านต่างๆ"
+          text={t("Layout4UserRequestFooter")}
           data={data.totalAllStatus}
         />
       </Link>

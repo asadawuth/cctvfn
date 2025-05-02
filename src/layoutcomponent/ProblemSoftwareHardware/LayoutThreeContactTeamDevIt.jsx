@@ -3,8 +3,10 @@ import { HiOutlineMail } from "react-icons/hi";
 import { BiMapPin } from "react-icons/bi";
 import bg3 from "../../assets/ProblemSoftwareHardware/bg3.png";
 import mass from "../../assets/ProblemSoftwareHardware/mass.webp";
+import { useTranslation } from "react-i18next";
 
 export default function LayoutThreeContactTeamDevIt() {
+  const { t } = useTranslation();
   return (
     <div
       className="tw-w-full tw-flex tw-justify-center tw-bg-cover tw-bg-center tw-p-8 md:tw-p-16"
@@ -16,7 +18,7 @@ export default function LayoutThreeContactTeamDevIt() {
             <div className="tw-flex tw-items-start tw-gap-2">
               <BiMapPin className="tw-text-xl sm:tw-text-2xl" />
               <h4 className="tw-text-sm sm:tw-text-base">
-                189/24, Bang Kaeo Bang Phli District, Samut Prakan 10540
+                189/24, {t("LayoutThreeContactTeamDevItText1")} 10540
               </h4>
             </div>
             <div className="tw-flex tw-items-start tw-gap-2">

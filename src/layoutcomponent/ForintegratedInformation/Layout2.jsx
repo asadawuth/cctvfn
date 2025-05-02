@@ -1,11 +1,13 @@
 import { useState } from "react";
 import ModelForIntegratedInformation from "../Model/forflow/ModelForIntegratedInformation";
 import ModelForUpdateDataIntegrated from "../Model/forflow/ModelForUpdateDataIntegrated";
+import { useTranslation } from "react-i18next";
 
 export default function Layout2({
   dataIntegreted,
   createNewDataIntegratedInformation,
 }) {
+  const { t } = useTranslation();
   const [openModelUpdateData, setOpenModelData] = useState(false);
 
   return (
@@ -16,12 +18,12 @@ export default function Layout2({
             onClick={() => setOpenModelData(true)}
             className="tw-bg-blue-500 tw-text-white tw-p-3 tw-px-10 tw-rounded-lg tw-shadow-md hover:tw-bg-blue-600 hover:tw-shadow-lg transition-all duration-300 tw-flex tw-items-center tw-gap-2"
           >
-            ✏️ <span>อัปเดตข้อมูล</span>
+            ✏️ <span>{t("IntegratedInformationLayOut2")}</span>
           </button>
         </div>
       </div>
       <ModelForIntegratedInformation
-        title="อัปเดตข้อมูลบูรณาการ"
+        title={t("ModelForIntegratedInformation")}
         open={openModelUpdateData}
         onClose={() => setOpenModelData(false)}
       >

@@ -3,7 +3,9 @@ import SeachDataForSaveExcel from "../../layoutcomponent/forExcel/SeachDataForSa
 import { useState } from "react";
 import Swal from "sweetalert2";
 import axios from "../../logic/config/axios";
+import { useTranslation } from "react-i18next";
 export default function UserReportShopExcel() {
+  const { t } = useTranslation();
   const [data, setData] = useState({
     start: "",
     end: "",
@@ -70,7 +72,7 @@ export default function UserReportShopExcel() {
 
   return (
     <>
-      <HeaderMainMessage text="บันทึกข้อมูล Excel โปรโมทร้านค้า" />
+      <HeaderMainMessage text={t("inconponentUserReportShopExcel")} />
       <SeachDataForSaveExcel
         onChange={onChange}
         data={data}

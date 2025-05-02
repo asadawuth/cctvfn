@@ -8,8 +8,10 @@ import {
   VictoryAxis,
   VictoryLabel,
 } from "victory";
+import { useTranslation } from "react-i18next";
 
 export default function Layout2IncludUserReport() {
+  const { t } = useTranslation();
   const [totalUserReportStatus, setTotalUserReportStatus] = useState({});
 
   useEffect(() => {
@@ -77,20 +79,26 @@ export default function Layout2IncludUserReport() {
               data={
                 totalUserReportStatus
                   ? [
-                      { x: "แจ้ง", y: totalUserReportStatus.reported || 0 },
                       {
-                        x: "รับแจ้งแล้ว",
+                        x: t("status1"),
+                        y: totalUserReportStatus.reported || 0,
+                      },
+                      {
+                        x: t("status2"),
                         y: totalUserReportStatus.acknowledged || 0,
                       },
                       {
-                        x: "กำลังดำเนินการ",
+                        x: t("status3"),
                         y: totalUserReportStatus.inProgress || 0,
                       },
                       {
-                        x: "จัดการเสร็จสิ้น",
+                        x: t("status4"),
                         y: totalUserReportStatus.completed || 0,
                       },
-                      { x: "ยกเลิก", y: totalUserReportStatus.canceled || 0 },
+                      {
+                        x: t("status5"),
+                        y: totalUserReportStatus.canceled || 0,
+                      },
                     ]
                   : []
               }
@@ -105,7 +113,7 @@ export default function Layout2IncludUserReport() {
         <div className="tw-w-full md:tw-w-1/2 xl:tw-w-[40%]  tw-flex tw-items-center">
           <div className="tw-pt-4">
             <p className="sm:tw-text-sm md:tw-text-lg xl:tw-text-2xl tw-font-bold tw-text-gray-600">
-              สรุปจำนวนการร้องเรียน
+              {t("Layout2InculdUserReport")}
             </p>
 
             <div className="tw-flex tw-items-center tw-pt-2">
@@ -114,7 +122,7 @@ export default function Layout2IncludUserReport() {
                 href="userreportstatus"
                 className="tw-ml-2 tw-text-sm md:tw-text-base xl:tw-text-lg tw-font-medium tw-text-gray-600 hover:tw-cursor-pointer hover:tw-text-blue-600"
               >
-                แจ้ง
+                {t("status1")}
               </a>
             </div>
             <div className="tw-flex tw-items-center tw-pt-2">
@@ -123,7 +131,7 @@ export default function Layout2IncludUserReport() {
                 href="userreportstatusacknowled"
                 className="tw-ml-2 tw-text-sm md:tw-text-base xl:tw-text-lg tw-font-medium tw-text-gray-600 hover:tw-cursor-pointer hover:tw-text-blue-600"
               >
-                รับแจ้งแล้ว
+                {t("status2")}
               </a>
             </div>
             <div className="tw-flex tw-items-center tw-pt-2">
@@ -132,7 +140,7 @@ export default function Layout2IncludUserReport() {
                 href="userreportstatusinprogress"
                 className="tw-ml-2 tw-text-sm md:tw-text-base xl:tw-text-lg tw-font-medium tw-text-gray-600 hover:tw-cursor-pointer hover:tw-text-blue-600"
               >
-                กำลังดำเนินการ
+                {t("status3")}
               </a>
             </div>
             <div className="tw-flex tw-items-center tw-pt-2">
@@ -141,7 +149,7 @@ export default function Layout2IncludUserReport() {
                 href="userreportstatuscompletedonly"
                 className="tw-ml-2 tw-text-sm md:tw-text-base xl:tw-text-lg tw-font-medium tw-text-gray-600 hover:tw-cursor-pointer hover:tw-text-blue-600"
               >
-                จัดการเสร็จสิ้น
+                {t("status4")}
               </a>
             </div>
             <div className="tw-flex tw-items-center tw-pt-2">
@@ -150,7 +158,7 @@ export default function Layout2IncludUserReport() {
                 href="userreportstatuscompleted"
                 className="tw-ml-2 tw-text-sm md:tw-text-base xl:tw-text-lg tw-font-medium tw-text-gray-600 hover:tw-cursor-pointer hover:tw-text-blue-600"
               >
-                ยกเลิก
+                {t("status5")}
               </a>
             </div>
             <div className="tw-flex tw-items-center tw-pt-2">
@@ -159,7 +167,7 @@ export default function Layout2IncludUserReport() {
                 href="/userReport"
                 className="tw-ml-2 tw-text-sm md:tw-text-base xl:tw-text-lg tw-font-medium tw-text-gray-600 hover:tw-cursor-pointer hover:tw-text-blue-600"
               >
-                รวม {totalUserReportStatus.allStatus}
+                {t("Total")} {totalUserReportStatus.allStatus}
               </a>
             </div>
           </div>

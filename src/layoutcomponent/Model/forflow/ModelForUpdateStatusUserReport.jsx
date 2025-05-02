@@ -1,11 +1,13 @@
 import axios from "../../../logic/config/axios";
 import { useState } from "react";
 import TextError from "../../TextError";
+import { useTranslation } from "react-i18next";
 export default function ModelForUpdateStatusUserReport({
   id,
   setDataUserReport,
   onClose,
 }) {
+  const { t } = useTranslation();
   const [inputStatus, setInputStatus] = useState({
     status: "",
   });
@@ -52,7 +54,7 @@ export default function ModelForUpdateStatusUserReport({
         htmlFor="status"
         className="tw-block tw-text-lg tw-font-medium tw-text-gray-700 tw-mb-2"
       >
-        เลือกสถานะการอัพเดท
+        {t("selectStatus")}
       </label>
       <select
         type="text"
@@ -61,12 +63,12 @@ export default function ModelForUpdateStatusUserReport({
         onChange={handleChangeInput}
         value={inputStatus.status}
       >
-        <option value="">-- เลือกสถานะ --</option>
-        <option value="แจ้ง">แจ้ง</option>
-        <option value="รับแจ้งแล้ว">รับแจ้งแล้ว</option>
-        <option value="กำลังดำเนินการ">กำลังดำเนินการ</option>
-        <option value="จัดการเสร็จสิ้น">จัดการเสร็จสิ้น</option>
-        <option value="ยกเลิก">ยกเลิก</option>
+        <option value="">-- {t("select")} --</option>
+        <option value="แจ้ง">{t("status1")}</option>
+        <option value="รับแจ้งแล้ว">{t("status2")}</option>
+        <option value="กำลังดำเนินการ">{t("status3")}</option>
+        <option value="จัดการเสร็จสิ้น">{t("status4")}</option>
+        <option value="ยกเลิก">{t("status5")}</option>
       </select>
       <div className="tw-pt-4">
         {textError && <TextError text="โปรดระบุ" />}
@@ -75,7 +77,7 @@ export default function ModelForUpdateStatusUserReport({
         type="submit"
         className="tw-mt-4 tw-bg-blue-500 tw-text-white tw-font-medium tw-px-6 tw-py-2 tw-rounded-md tw-shadow-md hover:tw-bg-blue-600 focus:tw-ring-2 focus:tw-ring-blue-400 focus:tw-outline-none"
       >
-        ยืนยัน
+        {t("statusUserReportBt")}
       </button>
     </form>
   );

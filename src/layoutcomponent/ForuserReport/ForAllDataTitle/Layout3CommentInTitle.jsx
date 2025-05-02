@@ -11,13 +11,14 @@ import ModelForComment from "../../../layoutcomponent/Model/forflow/ModelForComm
 import ModelForDeleteCommentUserReportId from "../../../layoutcomponent/Model/forflow/ModelForDeleteCommentUserReportId";
 import ModelForEditDataComment from "../../../layoutcomponent/Model/forflow/ModelForEditDataComment";
 import ModelForOpenImages from "../../../layoutcomponent/Model/forflow/ModelForOpenImages";
-
+import { useTranslation } from "react-i18next";
 export default function Layout3CommentInTitle({
   reportId,
   comment,
   handleDeleteCommentId,
   fetchComments,
 }) {
+  const { t } = useTranslation();
   const { authUser } = useAuth();
   const [openDeleteCommentModel, setOpenDeleteCommentModel] = useState(false);
   const [openEditCommentModel, setOpenEditCommentModel] = useState(false);
@@ -181,10 +182,10 @@ export default function Layout3CommentInTitle({
                 ) : (
                   <div className="tw-w-full md:tw-w-4/12 tw-bg-gray-50 tw-rounded-lg tw-shadow-inner tw-p-6">
                     <div className="tw-flex tw-flex-col tw-items-start tw-justify-center tw-gap-4">
-                      <h1 className="tw-text-2xl">สถานะ</h1>
+                      <h1 className="tw-text-2xl">{t("status")}</h1>
                       <h3>{item.user.status}</h3>
                       <p className="tw-text-sm tw-text-gray-500">
-                        โพสเมื่อ:
+                        {t("posttime")}:
                         {new Date(item.createdAt).toLocaleDateString("th-TH")}
                       </p>
                       <p className="tw-text-sm tw-text-gray-500">
@@ -198,7 +199,7 @@ export default function Layout3CommentInTitle({
                 {/* Right Section */}
                 <div className="tw-flex-1 tw-bg-blue-50 tw-p-6 tw-rounded-lg tw-shadow-lg">
                   <h6 className="tw-text-lg tw-font-extrabold tw-text-blue-600 tw-mb-4 tw-bg-blue-100 tw-p-4 tw-rounded-lg tw-shadow-inner">
-                    สถานะ
+                    {t("status")}
                   </h6>
                   <div className="tw-flex tw-items-center tw-gap-3 tw-mb-2">
                     <FaCircle
@@ -222,7 +223,7 @@ export default function Layout3CommentInTitle({
                   </div>
                   <div className="tw-mt-4 tw-bg-white tw-p-4 tw-rounded-md tw-shadow-sm tw-border tw-border-blue-200">
                     <p className="tw-text-sm tw-text-gray-600">
-                      กรุณารอทีมงานตรวจสอบเพื่อดำเนินการแก้ไขปัญหาโดยเร็วที่สุด
+                      {t("waitingForTeamToFixIssue")}
                     </p>
                   </div>
                 </div>
@@ -235,7 +236,7 @@ export default function Layout3CommentInTitle({
       </div>
 
       <Model
-        title="ยืนยันลบคอมมเม้น"
+        title={t("deleteComment")}
         open={openDeleteCommentModel}
         onClose={() => setOpenDeleteCommentModel(false)}
       >
@@ -247,7 +248,7 @@ export default function Layout3CommentInTitle({
         />
       </Model>
       <ModelForComment
-        title="แก้ไขคอมเม้น"
+        title={t("editCommentUserreport")}
         open={openEditCommentModel}
         onClose={() => {
           if (

@@ -4,28 +4,30 @@ import { changePasswordSchema } from "../../logic/validate/validate";
 import Model from "../../layoutcomponent/Model";
 import ChangePasswordSuccess from "../Model/ModalSuccess/ChangeEmailSuccess";
 import TextError from "../../layoutcomponent/TextError";
+import { useTranslation } from "react-i18next";
 
-const validateChangePassword = (input) => {
+const validateChangePassword = (input, t) => {
   const { error } = changePasswordSchema.validate(input, { abortEarly: false });
   const result = {};
 
   if (error) {
     error.details.forEach((el) => {
       const { message, path } = el;
-      result[path[0]] = message;
+      result[path[0]] = t(message);
     });
   }
 
   if (input.newPassword === "" && input.confirmNewPassword === "") {
-    result.confirmNewPassword = "กรุณากรองยืนยันรหัสผ่าน";
+    result.confirmNewPassword = t("validateChangePasswordText5");
   } else if (input.confirmNewPassword === "") {
-    result.confirmNewPassword = "กรุณากรอกเพื่อยืนยันรหัสใหม่";
+    result.confirmNewPassword = t("validateChangePasswordText5");
   }
 
   return result;
 };
 
 export default function ChangePasswordForm() {
+  const { t } = useTranslation();
   const [openModel, setOpenModel] = useState(false);
   const [inputPassword, setInputPassword] = useState({
     oldPassword: "",
@@ -42,7 +44,7 @@ export default function ChangePasswordForm() {
   };
   const handleSubmitForm = async (e) => {
     e.preventDefault();
-    const result = validateChangePassword(inputPassword);
+    const result = validateChangePassword(inputPassword, t);
     if (Object.keys(result).length > 0) {
       setError(result);
       console.log("Validation errors:", result);
@@ -61,17 +63,17 @@ export default function ChangePasswordForm() {
         if (error.response && error.response.data.message) {
           if (error.response.status === 500) {
             setError({
-              oldPassword: "รหัสผ่านเก่าไม่ถูกต้อง หรือมีปัญหาทางเซิร์ฟเวอร์",
+              oldPassword: t("validateChangePasswordText1"),
             });
           } else {
             setError({
-              oldPassword: "รหัสผ่านเก่าไม่ถูกต้อง หรือมีปัญหาทางเซิร์ฟเวอร์",
+              oldPassword: t("validateChangePasswordText2"),
             });
           }
         } else {
-          setError({ message: "เกิดข้อผิดพลาด กรุณาลองอีกครั้ง" });
+          setError({ message: t("validateChangePasswordText3") });
           setError({
-            confirmNewPassword: "ข้อมูลไม่ถูกต้อง",
+            confirmNewPassword: t("validateChangePasswordText4"),
           });
         }
       }
@@ -88,7 +90,7 @@ export default function ChangePasswordForm() {
             <input
               name="oldPassword"
               type="password"
-              placeholder="กรุณากรอกรหัสเก่า"
+              placeholder={t("ChangePasswordFormText1")}
               value={inputPassword.oldPassword}
               onChange={handleChangeInput}
               className="tw-w-full tw-p-3 tw-border tw-border-gray-300 tw-rounded-md focus:tw-outline-none focus:tw-border-blue-400"
@@ -99,7 +101,7 @@ export default function ChangePasswordForm() {
             <input
               name="newPassword"
               type="password"
-              placeholder="กรุณากรอกรหัสใหม่"
+              placeholder={t("ChangePasswordFormText2")}
               className="tw-w-full tw-p-3 tw-border tw-border-gray-300 tw-rounded-md focus:tw-outline-none focus:tw-border-blue-400"
               value={inputPassword.newPassword}
               onChange={handleChangeInput}
@@ -110,7 +112,7 @@ export default function ChangePasswordForm() {
             <input
               name="confirmNewPassword"
               type="password"
-              placeholder="กรุณากรอกเพื่อยันยันรหัสใหม่"
+              placeholder={t("ChangePasswordFormText3")}
               className="tw-w-full tw-p-3 tw-border tw-border-gray-300 tw-rounded-md focus:tw-outline-none focus:tw-border-blue-400"
               value={inputPassword.confirmNewPassword}
               onChange={handleChangeInput}
@@ -120,16 +122,16 @@ export default function ChangePasswordForm() {
             )}
           </div>
           <button className="tw-w-full tw-bg-blue-500 tw-text-white tw-py-2 tw-px-4 tw-rounded-md hover:tw-bg-blue-600">
-            ยืนยันเปลี่ยนรหัสผ่าน
+            {t("ChangePasswordFormText4")}
           </button>
           <a className="tw-block tw-text-center tw-text-slate-600 tw-text-sm tw-mt-4 hover:tw-text-blue-500 hover:tw-cursor-pointer">
-            เปลี่ยนรหัสผ่าน ?
+            {t("ChangePasswordFormText5")}
           </a>
         </form>
       </div>
 
       <Model
-        title="เปลี่ยนรหัสผ่านสำเร็จ"
+        title={t("ChangePasswordSuccessTitle")}
         open={openModel}
         onClose={() => setOpenModel(false)}
       >

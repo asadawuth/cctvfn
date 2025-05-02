@@ -4,16 +4,17 @@ import imageDefault from "../../assets/forusershop/shopdefault.png";
 import formatTimeAgo from "../../logic/utils/time-ago";
 import { useState } from "react";
 import ModalForOpenOneImage from "../../layoutcomponent/Model/forflow/ModelForOpenOneImage";
-
 import Model from "../Model";
 import ModelForDeleteIdShop from "../../layoutcomponent/Model/forflow/ModelForDeleteIdShop";
 import ModelForUpdateStatusShop from "../../layoutcomponent/Model/forflow/ModelForUpdateStatusShop";
+import { useTranslation } from "react-i18next";
 
 export default function UserShopItem({
   dataUserShop,
   handleUpdateStatus,
   handleDeleteShopId,
 }) {
+  const { t } = useTranslation();
   const [isModalOpen, setModalOpen] = useState(null);
   const [modalImage, setModalImage] = useState("");
   const [isDeleteModelOpen, setIsDeleteModelOpen] = useState(false);
@@ -91,7 +92,7 @@ export default function UserShopItem({
                     shop.status === "ส่งเรื่องแล้ว" ? "tw-text-black" : ""
                   }`}
                 >
-                  ประเภท:
+                  {t("infileUserShopItemCategory")} &nbsp;:&nbsp;
                   <span className="tw-font-medium">
                     {shop.category || "ไม่ระบุ"}
                   </span>
@@ -101,7 +102,7 @@ export default function UserShopItem({
                     shop.status === "ส่งเรื่องแล้ว" ? "tw-text-black" : ""
                   }`}
                 >
-                  สถานะ:
+                  {t("infileUserShopItemStatus")} &nbsp;:&nbsp;
                   <span className="tw-font-medium">
                     {shop.status || "ไม่ระบุ"}
                   </span>
@@ -110,7 +111,7 @@ export default function UserShopItem({
               {/* Footer */}
               <div className="tw-flex tw-items-center tw-justify-between tw-text-sm tw-text-gray-600">
                 <span className="tw-font-light">
-                  โพสต์เมื่อ:{" "}
+                  {t("posttime")}&nbsp;:&nbsp;
                   {new Date(shop.createdAt).toLocaleDateString() || "ไม่ระบุ"}
                 </span>
                 <span className="tw-font-light">
@@ -126,7 +127,7 @@ export default function UserShopItem({
                     className="tw-flex tw-items-center tw-gap-2 tw-text-blue-500 tw-bg-blue-100 hover:tw-bg-blue-200 tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-shadow-md tw-transition-all"
                   >
                     <span className="tw-w-4 tw-h-4 tw-bg-blue-500 tw-rounded-full"></span>
-                    อัพเดทสถานะ
+                    {t("infileUserShopItemUpdateStatus")}
                   </button>
                 </div>
 
@@ -140,7 +141,7 @@ export default function UserShopItem({
                 <a href={`userShop/alldatashop/${shop.id}`}>
                   <button className="tw-flex tw-items-center tw-gap-2 tw-text-green-500 tw-bg-green-100 hover:tw-bg-green-200 tw-px-4 tw-py-2  tw-text-sm tw-font-medium tw-shadow-md tw-transition-all">
                     <span className="tw-w-4 tw-h-4 tw-bg-green-500 tw-rounded-full"></span>
-                    เข้าดูข้อมูล
+                    {t("infileUserShopItemView")}
                   </button>
                 </a>
                 {/* {location.pathname !== "/pageaction-datashop" && ( )} */}
@@ -153,7 +154,7 @@ export default function UserShopItem({
                     }}
                   >
                     <span className="tw-w-4 tw-h-4 tw-bg-red-500 tw-rounded-full"></span>
-                    ลบ
+                    {t("infileUserShopItemDelete")}
                   </button>
                 </>
               </div>
@@ -169,7 +170,7 @@ export default function UserShopItem({
         image={modalImage}
       />
       <Model
-        title="ยืนยันลบข้อมูลร้านประชาชนออกจากระบบ"
+        title={t("ModelForDeleteIdShopTitle")}
         open={isDeleteModelOpen}
         onClose={() => setIsDeleteModelOpen(false)}
       >
@@ -180,7 +181,7 @@ export default function UserShopItem({
         />
       </Model>
       <Model
-        title="อัปเดตสถานะร้านค้า"
+        title={t("ModelForUpdateStatusShopTitle")}
         open={isUpdateStatusModelOpen}
         onClose={() => setIsUpdateStatusModelOpen(false)}
       >

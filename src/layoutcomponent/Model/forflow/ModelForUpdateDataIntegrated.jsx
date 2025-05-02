@@ -1,11 +1,13 @@
 import { useState } from "react";
 import Loading from "./../../Loading";
+import { useTranslation } from "react-i18next";
 
 export default function ModelForUpdateDataIntegrated({
   dataIntegreted,
   createNewDataIntegratedInformation,
   onClose,
 }) {
+  const { t } = useTranslation();
   const [newData, setNewData] = useState({
     male: dataIntegreted?.male || "",
     female: dataIntegreted?.female || "",
@@ -42,13 +44,13 @@ export default function ModelForUpdateDataIntegrated({
         className="tw-max-w-md tw-mx-auto tw-bg-white tw-shadow-lg tw-rounded-xl tw-p-6 tw-space-y-4 tw-h-auto tw-max-h-[500px] tw-overflow-y-auto"
       >
         <h2 className="tw-text-lg tw-font-semibold tw-text-gray-800 tw-text-center">
-          กรอกข้อมูล
+          {t("ModelForUpdateDataIntegratedFormTitle")}
         </h2>
 
         <div className="tw-grid tw-grid-cols-2 tw-gap-4">
           <div>
             <label className="tw-block tw-text-gray-700 tw-font-medium">
-              ชาย
+              {t("IntegratedInformationLayOut1Text1")}
             </label>
             <input
               type="text"
@@ -62,7 +64,7 @@ export default function ModelForUpdateDataIntegrated({
 
           <div>
             <label className="tw-block tw-text-gray-700 tw-font-medium">
-              หญิง
+              {t("IntegratedInformationLayOut1Text2")}
             </label>
             <input
               type="text"
@@ -76,7 +78,7 @@ export default function ModelForUpdateDataIntegrated({
 
           <div className="tw-col-span-2">
             <label className="tw-block tw-text-gray-700 tw-font-medium">
-              ครัวเรือน
+              {t("IntegratedInformationLayOut1Text3")}
             </label>
             <input
               type="text"
@@ -90,7 +92,7 @@ export default function ModelForUpdateDataIntegrated({
 
           <div className="tw-col-span-2">
             <label className="tw-block tw-text-gray-700 tw-font-medium">
-              ร้านค้า
+              {t("IntegratedInformationLayOut1Text4")}
             </label>
             <input
               type="text"
@@ -104,7 +106,7 @@ export default function ModelForUpdateDataIntegrated({
 
           <div className="tw-col-span-2">
             <label className="tw-block tw-text-gray-700 tw-font-medium">
-              ร้านอาหาร
+              {t("IntegratedInformationLayOut1Text5")}
             </label>
             <input
               type="text"
@@ -118,7 +120,7 @@ export default function ModelForUpdateDataIntegrated({
 
           <div className="tw-col-span-2">
             <label className="tw-block tw-text-gray-700 tw-font-medium">
-              สถานที่
+              {t("IntegratedInformationLayOut1Text6")}
             </label>
             <input
               type="text"
@@ -132,7 +134,7 @@ export default function ModelForUpdateDataIntegrated({
 
           <div className="tw-col-span-2">
             <label className="tw-block tw-text-gray-700 tw-font-medium">
-              ที่พัก
+              {t("IntegratedInformationLayOut1Text6")}
             </label>
             <input
               type="text"
@@ -149,7 +151,7 @@ export default function ModelForUpdateDataIntegrated({
           type="submit"
           className="tw-w-full tw-mt-4 tw-bg-blue-500 tw-text-white tw-font-semibold tw-py-2 tw-rounded-lg tw-hover:bg-blue-600 tw-transition"
         >
-          ส่งข้อมูล
+          {t("ModelForUpdateDataIntegratedSubmitButton")}
         </button>
       </form>
     </>

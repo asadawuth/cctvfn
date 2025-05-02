@@ -3,7 +3,9 @@ import SeachDataForSaveExcel from "../../layoutcomponent/forExcel/SeachDataForSa
 import { useState } from "react";
 import Swal from "sweetalert2";
 import axios from "../../logic/config/axios";
+import { useTranslation } from "react-i18next";
 export default function UserRequestcctvExcel() {
+  const { t } = useTranslation();
   const [data, setData] = useState({
     start: "",
     end: "",
@@ -69,7 +71,7 @@ export default function UserRequestcctvExcel() {
   };
   return (
     <>
-      <HeaderMainMessage text="บันทึกข้อมูล Excel คำขอดูกล้องจากประชาชน" />
+      <HeaderMainMessage text={t("inconponentUserRequestcctvExcel")} />
       <SeachDataForSaveExcel
         makeDataExcel={latesFileExcelRequestcctvUpdate}
         onChange={onChange}

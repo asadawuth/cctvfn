@@ -4,6 +4,7 @@ import { FaCircle } from "react-icons/fa";
 import blank from "../../../assets/foruserreport/blank.png";
 import Model from "../../../layoutcomponent/Model";
 import ModelForUpdateStatusInSideList from "../../../layoutcomponent/Model/forflow/ModelForUpdateStatusInSideList";
+import { useTranslation } from "react-i18next";
 
 import formatTimeAgo from "../../../logic/utils/time-ago";
 import ModelForOpenImages from "../../Model/forflow/ModelForOpenImages";
@@ -12,6 +13,7 @@ export default function Layout2AllTitle({
   handleEditStatusUserReportId,
   reportId,
 }) {
+  const { t } = useTranslation();
   const [isModalOpen, setModalOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [openModelChangeStatus, setOpenModelChangeStatus] = useState(false);
@@ -134,7 +136,7 @@ export default function Layout2AllTitle({
                 onClick={() => sendId()}
                 className="tw-text-lg tw-font-semibold tw-text-blue-600 tw-mb-4 tw-bg-blue-100 tw-p-2 tw-rounded-lg tw-shadow tw-cursor-pointer"
               >
-                สถานะ
+                {t("DataInfileCreatedIdEmployeeForm.status.status")}
               </h6>
               <div className="tw-flex tw-items-center tw-gap-3 tw-mb-2">
                 <FaCircle
@@ -180,7 +182,7 @@ export default function Layout2AllTitle({
       />
       {openModelChangeStatus && (
         <Model
-          title="อัพเดทสถานะประชาชนร้องเรียน"
+          title={t("textHeader")}
           open={openModelChangeStatus}
           onClose={() => setOpenModelChangeStatus(false)}
         >

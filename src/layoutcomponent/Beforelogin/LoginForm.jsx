@@ -2,13 +2,14 @@ import { useState } from "react";
 import { loginSchema } from "../../logic/validate/validate";
 import { useAuth } from "../../logic/hook/user-auth";
 import TextError from "../TextError";
+import { useTranslation } from "react-i18next";
 
-const validateLogin = (input) => {
+const validateLogin = (input, t) => {
   const { error } = loginSchema.validate(input, { abortEarly: false });
   if (error) {
     const result = error.details.reduce((acc, el) => {
       const { message, path } = el;
-      acc[path[0]] = message;
+      acc[path[0]] = t(message);
       return acc;
     }, {});
     return result;
@@ -17,6 +18,7 @@ const validateLogin = (input) => {
   }
 };
 export default function LoginForm() {
+  const { t } = useTranslation();
   const { login } = useAuth();
   const [signup, setSignup] = useState({
     emailOrMobile: "",
@@ -27,7 +29,7 @@ export default function LoginForm() {
 
   const handleSubmitForm = async (e) => {
     e.preventDefault();
-    const result = validateLogin(signup);
+    const result = validateLogin(signup, t);
 
     if (Object.keys(result).length > 0) {
       setError(result);
@@ -45,7 +47,7 @@ export default function LoginForm() {
       }
     } catch (error) {
       setErrorEmailOrMobile({
-        credential: "เข้าระบบไม่ได้เนื่องจาก ข้อมูลไม่ถูกต้อง",
+        credential: t("loginFormText1"),
       });
     }
   };
@@ -59,7 +61,7 @@ export default function LoginForm() {
         <div className="tw-mb-4">
           <input
             className="tw-w-full tw-p-3 tw-border tw-border-gray-300 tw-rounded-md focus:tw-outline-none focus:tw-border-blue-400"
-            placeholder="ระบุเบอร์โทรศัพท์หรืออีเมลล์"
+            placeholder={t("LoginFormText1")}
             value={signup.emailOrMobile}
             onChange={(e) =>
               setSignup({ ...signup, emailOrMobile: e.target.value })
@@ -71,7 +73,7 @@ export default function LoginForm() {
           <input
             type="password"
             className="tw-w-full tw-p-3 tw-border tw-border-gray-300 tw-rounded-md focus:tw-outline-none focus:tw-border-blue-400"
-            placeholder="ระบุรหัสผ่าน"
+            placeholder={t("LoginFormText2")}
             value={signup.password}
             onChange={(e) => setSignup({ ...signup, password: e.target.value })}
           />
@@ -81,13 +83,13 @@ export default function LoginForm() {
           type="submit"
           className="tw-w-full tw-bg-blue-500 tw-text-white tw-py-2 tw-px-4 tw-rounded-md hover:tw-bg-blue-600"
         >
-          เข้าสู่ระบบ
+          {t("LoginFormText3")}
         </button>
         <a
           className="tw-block tw-text-center tw-text-slate-600 tw-text-sm tw-mt-4 hover:tw-text-blue-500"
           href="/verifyemail"
         >
-          ลืมรหัสผ่าน ?
+          {t("LoginFormText4")}
         </a>
         {errorEmailOrMobile.credential && (
           <TextError text={errorEmailOrMobile.credential} />

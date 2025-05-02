@@ -13,8 +13,10 @@ import { RiShoppingCartLine } from "react-icons/ri";
 import { BiCctv } from "react-icons/bi";
 import { TbDeviceCctv } from "react-icons/tb";
 import { FiLogOut } from "react-icons/fi";
+import { useTranslation } from "react-i18next";
 
 export default function LeftBar({ leftOpen, isOpenandClose }) {
+  const { t } = useTranslation();
   const [listReportOpen, setListReportOpen] = useState(false);
   const [listShopOpen, setListShopOpen] = useState(false);
   const [listRequestCctv, setListRequestCctv] = useState(false);
@@ -66,7 +68,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
         {/* หัวข้อ (ซ่อนเมื่อปิด Sidebar) */}
         {leftOpen && (
           <div className="tw-text-center tw-font-semibold tw-text-white tw-bg-blue-800 tw-text-lg tw-py-2 tw-rounded-md tw-shadow-md">
-            สรุปค่า
+            {t("Texttitle")}
           </div>
         )}
 
@@ -83,7 +85,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                   leftOpen ? "tw-block" : "tw-hidden"
                 } tw-text-sm tw-font-medium`}
               >
-                ร้องเรียน
+                {t("Report")}
               </h1>
             </div>
             {leftOpen &&
@@ -98,7 +100,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg   tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                แจ้ง
+                {t("status1")}
               </a>
               <a
                 href="/userreportstatusacknowled"
@@ -106,7 +108,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg   tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                รับแจ้งแล้ว
+                {t("status2")}
               </a>
               <a
                 href="/userreportstatusinprogress"
@@ -114,7 +116,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg   tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                กำลังดำเนินการ
+                {t("status3")}
               </a>
               <a
                 href="/userreportstatuscompletedonly"
@@ -122,7 +124,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg   tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                จัดการเสร็จสิ้น
+                {t("status4")}
               </a>
               <a
                 href="/userreportstatuscompleted"
@@ -130,7 +132,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg   tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                ยกเลิก
+                {t("status5")}
               </a>
               <a
                 href="/userReport"
@@ -138,7 +140,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg   tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                รวม
+                {t("Total")}
               </a>
             </div>
           )}
@@ -154,7 +156,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                   leftOpen ? "tw-block" : "tw-hidden"
                 } tw-text-sm tw-font-medium`}
               >
-                โปรโมทร้าน
+                {t("Promote")}
               </h1>
             </div>
             {leftOpen &&
@@ -169,7 +171,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg   tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                ส่งเรื่องแล้ว
+                {t("ModelForUpdateStatusShopTitleChoose1")}
               </a>
               <a
                 href="/pageaction-datachecking"
@@ -177,7 +179,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg   tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                กำลังเช็คเอกสาร
+                {t("ModelForUpdateStatusShopTitleChoose2")}
               </a>
               <a
                 href="/pageaction-datarequestadditionaldocumentsdata"
@@ -185,7 +187,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg   tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                ขอเอกสารเพิ่ม
+                {t("ModelForUpdateStatusShopTitleChoose3")}
               </a>
               <a
                 href="/pageaction-completeddata"
@@ -193,7 +195,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg   tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                สำเร็จ
+                {t("ModelForUpdateStatusShopTitleChoose4")}
               </a>
               <a
                 href="/pageaction-thedocumentdidnotpass"
@@ -201,7 +203,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg   tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                ไม่ผ่าน
+                {t("ModelForUpdateStatusShopTitleChoose5")}
               </a>
               <a
                 href="/report-request"
@@ -209,7 +211,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg   tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                รวม
+                {t("Total")}
               </a>
             </div>
           )}
@@ -225,7 +227,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                   leftOpen ? "tw-block" : "tw-hidden"
                 } tw-text-sm tw-font-medium`}
               >
-                สถานะขอดูกล้อง
+                {t("cctvTitle")}
               </h1>
             </div>
             {leftOpen &&
@@ -240,7 +242,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg   tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                ยื่นเอกสาร
+                {t("cctvText1")}
               </a>
               <a
                 href="/pageaction-requestcctvpass"
@@ -248,7 +250,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg   tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                ผ่าน
+                {t("cctvText2")}
               </a>
               <a
                 href="/pageaction-requestcctvnotpass"
@@ -256,7 +258,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg   tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                ไม่ผ่าน
+                {t("cctvText3")}
               </a>
               <a
                 href="/userrequest-forwatchcctv"
@@ -264,7 +266,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg   tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                รวม
+                {t("Total")}
               </a>
             </div>
           )}
@@ -280,7 +282,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                   leftOpen ? "tw-block" : "tw-hidden"
                 } tw-text-sm tw-font-medium`}
               >
-                ร้องเรียน SOS ฉุกเฉิน
+                {t("sosTitle")}
               </h1>
             </div>
             {leftOpen &&
@@ -296,7 +298,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg   tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                แจ้ง
+                {t("ModelForUpdateStatusUserSosText3")}
               </a>
               <a
                 href="/pageaction-sosstatusacknowledged"
@@ -304,7 +306,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg   tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                รับแจ้งแล้ว
+                {t("ModelForUpdateStatusUserSosText4")}
               </a>
               <a
                 href="/pageaction-sosstatusinprogress"
@@ -312,7 +314,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg   tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                กำลังดำเนินการ
+                {t("ModelForUpdateStatusUserSosText5")}
               </a>
               <a
                 href="/pageaction-sosstatuscompleted"
@@ -320,7 +322,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg   tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                จัดการเสร็จสิ้น
+                {t("ModelForUpdateStatusUserSosText6")}
               </a>
               <a
                 href="/pageaction-sosstatuscanceled"
@@ -328,7 +330,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg   tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                ยกเลิก
+                {t("ModelForUpdateStatusUserSosText7")}
               </a>
               <a
                 href="/sosformmobile"
@@ -336,7 +338,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg   tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                รวม
+                {t("Total")}
               </a>
             </div>
           )}
@@ -352,7 +354,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                   leftOpen ? "tw-block" : "tw-hidden"
                 } tw-text-sm tw-font-medium`}
               >
-                เสาร์250
+                {t("pole")}
               </h1>
             </div>
             {leftOpen &&
@@ -367,7 +369,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg   tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                ค่าของเสาทั้งหมด
+                {t("poleText1")}
               </a>
               <a
                 href="/problempointMap"
@@ -375,7 +377,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg    tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                เสาที่ชำรุด
+                {t("poleText2")}
               </a>
             </div>
           )}
@@ -391,7 +393,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                   leftOpen ? "tw-block" : "tw-hidden"
                 } tw-text-sm tw-font-medium`}
               >
-                กล้อง cctv
+                {t("cctvLive")}
               </h1>
             </div>
             {leftOpen &&
@@ -406,7 +408,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg   tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                ดูกล้อง
+                {t("cctvLiveText1")}
               </a>
               <a
                 href="/problempointMap"
@@ -414,7 +416,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 rel="noopener noreferrer"
                 className="tw-bg-white tw-cursor-pointer tw-text-gray-700 tw-py-2 tw-pl-4 tw-pr-6 tw-rounded-lg    tw-shadow-lg tw-border tw-border-gray-200 hover:tw-bg-blue-500 hover:tw-text-white hover:tw-border-blue-500 tw-transition-all tw-duration-300"
               >
-                กล้องที่ชำรุด
+                {t("cctvLiveText2")}
               </a>
             </div>
           )}
@@ -431,7 +433,7 @@ export default function LeftBar({ leftOpen, isOpenandClose }) {
                 leftOpen ? "tw-block" : "tw-hidden"
               } tw-text-sm tw-font-medium`}
             >
-              ออกจากระบบ
+              {t("logout")}
             </h1>
           </Link>
         </div>

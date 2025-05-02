@@ -3,8 +3,10 @@ import Layout1 from "../layoutcomponent/ForintegratedInformation/Layout1";
 import Layout2 from "../layoutcomponent/ForintegratedInformation/Layout2";
 import { useState, useEffect } from "react";
 import axios from "../logic/config/axios";
+import { useTranslation } from "react-i18next";
 
 export default function IntegratedInformation() {
+  const { t } = useTranslation();
   const [dataIntegreted, setDataIntegreted] = useState({});
 
   const fetchData = async () => {
@@ -35,7 +37,7 @@ export default function IntegratedInformation() {
   };
   return (
     <>
-      <HeaderMainMessage text="ข้อมูลบูรณาการ" />
+      <HeaderMainMessage text={t("inconponentIntegratedInformation")} />
       <hr />
       <Layout1 dataIntegreted={dataIntegreted} />
       <Layout2

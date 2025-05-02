@@ -1,12 +1,14 @@
 import Model from "../../layoutcomponent/Model";
 import ModelForUpDataIntegratedExcel from "../../layoutcomponent/Model/forflow/ModelForUpDataIntegratedExcel";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function SeachDataForSaveExcel({
   onChange,
   data,
   makeDataExcel,
 }) {
+  const { t } = useTranslation();
   const [openModelCreateFileExcel, setOpenModelCreateFileExcel] =
     useState(false);
 
@@ -17,7 +19,7 @@ export default function SeachDataForSaveExcel({
         <div className="tw-flex tw-justify-center tw-items-center tw-bg-blue-50 tw-py-8 ">
           <div className="tw-bg-white tw-p-8  tw-shadow-lg tw-text-center tw-w-[800px]">
             <h2 className="tw-text-lg tw-font-semibold tw-text-blue-700 tw-mb-4">
-              เลือกวันที่
+              {t("SeachDataForSaveExcelStart")}
             </h2>
             <input
               type="date"
@@ -31,12 +33,12 @@ export default function SeachDataForSaveExcel({
           </div>
         </div>
         <div className="tw-text-lg tw-font-semibold tw-text-blue-700 tw-bg-blue-50 tw-text-center">
-          <h1>ถึง</h1>
+          <h1> {t("SeachDataForSaveExcelTo")}</h1>
         </div>
         <div className="tw-flex tw-justify-center tw-items-center tw-bg-blue-50 tw-py-8 ">
           <div className="tw-bg-white tw-p-8  tw-shadow-lg tw-text-center tw-w-[800px]">
             <h2 className="tw-text-lg tw-font-semibold tw-text-blue-700 tw-mb-4">
-              เลือกวันที่
+              {t("SeachDataForSaveExcelEnd")}
             </h2>
             <input
               type="date"
@@ -54,12 +56,12 @@ export default function SeachDataForSaveExcel({
             onClick={() => setOpenModelCreateFileExcel(true)}
             className="tw-bg-blue-700 tw-p-2 tw-px-28 hover:tw-px-40 hover:tw-bg-blue-500"
           >
-            บันทึกข้อมูล Excel
+            {t("SeachDataForSaveExcelButton")}
           </button>
         </div>
       </div>
       <Model
-        title="โหลดข้อมูลลงExcel"
+        title={t("ModelForUpDataIntegratedExcelTitle")}
         open={openModelCreateFileExcel}
         onClose={() => setOpenModelCreateFileExcel(false)}
       >

@@ -57,8 +57,6 @@ export default function ListDataEmployee() {
     }
   }, [firstName, lastName]);
 
-  console.log(dataIdUserPersonSearch);
-
   return (
     <>
       <HeaderMainMessage text={t("inconponentListDataEmployee")} />

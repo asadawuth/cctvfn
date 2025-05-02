@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Loading from "../../../layoutcomponent/Loading";
-
+import { useTranslation } from "react-i18next";
 import TextError from "../../TextError";
 import axios from "../../../logic/config/axios";
 
@@ -10,6 +10,7 @@ export default function ModelForSendMessageStatusCctpNotpass({
   setDataUserRequestForWatchCctv,
   oldMessage,
 }) {
+  const { t } = useTranslation();
   const [message, setMessage] = useState(oldMessage || "");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -56,7 +57,9 @@ export default function ModelForSendMessageStatusCctpNotpass({
 
       <form onSubmit={handleSubmitForm} className="tw-space-y-4">
         <div className="tw-p-4">
-          <h3 className="tw-text-lg tw-font-bold tw-text-gray-700">ข้อความ</h3>
+          <h3 className="tw-text-lg tw-font-bold tw-text-gray-700">
+            {t("ModelForSendMessageStatusCctpNotpassText2")}
+          </h3>
           <textarea
             name="message"
             value={message}
@@ -67,7 +70,7 @@ export default function ModelForSendMessageStatusCctpNotpass({
                 ? "tw-border-red-500 focus:tw-ring-red-500"
                 : "tw-border-gray-300 focus:tw-ring-blue-500"
             }`}
-            placeholder="โปรดกรอกข้อความที่ต้องการส่ง..."
+            placeholder={t("ModelForSendMessageStatusCctpNotpassText3")}
           />
           {error && <TextError text={error} style="tw-mt-2 tw-text-red-500" />}
         </div>
@@ -78,7 +81,9 @@ export default function ModelForSendMessageStatusCctpNotpass({
             className="tw-bg-gradient-to-r tw-text-lg tw-font-semibold tw-text-white tw-px-10 tw-py-3 tw-rounded-xl tw-shadow-lg hover:tw-scale-105 hover:tw-shadow-xl tw-transition-all tw-duration-300 tw-bg-blue-500 hover:tw-bg-blue-600"
             disabled={loading}
           >
-            {loading ? "กำลังส่ง..." : "ยืนยัน"}
+            {loading
+              ? "กำลังส่ง..."
+              : t("ModelForSendMessageStatusCctpNotpassText4")}
           </button>
         </div>
       </form>

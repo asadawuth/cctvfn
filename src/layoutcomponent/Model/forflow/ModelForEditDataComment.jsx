@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import TextError from "./../../TextError";
 import Loading from "../../../layoutcomponent/Loading";
+import { useTranslation } from "react-i18next";
 
 export default function ModelForEditDataComment({
   oldDataComment,
   onClose,
   editCommentInUserReportId,
 }) {
+  const { t } = useTranslation();
   const [text, setText] = useState("");
   const [images, setImages] = useState([]);
   const [oldImages, setOldImages] = useState([]);
@@ -85,7 +87,9 @@ export default function ModelForEditDataComment({
       >
         {/* ข้อความ */}
         <div className="tw-mb-4">
-          <h3 className="tw-text-lg tw-font-bold tw-text-gray-700">ข้อความ</h3>
+          <h3 className="tw-text-lg tw-font-bold tw-text-gray-700">
+            {t("ModelForEditDataCommentText1")}
+          </h3>
           <textarea
             rows="4"
             value={text}
@@ -96,10 +100,15 @@ export default function ModelForEditDataComment({
 
         {/* รูปภาพ */}
         <div className="tw-mb-4">
-          <h3 className="tw-text-lg tw-font-bold tw-text-gray-700">รูปภาพ</h3>
+          <h3 className="tw-text-lg tw-font-bold tw-text-gray-700">
+            {t("ModelForEditDataCommentText2")}
+          </h3>
           <div className="tw-flex tw-gap-2">
             {removeImages ? (
-              <p className="tw-text-red-500">รูปภาพจะถูกลบ</p>
+              <p className="tw-text-red-500">
+                {" "}
+                {t("ModelForEditDataCommentText3")}
+              </p>
             ) : images.length > 0 ? (
               images.map((img, index) => (
                 <img
@@ -137,11 +146,14 @@ export default function ModelForEditDataComment({
           }}
           className="tw-bg-red-500 tw-text-white tw-py-1 tw-px-4 tw-mt-2"
         >
-          ไม่ต้องการใช้รูป
+          {t("ModelForEditDataCommentText3")}
         </button>
         {/* วิดีโอ */}
         <div className="tw-mb-4">
-          <h3 className="tw-text-lg tw-font-bold tw-text-gray-700">วิดีโอ</h3>
+          <h3 className="tw-text-lg tw-font-bold tw-text-gray-700">
+            {" "}
+            {t("ModelForEditDataCommentText4")}
+          </h3>
           {removeVideo ? (
             <p className="tw-text-red-500">วิดีโอจะถูกลบ</p>
           ) : video ? (
@@ -174,7 +186,7 @@ export default function ModelForEditDataComment({
           }}
           className="tw-bg-red-500 tw-text-white tw-py-1 tw-px-4 tw-mt-2"
         >
-          ไม่ต้องการใช้วิดีโอ
+          {t("ModelForEditDataCommentText5")}
         </button>
 
         {/* ปุ่มยืนยัน */}
@@ -183,7 +195,7 @@ export default function ModelForEditDataComment({
             type="submit"
             className="tw-bg-blue-500 tw-text-white tw-px-6 tw-py-2 tw-rounded-lg hover:tw-bg-blue-600"
           >
-            ยืนยัน
+            {t("ModelForEditDataCommentText6")}
           </button>
         </div>
       </form>

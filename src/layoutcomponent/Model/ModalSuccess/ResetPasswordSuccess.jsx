@@ -1,9 +1,10 @@
 import { AiOutlineCheck } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function ResetPasswordSuccess() {
   const navigate = useNavigate();
-
+  const { t } = useTranslation();
   const randerLogin = () => {
     navigate("/login");
   };
@@ -16,16 +17,16 @@ export default function ResetPasswordSuccess() {
             <AiOutlineCheck className="tw-text-6xl tw-text-blue-400" />
           </div>
           <h2 className="tw-text-2xl tw-font-bold tw-text-gray-700">
-            การเปลี่ยนรหัสผ่านสำเร็จ!
+            {t("ResetPasswordwordSuccessText1")}
           </h2>
           <p className="tw-text-center tw-text-gray-500">
-            คุณสามารถเข้าสู่ระบบใหม่ได้ด้วยรหัสผ่านที่คุณตั้งค่า
+            {t("ResetPasswordwordSuccessText2")}
           </p>
           <button
             className="tw-bg-blue-500 tw-text-white tw-py-2 tw-px-6 tw-rounded-lg tw-font-semibold tw-shadow-md hover:tw-bg-blue-600 tw-transition tw-duration-200"
             onClick={randerLogin}
           >
-            ไปที่หน้าล็อกอิน
+            {t("ResetPasswordwordSuccessText3")}
           </button>
         </div>
       </div>

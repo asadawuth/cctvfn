@@ -2,8 +2,10 @@ import HeaderMainMessage from "../../layoutcomponent/HeaderMainMessage";
 import SeachDataForSaveExcel from "../../layoutcomponent/forExcel/SeachDataForSaveExcel";
 import { useState } from "react";
 import axios from "../../logic/config/axios";
+import { useTranslation } from "react-i18next";
 
 export default function EnergyAndWeatherExcel() {
+  const { t } = useTranslation();
   const [data, setData] = useState({
     start: "",
     end: "",
@@ -22,7 +24,7 @@ export default function EnergyAndWeatherExcel() {
 
   return (
     <>
-      <HeaderMainMessage text="บันทึกข้อมูล Excel พลังงานและอุณภูมิ" />
+      <HeaderMainMessage text={t("inconponentEnergyAndWeatherExcel")} />
       <SeachDataForSaveExcel
         latesFileExcelUpdate={latesFileExcelUpdate}
         onChange={onChange}

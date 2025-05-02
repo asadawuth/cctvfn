@@ -4,11 +4,13 @@ import Model from "../Model";
 import ModelForOpenShowDocument from "../Model/forflow/ModelForOpenShowDocument";
 import ModelForUpdateStatusUserRequestWatchcctv from "../Model/forflow/ModelForUpdateStatusUserRequestWatchcctv";
 import ModelForSendMessageStatusCctpNotpass from "../Model/forflow/ModelForSendMessageStatusCctpNotpass";
+import { useTranslation } from "react-i18next";
 
 export default function Item({
   dataUserRequestForWatchCctv,
   setDataUserRequestForWatchCctv,
 }) {
+  const { t } = useTranslation();
   const [isModelOpenDocument, setModelOpenDocument] = useState(false);
   const [oldDataMessage, setOldDataMessage] = useState("");
   const [modalImage, setModalImage] = useState("");
@@ -38,11 +40,6 @@ export default function Item({
     setIsModelUpdateStatus(true);
   };
 
-  // const sendIdForSendMassage = (id) => {
-  //   setSelectId(id);
-  //   setIsModelSendMessageCassNotpass(true);
-  // };
-
   return (
     <>
       {dataUserRequestForWatchCctv.map((item, index) => (
@@ -58,7 +55,7 @@ export default function Item({
               onClick={() => toggleModelShowDocument(item.image)}
               className="tw-bg-gray-500 tw-text-white tw-py-1 tw-px-4 tw-rounded-lg tw-transition-all hover:tw-bg-gray-600 hover:tw-shadow-lg tw-text-sm"
             >
-              คลิกเพื่อตรวจสอบ
+              {t("Check")}
             </button>
           </td>
           <td className="tw-py-2 tw-px-4">
@@ -90,7 +87,9 @@ export default function Item({
                   : "tw-bg-green-500 hover:tw-bg-green-600"
               } tw-text-white tw-py-1 tw-px-4 tw-rounded-lg tw-transition-all tw-shadow-md tw-text-sm`}
             >
-              {item.remark ? "ส่งข้อความว่าเอกสารขาดอะไรแล้ว" : "ส่ง"}
+              {item.remark
+                ? t("textSendDocumenttext1")
+                : t("textSendDocumenttext2")}
             </button>
           </td>
         </tr>
@@ -104,7 +103,7 @@ export default function Item({
         alt="showdocument"
       />
       <Model
-        title="อัพเดทสถานะประชาชนขอดูกล้อง"
+        title={t("ModelForUpdateStatusUserRequestWatchcctvText1")}
         open={isModelUpdateStatus}
         onClose={() => setIsModelUpdateStatus(false)}
       >
@@ -115,7 +114,7 @@ export default function Item({
         />
       </Model>
       <Model
-        title="ส่งข้อความ ( เอกสารขาดอะไรบ้าง )"
+        title={t("ModelForSendMessageStatusCctpNotpassText1")}
         open={isModelSendMessageCassNotpass}
         onClose={() => setIsModelSendMessageCassNotpass(false)}
       >

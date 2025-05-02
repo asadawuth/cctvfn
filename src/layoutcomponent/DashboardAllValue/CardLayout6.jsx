@@ -1,12 +1,14 @@
+import { useTranslation } from "react-i18next";
 export default function StatusTable({ data }) {
+  const { t } = useTranslation();
   return (
     <div className="tw-overflow-x-auto  tw-flex tw-w-full">
       <div className="tw-w-full tw-max-w-4xl tw-bg-white tw-rounded-lg tw-shadow-lg">
         <table className="tw-w-full tw-border-collapse">
           <thead>
             <tr className="tw-bg-blue-900 tw-text-white">
-              <th className="tw-px-4 tw-py-2 tw-text-left">สถานะ SOS</th>
-              <th className="tw-px-4 tw-py-2 tw-text-center">จำนวน</th>
+              <th className="tw-px-4 tw-py-2 tw-text-left">{t("sos")}</th>
+              <th className="tw-px-4 tw-py-2 tw-text-center">{t("Total")}</th>
             </tr>
           </thead>
           <tbody>
@@ -16,7 +18,7 @@ export default function StatusTable({ data }) {
                   href="/pageaction-sosstatusreported"
                   className="tw-block tw-w-full"
                 >
-                  แจ้ง
+                  {t("status1")}
                 </a>
               </td>
               <td className="tw-px-4 tw-py-2 tw-font-bold tw-text-center">
@@ -34,7 +36,7 @@ export default function StatusTable({ data }) {
                   href="/pageaction-sosstatusacknowledged"
                   className="tw-block tw-w-full"
                 >
-                  รับแจ้งแล้ว
+                  {t("status2")}
                 </a>
               </td>
               <td className="tw-px-4 tw-py-2 tw-font-bold tw-text-center">
@@ -52,7 +54,7 @@ export default function StatusTable({ data }) {
                   href="/pageaction-sosstatusinprogress"
                   className="tw-block tw-w-full"
                 >
-                  กำลังดำเนินการ
+                  {t("status3")}
                 </a>
               </td>
               <td className="tw-px-4 tw-py-2 tw-font-bold tw-text-center">
@@ -70,7 +72,7 @@ export default function StatusTable({ data }) {
                   href="/pageaction-sosstatuscompleted"
                   className="tw-block tw-w-full"
                 >
-                  จัดการเสร็จสิ้น
+                  {t("status4")}
                 </a>
               </td>
               <td className="tw-px-4 tw-py-2 tw-font-bold tw-text-center">
@@ -88,7 +90,7 @@ export default function StatusTable({ data }) {
                   href="/pageaction-sosstatuscanceled"
                   className="tw-block tw-w-full"
                 >
-                  ยกเลิก
+                  {t("status5")}
                 </a>
               </td>
               <td className="tw-px-4 tw-py-2 tw-font-bold tw-text-center">
@@ -103,7 +105,7 @@ export default function StatusTable({ data }) {
             <tr className="hover:tw-bg-gray-100 tw-transition tw-duration-300 tw-ease-in-out">
               <td className="tw-px-4 tw-py-2 ">
                 <a href="/sosformmobile" className="tw-block tw-w-full">
-                  รวมค่า
+                  {t("Total")}
                 </a>
               </td>
               <td className="tw-px-4 tw-py-2 tw-font-bold tw-text-center">

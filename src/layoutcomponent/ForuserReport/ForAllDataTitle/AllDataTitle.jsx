@@ -8,8 +8,10 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "../../../logic/config/axios";
 import Loading from "../../Loading";
+import { useTranslation } from "react-i18next";
 
 export default function AllDataTitle() {
+  const { t } = useTranslation();
   const { reportId } = useParams();
   const [report, setReport] = useState(null);
   const [comment, setComment] = useState([]);
@@ -81,8 +83,8 @@ export default function AllDataTitle() {
 
   const handleEditStatusUserReportId = async (reportId, data) => {
     try {
-      await axios.patch(`/boardreport/changestatusreport/${reportId}`, data); 
-      setReport((prevState) => ({ ...prevState, status: data.status })); 
+      await axios.patch(`/boardreport/changestatusreport/${reportId}`, data);
+      setReport((prevState) => ({ ...prevState, status: data.status }));
     } catch (error) {
       console.error("Error editing status:", error);
     }
@@ -92,7 +94,7 @@ export default function AllDataTitle() {
     <Loading />
   ) : (
     <>
-      <HeaderMainMessage text={"ข้อมูลหัวข้อที่ประชาชนร้องเรียง"} />
+      <HeaderMainMessage text={t("titleInsizeUserReport")} />
       <ForUser />
       <ForLogout />
       <Layout1Button

@@ -1,10 +1,11 @@
 import { AiOutlineCheck } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function ChangeEmailSuccess({ onClose }) {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const handleClick = () => {
-    
     navigate("/yourprofile");
     onClose();
   };
@@ -18,7 +19,7 @@ export default function ChangeEmailSuccess({ onClose }) {
 
       {/* Success Message */}
       <p className="tw-text-lg tw-text-gray-800 tw-text-center tw-font-medium">
-        การเปลี่ยนอีเมลล์สำเร็จ!
+        {t("ChangePasswordSuccessText1")}
       </p>
 
       {/* Confirm Button */}
@@ -26,7 +27,7 @@ export default function ChangeEmailSuccess({ onClose }) {
         onClick={handleClick}
         className="tw-bg-green-500 tw-text-white tw-px-6 tw-py-2 tw-rounded-full hover:tw-bg-green-600 tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-200 tw-transform hover:tw-scale-105"
       >
-        ตกลง
+        {t("ChangePasswordSuccessText2")}
       </button>
     </div>
   );

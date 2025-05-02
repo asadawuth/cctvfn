@@ -5,12 +5,14 @@ import formatTimeAgo from "../../../logic/utils/time-ago";
 import ModelForOpenImages from "../../Model/forflow/ModelForOpenImages";
 import Model from "../../../layoutcomponent/Model";
 import ModelForUpdateStatusShopInSizeList from "../../../layoutcomponent/Model/forflow/ModelForUpdateStatusShopInSizeList";
+import { useTranslation } from "react-i18next";
 
 export default function Layout2DataShop({
   datashop,
   shopId,
   handleUpdateStatus,
 }) {
+  const { t } = useTranslation();
   const [isModalOpen, setModalOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [modalImage, setModalImage] = useState("");
@@ -79,10 +81,11 @@ export default function Layout2DataShop({
           {/* Combined Information */}
           <div className="tw-bg-blue-200 tw-p-4 tw-shadow-md hover:tw-shadow-lg tw-transition-all tw-duration-300">
             <div className="tw-text-sm tw-font-medium">
-              ประเภท: {datashop.category}
+              {t("infileUserShopItemCategory")} {datashop.category}
             </div>
             <div className="tw-text-sm tw-mt-2">
-              วันที่โพส: {new Date(datashop.createdAt).toLocaleDateString()}
+              {t("posttime")} :{" "}
+              {new Date(datashop.createdAt).toLocaleDateString()}
             </div>
             <div className="tw-text-sm tw-mt-2">
               {formatTimeAgo(datashop.createdAt)}
@@ -105,7 +108,7 @@ export default function Layout2DataShop({
             } tw-transition-all tw-duration-300`}
           >
             <span className="tw-font-light tw-text-sm sm:tw-text-base md:tw-text-lg">
-              สถานะ
+              {t("status")}
             </span>
             <p className="tw-text-xs sm:tw-text-sm md:tw-text-base lg:tw-text-lg tw-whitespace-normal tw-break-words tw-break-all tw-overflow-hidden tw-text-ellipsis">
               {datashop.status}
@@ -118,7 +121,7 @@ export default function Layout2DataShop({
           <div className="tw-w-full tw-bg-slate-200 tw-rounded-lg tw-p-4 tw-shadow-md tw-flex tw-flex-col tw-gap-2">
             <div className="tw-cursor-pointer">
               <div className="tw-flex tw-gap-4">
-                <div className="tw-pt-2">แผนที่</div>
+                <div className="tw-pt-2">{t("Layout2DataShopMap")}</div>
                 <div className="tw-inline-block tw-rounded-full tw-p-2 tw-transition-all tw-duration-300 tw-transform tw-bg-blue-500 hover:tw-scale-150">
                   <a
                     href={`https://www.google.com/maps/search/?api=1&query=${datashop.latitude},${datashop.longtitude}`}
@@ -132,16 +135,18 @@ export default function Layout2DataShop({
             </div>
             <div>
               <p className="tw-whitespace-normal tw-break-words">
-                ที่อยู่ : {datashop.address}
+                {t("Layout2DataShopAddress")} : {datashop.address}
               </p>
             </div>
             <div className="tw-w-full tw-bg-slate-50 tw-rounded-lg tw-p-4 tw-shadow-md tw-flex tw-flex-col tw-gap-2 tw-overflow-hidden tw-break-words tw-max-h-40 tw-overflow-y-auto">
-              <span className="tw-font-bold">รายละเอียด:</span>
+              <span className="tw-font-bold">
+                {t("Layout2DataShopDetail")} :{" "}
+              </span>
               <p>{datashop.details}</p>
             </div>
           </div>
           <div className="tw-mt-4">
-            <div className="tw-text-sm">รูปภาพเพิ่มเติม:</div>
+            <div className="tw-text-sm">{t("Layout2DataShopImage")}</div>
             <div className="tw-flex tw-gap-4 tw-overflow-x-auto tw-py-2">
               {datashop.image &&
                 datashop.image
@@ -169,7 +174,7 @@ export default function Layout2DataShop({
       />
       {openModelChangeStatus && (
         <Model
-          title="อัพเดทสถานะร้านค้า"
+          title={t("ModelForUpdateStatusShopTitle")}
           open={openModelChangeStatus}
           onClose={() => setOpenModelChangeStatus(false)}
         >
