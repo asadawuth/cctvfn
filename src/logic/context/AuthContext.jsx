@@ -18,6 +18,7 @@ export default function AuthContextProvider({ children }) {
         .get("/user/getdata")
         .then((res) => {
           setAuthUser(res.data.user);
+          // sessionStorage.setItem("user", JSON.stringify(res.data.user));
         })
         .finally(() => {
           setLoading(false);
@@ -40,6 +41,7 @@ export default function AuthContextProvider({ children }) {
       const res = await axios.post("/user/login", credential);
       addAccessToken(res.data.accessToken);
       setAuthUser(res.data.user);
+      // sessionStorage.setItem("user", JSON.stringify(res.data.user));
     } catch (error) {
       console.error("Login failed:", error);
       throw new Error("Invalid credentials");

@@ -51,7 +51,7 @@ export default function UserReport() {
     setCurrentPage(page);
   };
 
-  console.log(dataUserReport);
+  // console.log(dataUserReport);
   return (
     <>
       <HeaderMainMessage text={t("inconponentUserReport")} />

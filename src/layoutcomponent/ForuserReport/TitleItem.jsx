@@ -11,13 +11,14 @@ import formatTimeAgo from "../../logic/utils/time-ago";
 import ModalForOpenOneImage from "../../layoutcomponent/Model/forflow/ModelForOpenOneImage";
 import { useTranslation } from "react-i18next";
 import { BsBell } from "react-icons/bs";
+import { useSocket } from "../../logic/context/SocketContext";
 export default function TitleItem({ dataUserReport, setDataUserReport }) {
+  const {} = useSocket();
   const { t } = useTranslation();
   const [modalImage, setModalImage] = useState("");
   const [isModalOpen, setModalOpen] = useState(false);
   const [openModelChangeStatus, setOpenModelChangeStatus] = useState(false);
   const [selectId, setSelectId] = useState(null);
-
   const sendId = (id) => {
     setSelectId(id);
     setOpenModelChangeStatus(true);
@@ -128,9 +129,13 @@ export default function TitleItem({ dataUserReport, setDataUserReport }) {
               </p>
               <div className="tw-relative tw-inline-block tw-mt-2">
                 <BsBell className="tw-text-lg tw-text-blue-600" />
-                <div className="tw-absolute tw-top-0 tw-right-0 tw-w-5 tw-h-5 tw-bg-red-600 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-text-xs tw-text-white tw-translate-x-1/2 -tw-translate-y-1/2">
+
+                {/* <div
+                  className="tw-absolute tw-top-0 tw-right-0 tw-w-5 tw-h-5 tw-bg-red-600 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-text-xs tw-text-white tw-translate-x-1/2 -tw-translate-y-1/2"
+                  onClick={() => resetCommentForPost(report.id)}
+                >
                   5
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

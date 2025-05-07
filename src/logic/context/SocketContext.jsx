@@ -47,14 +47,10 @@ export default function SocketProvider({ children }) {
   // "http://localhost:8888"
   useEffect(() => {
     if (!socketRef.current) {
-      socketRef.current = io("https://env-8549838.proen.app.ruk-com.cloud", {
+      socketRef.current = io("http://localhost:8888", {
         autoConnect: true,
         reconnection: true,
         transports: ["websocket"],
-      });
-
-      socketRef.current.on("connect", () => {
-        // console.log("Socket.IO connected:", socketRef.current.id);
       });
 
       socketRef.current.on("newPost", () => {
@@ -91,17 +87,12 @@ export default function SocketProvider({ children }) {
           return updatedCount;
         });
       });
-
-      socketRef.current.on("disconnect", () => {
-        // console.log("Socket disconnected");
-      });
     }
 
     return () => {
       socketRef.current?.disconnect();
     };
   }, []);
-
   // Reset functions
   const resetNotifications = () => {
     setNotificationsCount(0);
