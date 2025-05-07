@@ -36,10 +36,6 @@ export default function SocketProvider({ children }) {
     const validCount = isNaN(savedRequestSosVoiceCount)
       ? 0
       : savedRequestSosVoiceCount;
-    // console.log(
-    //   "Loaded newdataRequestSosVoiceCount from localStorage:",
-    //   validCount
-    // );
     setRequestSosVoiceCount(validCount);
     setNotificationsCount(savedNotificationsCount);
     setShopRequestCount(savedShopRequestCount);
@@ -47,10 +43,10 @@ export default function SocketProvider({ children }) {
   }, []);
 
   // ตั้งค่า Socket.IO
+  // "https://env-8549838.proen.app.ruk-com.cloud"
+  // "http://localhost:8888"
   useEffect(() => {
     if (!socketRef.current) {
-      // "wss://nodeapi.masscorporation.site/"
-      // "http://localhost:8888"
       socketRef.current = io("https://env-8549838.proen.app.ruk-com.cloud", {
         autoConnect: true,
         reconnection: true,

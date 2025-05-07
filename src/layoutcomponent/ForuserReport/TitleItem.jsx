@@ -10,6 +10,7 @@ import ModelForUpdateStatusUserReport from "../../layoutcomponent/Model/forflow/
 import formatTimeAgo from "../../logic/utils/time-ago";
 import ModalForOpenOneImage from "../../layoutcomponent/Model/forflow/ModelForOpenOneImage";
 import { useTranslation } from "react-i18next";
+import { BsBell } from "react-icons/bs";
 export default function TitleItem({ dataUserReport, setDataUserReport }) {
   const { t } = useTranslation();
   const [modalImage, setModalImage] = useState("");
@@ -76,7 +77,7 @@ export default function TitleItem({ dataUserReport, setDataUserReport }) {
               </Link>
             </div>
 
-            <div className="tw-mt-4 tw-flex-">
+            <div className="tw-flex- tw-mt-4">
               <h6
                 onClick={() => sendId(report.id)}
                 className="tw-text-lg tw-font-semibold tw-text-blue-600 tw-mb-2 tw-bg-blue-100 tw-p-2 tw-rounded-lg tw-shadow-sm"
@@ -125,6 +126,12 @@ export default function TitleItem({ dataUserReport, setDataUserReport }) {
               <p className="tw-text-gray-700 tw-text-base">
                 {formatTimeAgo(report.createdAt)}
               </p>
+              <div className="tw-relative tw-inline-block tw-mt-2">
+                <BsBell className="tw-text-lg tw-text-blue-600" />
+                <div className="tw-absolute tw-top-0 tw-right-0 tw-w-5 tw-h-5 tw-bg-red-600 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-text-xs tw-text-white tw-translate-x-1/2 -tw-translate-y-1/2">
+                  5
+                </div>
+              </div>
             </div>
           </div>
         );
