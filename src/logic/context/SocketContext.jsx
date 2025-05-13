@@ -46,9 +46,10 @@ export default function SocketProvider({ children }) {
   //  Socket.IO
   // "https://env-8549838.proen.app.ruk-com.cloud"
   // "http://localhost:8888"
+  // "https://teetest.shop"
   useEffect(() => {
     if (!socketRef.current) {
-      socketRef.current = io("http://localhost:8888", {
+      socketRef.current = io("https://teetest.shop", {
         autoConnect: true,
         reconnection: true,
         transports: ["websocket"],
