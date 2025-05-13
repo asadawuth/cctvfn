@@ -12,6 +12,11 @@ import DataUser from "../page/Aboutdatauser/DataUser";
 import ChangePassword from "../page/Aboutdatauser/ChangePassword";
 import ChangeEmail from "../page/Aboutdatauser/ChangeEmail";
 import Vision from "../page/Vision";
+import Record from "../page/UpdateDataforemployee/Record";
+import ExecutiveStructure from "../page/UpdateDataforemployee/ExecutiveStructure";
+import Vision2 from "../page/UpdateDataforemployee/Vision2";
+import Infrastructure from "../page/UpdateDataforemployee/Infrastructure";
+import Contact from "../page/UpdateDataforemployee/Contact";
 import CreateIdEmployee from "../page/AboutEmployeeandpopulation/CreateIdEmployee";
 import DeleteIdEmployee from "../page/AboutEmployeeandpopulation/DeleteIdEmployee";
 import DeletedIdPopulation from "../page/AboutEmployeeandpopulation/DeletedIdPopulation";
@@ -88,6 +93,11 @@ const router = createBrowserRouter([
         ],
       },
       { path: "vision", element: <Vision /> },
+      { path: "Updated-record", element: <Record /> },
+      { path: "Updated-executiveStructure", element: <ExecutiveStructure /> },
+      { path: "Updated-vision", element: <Vision2 /> },
+      { path: "Updated-Infrastructure", element: <Infrastructure /> },
+      { path: "Updated-Contact", element: <Contact /> },
       { path: "createidemployee", element: <CreateIdEmployee /> },
       { path: "deleteidemployee", element: <DeleteIdEmployee /> },
       { path: "deleteidpopulation", element: <DeletedIdPopulation /> },

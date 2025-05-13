@@ -9,8 +9,10 @@ import { useEffect, useState } from "react";
 import axios from "../../../logic/config/axios";
 import Loading from "../../Loading";
 import { useTranslation } from "react-i18next";
+import { useSocket } from "../../../logic/context/SocketContext";
 
 export default function AllDataTitle() {
+  const { resetCommentForPost } = useSocket();
   const { t } = useTranslation();
   const { reportId } = useParams();
   const [report, setReport] = useState(null);
@@ -25,6 +27,7 @@ export default function AllDataTitle() {
           `/boardreport/AllDataInComment/${numericReportId}`
         );
         setReport(response.data);
+        resetCommentForPost(numericReportId);
       } catch (error) {
         console.error("Error fetching report data:", error);
       }

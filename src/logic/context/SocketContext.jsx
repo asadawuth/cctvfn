@@ -17,6 +17,7 @@ export default function SocketProvider({ children }) {
   const [newdataRequestWatchcctvCount, setNewdataRequestWatchcctvCount] =
     useState(0);
   const [newdataRequestSosVoiceCount, setRequestSosVoiceCount] = useState(0);
+  const [newCommentCounts, setNewCommentCounts] = useState({}); // comment
   const socketRef = useRef(null);
 
   useEffect(() => {
@@ -42,7 +43,7 @@ export default function SocketProvider({ children }) {
     setNewdataRequestWatchcctvCount(savedRequestWatchcctvCount);
   }, []);
 
-  // ตั้งค่า Socket.IO
+  //  Socket.IO
   // "https://env-8549838.proen.app.ruk-com.cloud"
   // "http://localhost:8888"
   useEffect(() => {
@@ -87,12 +88,40 @@ export default function SocketProvider({ children }) {
           return updatedCount;
         });
       });
+
+      socketRef.current.on("newComment", ({ postId }) => {
+        setNewCommentCounts((prev) => {
+          const current = prev[postId] || 0;
+          const updated = { ...prev, [postId]: current + 1 };
+          localStorage.setItem("newCommentCounts", JSON.stringify(updated));
+          return updated;
+        });
+      });
     }
 
     return () => {
       socketRef.current?.disconnect();
     };
   }, []);
+
+  useEffect(() => {
+    try {
+      const savedCounts = localStorage.getItem("newCommentCounts");
+      if (savedCounts) {
+        const parsed = JSON.parse(savedCounts);
+        if (parsed && typeof parsed === "object") {
+          setNewCommentCounts(parsed);
+        }
+      }
+    } catch (err) {
+      console.error("❌ Failed to load newCommentCounts:", err);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("newCommentCounts", JSON.stringify(newCommentCounts));
+  }, [newCommentCounts]);
+
   // Reset functions
   const resetNotifications = () => {
     setNotificationsCount(0);
@@ -114,6 +143,14 @@ export default function SocketProvider({ children }) {
     localStorage.setItem("newdataRequestSosVoiceCount", 0);
   };
 
+  const resetCommentForPost = (postId) => {
+    setNewCommentCounts((prev) => {
+      const updated = { ...prev, [postId]: 0 };
+      localStorage.setItem("newCommentCounts", JSON.stringify(updated));
+      return updated;
+    });
+  };
+
   return (
     <SocketContext.Provider
       value={{
@@ -126,6 +163,8 @@ export default function SocketProvider({ children }) {
         resetShopRequestNotifications,
         resetRequestWatchcctv,
         resetNotificationsSos,
+        newCommentCounts,
+        resetCommentForPost,
       }}
     >
       {children}

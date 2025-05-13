@@ -51,6 +51,88 @@ export default function Header() {
           </a>
           <div
             className={`hover:tw-cursor-pointer tw-px-6 tw-py-2 hover:tw-bg-blue-900 hover:tw-text-white ${
+              location.pathname === "/Updated-record" ||
+              location.pathname === "/Updated-executiveStructure" ||
+              location.pathname === "/Updated-vision" ||
+              location.pathname === "/Updated-Infrastructure" ||
+              location.pathname === "/Updated-Contact"
+                ? "tw-bg-blue-900 tw-text-white"
+                : ""
+            }`}
+          >
+            <Menu>
+              <MenuHandler className="tw-flex tw-items-center tw-justify-start">
+                <Button
+                  className={`tw-bg-transparent hover:tw-bg-blue-900 hover:tw-text-white${
+                    location.pathname === "/Updated-record"
+                      ? "tw-bg-blue-900 tw-!text-white"
+                      : "tw-text-black"
+                  }`}
+                >
+                  {t("textupdatedateemployee")}
+                </Button>
+              </MenuHandler>
+              <MenuList className="tw-bg-slate-400 tw-mt-2 tw-shadow-lg tw-w-64">
+                <Link to="/Updated-record">
+                  <MenuItem
+                    className={`tw-text-white tw-py-2 tw-px-4 tw-w-full tw-text-start tw-whitespace-nowrap ${
+                      location.pathname === "/Updated-record"
+                        ? "tw-bg-blue-900 !tw-text-white"
+                        : "hover:tw-bg-blue-900"
+                    }`}
+                  >
+                    {t("textupdatedateemployeeText1")}
+                  </MenuItem>
+                </Link>
+                <Link to="/Updated-executiveStructure">
+                  <MenuItem
+                    className={`tw-text-white tw-py-2 tw-px-4 tw-w-full tw-text-start tw-whitespace-nowrap ${
+                      location.pathname === "/Updated-executiveStructure"
+                        ? "tw-bg-blue-900 !tw-text-white"
+                        : "hover:tw-bg-blue-900"
+                    }`}
+                  >
+                    {t("textupdatedateemployeeText2")}
+                  </MenuItem>
+                </Link>
+                <Link to="/Updated-vision">
+                  <MenuItem
+                    className={`tw-text-white tw-py-2 tw-px-4 tw-w-full tw-text-start tw-whitespace-nowrap ${
+                      location.pathname === "/Updated-vision"
+                        ? "tw-bg-blue-900 !tw-text-white"
+                        : "hover:tw-bg-blue-900"
+                    }`}
+                  >
+                    {t("textupdatedateemployeeText3")}
+                  </MenuItem>
+                </Link>
+                <Link to="Updated-Infrastructure">
+                  <MenuItem
+                    className={`tw-text-white tw-py-2 tw-px-4 tw-w-full tw-text-start tw-whitespace-nowrap ${
+                      location.pathname === "/Updated-Infrastructure"
+                        ? "tw-bg-blue-900 !tw-text-white"
+                        : "hover:tw-bg-blue-900"
+                    }`}
+                  >
+                    {t("textupdatedateemployeeText4")}
+                  </MenuItem>
+                </Link>
+                <Link to="Updated-Contact">
+                  <MenuItem
+                    className={`tw-text-white tw-py-2 tw-px-4 tw-w-full tw-text-start tw-whitespace-nowrap ${
+                      location.pathname === "/Updated-Contact"
+                        ? "tw-bg-blue-900 !tw-text-white"
+                        : "hover:tw-bg-blue-900"
+                    }`}
+                  >
+                    {t("textupdatedateemployeeText5")}
+                  </MenuItem>
+                </Link>
+              </MenuList>
+            </Menu>
+          </div>
+          <div
+            className={`hover:tw-cursor-pointer tw-px-6 tw-py-2 hover:tw-bg-blue-900 hover:tw-text-white ${
               location.pathname === "/deleteidemployee" ||
               location.pathname === "/createidemployee" ||
               location.pathname === "/listdataemployee" ||
