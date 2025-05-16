@@ -80,7 +80,9 @@ export default function ModelForCommentShopUser({
             }`}
             placeholder={t("ModelForCommentShopUserTextInput")}
           />
-          {textCommentError && <TextError text="กรุณากรอกข้อความ" />}
+          {textCommentError && (
+            <TextError text={t("ModelForCommentShopUserText1")} />
+          )}
         </div>
 
         {/* ให้คะแนน */}
@@ -106,7 +108,9 @@ export default function ModelForCommentShopUser({
               </div>
             ))}
           </div>
-          {textScoreError && <TextError text="กรุณาให้คะแนน" />}
+          {textScoreError && (
+            <TextError text={t("ModelForCommentShopUserTextPoint")} />
+          )}
         </div>
 
         {/* รูปภาพ */}
@@ -127,7 +131,7 @@ export default function ModelForCommentShopUser({
             {t("ModelForCommentShopUserText5")}
           </p>
           {filesImageError && (
-            <TextError text="คุณสามารถอัปโหลดรูปภาพได้สูงสุด 5 รูป" />
+            <TextError text={t("ModelForCommentShopUserText5")} />
           )}
         </div>
 

@@ -49,7 +49,7 @@ export default function SocketProvider({ children }) {
   // "https://teetest.shop"
   useEffect(() => {
     if (!socketRef.current) {
-      socketRef.current = io("https://teetest.shop", {
+      socketRef.current = io("http://localhost:8888", {
         autoConnect: true,
         reconnection: true,
         transports: ["websocket"],

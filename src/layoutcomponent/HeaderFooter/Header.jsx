@@ -19,7 +19,13 @@ export default function Header() {
     <>
       {location.pathname !== "/vision" &&
         location.pathname !== "/report-request" &&
-        location.pathname !== "/pageaction-datareceived" && (
+        location.pathname !== "/pageaction-datareceived" &&
+        location.pathname !== "/Updated-vision" &&
+        location.pathname !== "/Updated-record" &&
+        location.pathname !== "/Updated-executiveStructure" &&
+        location.pathname !== "/Updated-vision" &&
+        location.pathname !== "/Updated-Infrastructure" &&
+        location.pathname !== "/Updated-Contact" && (
           <>
             <ForUser />
             <ForLogout />
@@ -55,7 +61,8 @@ export default function Header() {
               location.pathname === "/Updated-executiveStructure" ||
               location.pathname === "/Updated-vision" ||
               location.pathname === "/Updated-Infrastructure" ||
-              location.pathname === "/Updated-Contact"
+              location.pathname === "/Updated-Contact" ||
+              location.pathname === "/state-set-dateforpopulation"
                 ? "tw-bg-blue-900 tw-text-white"
                 : ""
             }`}

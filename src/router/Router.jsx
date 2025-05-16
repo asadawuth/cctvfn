@@ -93,6 +93,7 @@ const router = createBrowserRouter([
         ],
       },
       { path: "vision", element: <Vision /> },
+      // { path: "state-set-dateforpopulation", element: <StartData /> },
       { path: "Updated-record", element: <Record /> },
       { path: "Updated-executiveStructure", element: <ExecutiveStructure /> },
       { path: "Updated-vision", element: <Vision2 /> },
