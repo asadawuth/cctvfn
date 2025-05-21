@@ -9,7 +9,7 @@ export default function PointMap() {
 
   useEffect(() => {
     axios
-      .get("https://api.masscorporation.site/api/v1/map/markerdata")
+      .get("https://api.teetest.shop/api/read_all_data")
       .then((res) => {
         setData(res.data);
       })
@@ -20,7 +20,6 @@ export default function PointMap() {
     setSearchId(id);
   };
 
-  // console.log(data);
   return (
     <>
       <PointMapLayout1 onSearch={handleSearch} />

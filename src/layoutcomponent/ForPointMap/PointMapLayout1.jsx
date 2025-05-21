@@ -7,7 +7,7 @@ export default function PointMapLayout1({ onSearch }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (searchId.trim() === "") return;
-    onSearch(Number(searchId));
+    onSearch(searchId.trim());
   };
 
   const Refresh = () => {
