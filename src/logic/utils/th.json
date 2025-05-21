@@ -438,5 +438,14 @@
   "UpdateDateInputFormText1": "อัพเดทเนื้อหาและรูปภาพ",
   "UpdateDateInputFormText2": "กรอกเนื้อหา...",
   "UpdateDateInputFormText3": "ตกลง",
-  "DataUpdateForEmployeeText1": "แสดงผลในโทรศัพท์"
+  "DataUpdateForEmployeeText1": "แสดงผลในโทรศัพท์",
+  "UpdateDateInputFormTextError": "กรุณาระบุข้อความ",
+  "ModelForDataUpdateForEmployeeTitle": "ยืนยันอัพเดทข้อมูลประวัติ",
+  "ModelForDataUpdateForEmployeeText1": "ยืนยัน",
+  "ModelForDataUpdateForEmployeeText2": "ยกเลิก",
+  "ModelForDataUpdateForEmployeeText3": "กลับมาสถานะที่ประชาชนเห็น",
+  "ModelForDataUpdateForEmployeeText4": "ลบรูปภาพ",
+  "ModelForUpdateRecordDataforemployeeTitle": "ยืนยันลบรูป",
+  "ModelForUpdateRecordDataforemployeeText1": "ยืนยัน",
+  "ModelForUpdateRecordDataforemployeeText2": "ยกเลิก"
 }

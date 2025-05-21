@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 export default function ModelForUpDataIntegratedExcel({
   onClose,
-  data,
+  // data,
   makeDataExcel,
 }) {
   const { t } = useTranslation();

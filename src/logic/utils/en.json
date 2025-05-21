@@ -438,5 +438,14 @@
   "UpdateDateInputFormText1": "Update Content & Images",
   "UpdateDateInputFormText2": "Enter content...",
   "UpdateDateInputFormText3": "Submit",
-  "DataUpdateForEmployeeText1": "DataAction to Mobile"
+  "DataUpdateForEmployeeText1": "DataAction to Mobile",
+  "UpdateDateInputFormTextError": "Please complete to Text",
+  "ModelForDataUpdateForEmployeeTitle": "Confirm Record Update",
+  "ModelForDataUpdateForEmployeeText1": "comfirm",
+  "ModelForDataUpdateForEmployeeText2": "cancel",
+  "ModelForDataUpdateForEmployeeText3": "Revert to public view status",
+  "ModelForDataUpdateForEmployeeText4": "Delete image",
+  "ModelForUpdateRecordDataforemployeeTitle": "Confirm Image Deletion",
+  "ModelForUpdateRecordDataforemployeeText1": "comfirm",
+  "ModelForUpdateRecordDataforemployeeText2": "cancel"
 }
