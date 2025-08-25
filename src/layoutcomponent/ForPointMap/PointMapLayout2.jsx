@@ -1,10 +1,16 @@
 import { MapContainer, TileLayer, CircleMarker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
-export default function PointMapLayout2({ data, searchId }) {
+export default function PointMapLayout2({ data, searchId, setTopicId }) {
+  console.log(data);
+
+  const filteredData = searchId
+    ? data.filter((item) => item.ip === searchId)
+    : data;
+
   const defaultCenter =
-    data?.length > 0
-      ? [parseFloat(data[0].lat), parseFloat(data[0].long)]
+    filteredData?.length > 0
+      ? [parseFloat(filteredData[0].lat), parseFloat(filteredData[0].long)]
       : [13.6621014, 100.7141111]; // fallback center
 
   return (
@@ -20,33 +26,40 @@ export default function PointMapLayout2({ data, searchId }) {
           attribution="&copy; OpenStreetMap contributors"
         />
 
-        {Array.isArray(data) &&
-          data.map((item, index) => {
-            const lat = parseFloat(item.lat);
-            const lng = parseFloat(item.long);
+        {filteredData.map((item, index) => {
+          const lat = parseFloat(item.lat);
+          const lng = parseFloat(item.long);
 
-            if (isNaN(lat) || isNaN(lng)) return null;
+          if (isNaN(lat) || isNaN(lng)) return null;
 
-            return (
-              <CircleMarker
-                key={index}
-                center={[lat, lng]}
-                radius={10}
-                pathOptions={{
-                  color: "#3B82F6",
-                  fillColor: "#3B82F6",
-                  fillOpacity: 0.7,
-                }}
-              >
-                <Popup>
-                  <div>
-                    <div>ชื่อ: {item.name_device}</div>
-                    <div>ตำแหน่ง: {item.name_map}</div>
-                  </div>
-                </Popup>
-              </CircleMarker>
-            );
-          })}
+          return (
+            <CircleMarker
+              key={index}
+              center={[lat, lng]}
+              radius={10}
+              eventHandlers={{
+                click: () => {
+                  if (item.topic) {
+                    setTopicId(item.topic);
+                  }
+                },
+              }}
+              pathOptions={{
+                color: "#3B82F6",
+                fillColor: "#3B82F6",
+                fillOpacity: 0.7,
+              }}
+            >
+              <Popup>
+                <div>
+                  <div>ชื่อ: {item.name_device}</div>
+                  <div>ตำแหน่ง: {item.name_map}</div>
+                  <div>IP: {item.ip}</div>
+                </div>
+              </Popup>
+            </CircleMarker>
+          );
+        })}
       </MapContainer>
     </div>
   );
